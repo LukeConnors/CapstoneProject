@@ -18,8 +18,8 @@ class User(db.Model, UserMixin):
 
     review = db.relationship('Review', back_populates='user')
     deck = db.relationship('Deck', back_populates='user')
-    sender_id = db.relationship('Message', foreign_keys=[sender_id])
-    recipient_id = db.relationship('Message', foreign_keys=[recipient_id])
+    sender_id = db.relationship('Message', back_populates='user')
+    recipient_id = db.relationship('Message', back_populates='user')
     correct = db.relationship('Correct_answer', back_populates='user')
     incorrect = db.relationship('Incorrect_answer', back_populates='user')
 
