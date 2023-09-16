@@ -369,7 +369,7 @@ def seed_questions():
         category="Entertainment: Video Games",
         type="boolean",
         difficulty="easy",
-        question="In &quot;Super Mario Bros.&quot;, the clouds and bushes have the same artwork and are just different colors.",
+        question="In Super Mario Bros., the clouds and bushes have the same artwork and are just different colors.",
         correct_answer="True",
         incorrect_answers="False"
     )
@@ -399,7 +399,7 @@ def seed_questions():
         category="Entertainment: Musicals & Theatres",
         type="multiple",
         difficulty="hard",
-        question="What is the name of Broadway&#039;s first &quot;long-run&quot; musical?",
+        question="What is the name of Broadway's first long-run musical?",
         correct_answer="The Elves",
         incorrect_answers="Wicked, Hamilton, The Book of Mormon"
     )
@@ -409,7 +409,7 @@ def seed_questions():
         category="Entertainment: Board Games",
         type="boolean",
         difficulty="easy",
-        question="The Angry Video Game Nerd&#039;s alter ego is &quot;Board James&quot;.",
+        question="The Angry Video Game Nerd's alter ego is Board James.",
         correct_answer="True",
         incorrect_answers="False"
     )
@@ -429,7 +429,7 @@ def seed_questions():
         category="Entertainment: Books",
         type="multiple",
         difficulty="medium",
-        question="The novel &quot;Of Mice And Men&quot; was written by what author? ",
+        question="The novel Of Mice And Men was written by what author? ",
         correct_answer="John Steinbeck ",
         incorrect_answers="George Orwell, Mark Twain, Harper Lee"
     )
@@ -448,7 +448,7 @@ def seed_questions():
         category="Entertainment: Video Games",
         type="multiple",
         difficulty="easy",
-        question="In PROTOTYPE 2. who is referred to as &quot;Tango Primary&quot;?",
+        question="In PROTOTYPE 2. who is referred to as Tango Primary?",
         correct_answer="James Heller",
         incorrect_answers="Alex Mercer, Dana Mercer, Any Goliaths roaming around"
     )
@@ -497,7 +497,7 @@ def seed_questions():
         category="Entertainment: Music",
         type="multiple",
         difficulty="medium",
-        question="In what film was the Michael Jackson song &quot;Will You Be There&quot; featured?",
+        question="In what film was the Michael Jackson song Will You Be There featured?",
         correct_answer="Free Willy",
         incorrect_answers="Sleepless in Seattle, Men in Black, Bad Boys"
     )
@@ -536,7 +536,7 @@ def seed_questions():
         category="Entertainment: Video Games",
         type="multiple",
         difficulty="medium",
-        question="What is the full name of the protagonist from the indie adventure game &quot;Night in the Woods&quot;?",
+        question="What is the full name of the protagonist from the indie adventure game Night in the Woods?",
         correct_answer="Margaret Borowski",
         incorrect_answers="Marlena Woborski, Milena Catharina, Katia Managan"
     )
@@ -546,7 +546,7 @@ def seed_questions():
         category="Entertainment: Music",
         type="multiple",
         difficulty="medium",
-        question="Who is the vocalist and frontman of rock band &quot;Guns N&#039; Roses&quot;?",
+        question="Who is the vocalist and frontman of rock band Guns N' Roses?",
         correct_answer="Axl Rose",
         incorrect_answers="Kurt Cobain, Slash, Bono"
     )
@@ -555,7 +555,7 @@ def seed_questions():
         category="Entertainment: Film",
         type="multiple",
         difficulty="medium",
-        question="In &quot;Jurassic World&quot;, which company purchases InGen and creates Jurassic World?",
+        question="In Jurassic World, which company purchases InGen and creates Jurassic World?",
         correct_answer="Masrani Global Corporation ",
         incorrect_answers="Biology Synthetics Technologies, International Genetics Incorporated, International Genetic Technologies"
     )
@@ -565,7 +565,7 @@ def seed_questions():
         category="Entertainment: Cartoon & Animations",
         type="multiple",
         difficulty="easy",
-        question="Which of these characters live in a pineapple under the sea in the cartoon &quot;SpongeBob SquarePants&quot;.",
+        question="Which of these characters live in a pineapple under the sea in the cartoon SpongeBob SquarePants.",
         correct_answer="SpongeBob SquarePants ",
         incorrect_answers="Patrick Star, Squidward Tentacles, Mr. Krabs"
     )
@@ -614,7 +614,7 @@ def seed_questions():
         category="Entertainment: Film",
         type="multiple",
         difficulty="medium",
-        question="What is the name of the queen&#039;s pet in A Bug&#039;s Life?",
+        question="What is the name of the queen's pet in A Bug's Life?",
         correct_answer="Aphie",
         incorrect_answers="Flik, Hopper, Dot"
     )
@@ -634,7 +634,7 @@ def seed_questions():
         category="Entertainment: Video Games",
         type="multiple",
         difficulty="hard",
-        question="What is the default name of the Vampire character in &quot;Shining Soul 2&quot;.",
+        question="What is the default name of the Vampire character in Shining Soul 2.",
         correct_answer="Bloodstar",
         incorrect_answers="Sachs, Dracuul, Alucard"
     )
@@ -643,7 +643,7 @@ def seed_questions():
         category="Science & Nature",
         type="multiple",
         difficulty="hard",
-        question="What is &quot;Stenoma&quot;?",
+        question="What is Stenoma?",
         correct_answer="A genus of moths",
         incorrect_answers="A combat stimulant from WW2, A type of seasoning, A port city in the Caribbean"
     )
@@ -653,7 +653,7 @@ def seed_questions():
         category="Entertainment: Video Games",
         type="multiple",
         difficulty="medium",
-        question="Which of these champions from the MOBA &#039;League of Legends&#039; is NOT a Yordle?",
+        question="Which of these champions from the MOBA 'League of Legends' is NOT a Yordle?",
         correct_answer="Annie",
         incorrect_answers="Veigar, Tristana, Lulu"
     )
@@ -663,7 +663,7 @@ def seed_questions():
         category="Entertainment: Comics",
         type="multiple",
         difficulty="medium",
-        question="What is the real name of the &quot;Master Of Magnetism&quot; Magneto?",
+        question="What is the real name of the Master Of Magnetism Magneto?",
         correct_answer="Max Eisenhardt",
         incorrect_answers="Charles Xavier, Pietro Maximoff, Johann Schmidt"
     )
@@ -683,7 +683,7 @@ def seed_questions():
         category="Mythology",
         type="multiple",
         difficulty="medium",
-        question="Which Greek god/goddess tossed a golden apple with the words &quot;for the fairest&quot; into the middle of the feast of the gods?",
+        question="Which Greek god/goddess tossed a golden apple with the words for the fairest into the middle of the feast of the gods?",
         correct_answer="Eris",
         incorrect_answers="Hades, Ares, Artemis"
     )
@@ -702,7 +702,7 @@ def seed_questions():
         category="Entertainment: Japanese Anime & Manga",
         type="multiple",
         difficulty="medium",
-        question="In Toriko, what does the &quot;capture level&quot; refer to?",
+        question="In Toriko, what does the capture level refer to?",
         correct_answer="The difficulty of procuring or hunting down a particular ingredient",
         incorrect_answers="The difficulty of cooking a particular ingredient, The level of danger of a particular ingredient, The level of spiciness of a particular ingredient"
     )
@@ -729,7 +729,7 @@ def seed_questions():
         category="Entertainment: Music",
         type="multiple",
         difficulty="medium",
-        question="Which famous rapper was featured in 50 Cent&#039;s 2003 hit, &quot;In Da Club&quot;?",
+        question="Which famous rapper was featured in 50 Cent's 2003 hit, In Da Club?",
         correct_answer="Eminem",
         incorrect_answers="Dr. Dre, Snoop Dogg, Jay-Z"
     )
@@ -738,7 +738,7 @@ def seed_questions():
         category="Entertainment: Books",
         type="multiple",
         difficulty="medium",
-        question="What year was the book &quot;To Kill a Mockingbird&quot; published?",
+        question="What year was the book To Kill a Mockingbird published?",
         correct_answer="1960",
         incorrect_answers="1955, 1965, 1970"
     )
@@ -757,7 +757,7 @@ def seed_questions():
         category="Entertainment: Video Games",
         type="multiple",
         difficulty="medium",
-        question="Which of these is NOT a game mode in &quot;Super Smash Bros. for Wii U&quot;?",
+        question="Which of these is NOT a game mode in Super Smash Bros. for Wii U?",
         correct_answer="Run Mode",
         incorrect_answers="Smash Tour, Crazy Orders, Master Orders"
     )
@@ -777,7 +777,7 @@ def seed_questions():
         category="Entertainment: Film",
         type="multiple",
         difficulty="medium",
-        question="What is the nickname of the stunt double that leads the motorcycle chase at the end of &quot;The Great Escape&quot; (1963)?",
+        question="What is the nickname of the stunt double that leads the motorcycle chase at the end of The Great Escape (1963)?",
         correct_answer="The Cooler King",
         incorrect_answers="The Bike Master, The Great Escape, The Stunt Master"
     )
@@ -795,7 +795,7 @@ def seed_questions():
         category="Entertainment: Music",
         type="multiple",
         difficulty="medium",
-        question="Which band released songs such as &quot;Rio&quot; and &quot;Hungry Like the Wolf&quot;?",
+        question="Which band released songs such as Rio and Hungry Like the Wolf?",
         correct_answer="Duran Duran",
         incorrect_answers="Wham!, A-ha, Tears for Fears"
     )
@@ -805,7 +805,7 @@ def seed_questions():
         category="General Knowledge",
         type="multiple",
         difficulty="medium",
-        question="What is the name of the character that is a bear from the &quot;Star Wars&quot; series?",
+        question="What is the name of the character that is a bear from the Star Wars series?",
         correct_answer="Wicket W. Warrick",
         incorrect_answers="Boba Fett, Lando Calrissian, Chewbacca"
     )
@@ -815,7 +815,7 @@ def seed_questions():
         category="Entertainment: Music",
         type="multiple",
         difficulty="medium",
-        question="Which of these songs by the American singer Lady Gaga is not part of her debut studio album &quot;The Fame&quot;?",
+        question="Which of these songs by the American singer Lady Gaga is not part of her debut studio album The Fame?",
         correct_answer="Born This Way",
         incorrect_answers="Just Dance, Poker Face, LoveGame"
     )
