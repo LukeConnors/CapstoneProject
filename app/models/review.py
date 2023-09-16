@@ -4,7 +4,7 @@ from sqlalchemy import Column, Integer, String, DateTime, func
 from .db import db, environment, SCHEMA, add_prefix_for_prod
 
 class Review(db.Model):
-    __tablename__='reviews'
+    __tablename__ = 'reviews'
 
     if environment == "production":
         __table_args__ = {'schema': SCHEMA}

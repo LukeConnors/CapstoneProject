@@ -16,6 +16,12 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
 
+    review = db.relationship('Review', back_populates='user')
+    deck = db.relationship('Deck', back_populates='user')
+    message = db.relationship('Message', back_populates='user')
+    correct = db.relationship('Correct_answer', back_populates='user')
+    incorrect = db.relationship('Incorrect_answer', back_populates='user')
+
     @property
     def password(self):
         return self.hashed_password
