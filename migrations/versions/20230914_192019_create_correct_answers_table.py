@@ -20,7 +20,8 @@ def upgrade():
     op.create_table('correct_answers',
     sa.Column('id', sa.Integer(), autoincrement=True, nullable=False, primary_key=True),
     sa.Column('user_id', sa.Integer(), sa.ForeignKey('users.id'), nullable=False),
-    sa.Column('question_id', sa.Integer(), sa.ForeignKey('questions.id'), nullable=False)
+    sa.Column('question_id', sa.Integer(), sa.ForeignKey('questions.id'), nullable=False),
+    sa.PrimaryKeyConstraint('id')
     )
 
 

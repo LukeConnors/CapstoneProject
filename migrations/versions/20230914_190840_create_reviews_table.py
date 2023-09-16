@@ -18,11 +18,12 @@ depends_on = None
 
 def upgrade():
     op.create_table('reviews',
-    sa.Column('id', sa.Integer(), autoincrement=True, primary_key=True),
+    sa.Column('id', sa.Integer(), autoincrement=True, primary_key=True, nullable=False),
     sa.Column('user_id', sa.Integer(), sa.ForeignKey('users.id'), nullable=False),
     sa.Column('deck_id', sa.Integer(), sa.ForeignKey('decks.id'), nullable=False),
     sa.Column('stars', sa.Integer(), nullable=False),
-    sa.Column('description', sa.String(), nullable=False)
+    sa.Column('description', sa.String(), nullable=False),
+    sa.PrimaryKeyConstraint('id')
     )
 
 

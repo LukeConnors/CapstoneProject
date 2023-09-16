@@ -20,7 +20,8 @@ def upgrade():
     op.create_table('deck_questions',
     sa.Column('id', sa.Integer(), autoincrement=True, nullable=False, primary_key=True),
     sa.Column('deck_id', sa.Integer(), sa.ForeignKey('decks.id'), nullable=False),
-    sa.Column('question_id', sa.Integer(), sa.ForeignKey('questions.id'), nullable=False)
+    sa.Column('question_id', sa.Integer(), sa.ForeignKey('questions.id'), nullable=False),
+    sa.PrimaryKeyConstraint('id')
     )
 
 
