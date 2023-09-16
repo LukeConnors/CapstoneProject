@@ -19,7 +19,7 @@ depends_on = None
 def upgrade():
     op.create_table('decks',
     sa.Column('id', sa.Integer(), autoincrement=True, nullable=False, primary_key=True),
-    sa.Column('user_id', sa.String(), sa.ForeignKey('users.id'), nullable=False),
+    sa.Column('user_id', sa.Integer(), sa.ForeignKey('users.id'), nullable=False),
     sa.Column('title', sa.String(), nullable=False),
     sa.Column('description', sa.String(), nullable=False),
     sa.Column('category', sa.String(), nullable=False),
