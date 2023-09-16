@@ -18,7 +18,7 @@ depends_on = None
 
 def upgrade():
     op.create_table('incorrect_answers',
-    sa.Column('id', sa.Integer(), autoincrement=True, nullable=False),
+    sa.Column('id', sa.Integer(), autoincrement=True, nullable=False, primary_key=True),
     sa.Column('user_id', sa.Integer(), sa.ForeignKey('users.id'), nullable=False),
     sa.Column('question_id', sa.Integer(), sa.ForeignKey('questions.id'), nullable=False),
     )

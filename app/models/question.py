@@ -13,6 +13,7 @@ class Question(db.Model):
     category = db.Column(db.String, nullable=False)
     type = db.Column(db.String, nullable=False)
     difficulty= db.Column(db.String, nullable=False)
+    question= db.Column(db.String, nullable=False)
     correct_answer = db.Column(db.String, nullable=False)
     incorrect_answers = db.Column(db.String, nullable=False)
 
@@ -28,6 +29,7 @@ class Question(db.Model):
             'category': self.category,
             'type': self.type,
             'difficulty': self.difficulty,
+            'question': self.question,
             'correct_answer': self.correct_answer,
             'incorrect_answers': self.incorrect_answers
         }

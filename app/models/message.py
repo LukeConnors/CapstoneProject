@@ -15,8 +15,8 @@ class Message(db.Model):
     recipient_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
 
     # EXTERNAL-MODEL RELATIONS (FOREIGN KEYS):
-    user = db.relationship('User', back_populates='message')
-
+    sender_ref = db.relationship('User', foreign_keys='Message.sender_id')
+    recipient_ref = db.relationship('User', foreign_keys='Message.recipient_id')
 
 
     def to_dict(self):

@@ -14,8 +14,8 @@ class Incorrect_answer(db.Model):
     question_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('questions.id')), nullable=False)
 
     # EXTERNAL-MODEL RELATIONS (FOREIGN KEYS):
-    user = db.relationship('User', back_populates='incorrect_answer')
-    question = db.relationship('Question', back_populates='incorrect_answer')
+    user = db.relationship('User', back_populates='incorrect')
+    question = db.relationship('Question', back_populates='incorrect')
 
     def to_dict(self):
         return {

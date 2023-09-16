@@ -15,8 +15,8 @@ class Correct_answer(db.Model):
 
 
     # EXTERNAL-MODEL RELATIONS (FOREIGN KEYS):
-    user = db.relationship('User', back_populates='correct_answer')
-    question = db.relationship('Question', back_populates='correct_answer')
+    user = db.relationship('User', back_populates='correct')
+    question = db.relationship('Question', back_populates='correct')
 
     def to_dict(self):
         return {
