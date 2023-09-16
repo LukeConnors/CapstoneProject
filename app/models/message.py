@@ -16,3 +16,13 @@ class Message(db.Model):
 
     # EXTERNAL-MODEL RELATIONS (FOREIGN KEYS):
     user = db.relationship('User', back_populates='message')
+
+
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'message': self.message,
+            'sender_id': self.sender_id,
+            'recipient_id': self.recipient_id
+        }
