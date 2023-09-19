@@ -10,8 +10,8 @@ class QuestionForm(FlaskForm):
     "Entertainment: Video Games", "Entertainment: Board Games", "Science & Nature",
     "Science: Computers", "Science: Mathematics", "Mythology", "Sports",
     "Geography", "History", "Politics", "Art", "Celebrities", "Animals"])
-    type = SelectField('Type', [validators.DataRequired()], choices=["Multiple Choice", "Boolean"])
-    difficulty = SelectField('Difficulty', [validators.DataRequired()], choices=["Easy", "Medium", "Hard"])
+    type = SelectField('Type', [validators.DataRequired()], choices=["multiple choice", "boolean"])
+    difficulty = SelectField('Difficulty', [validators.DataRequired()], choices=["easy", "medium", "hard"])
     question = StringField('Question', [validators.DataRequired()])
     correct_answer = StringField('Correct Answer', [validators.DataRequired()])
     incorrect_answers = StringField('Incorrect Answers', [validators.DataRequired()])

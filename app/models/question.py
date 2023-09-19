@@ -10,12 +10,16 @@ class Question(db.Model):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    owner_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')),nullable=False)
     category = db.Column(db.String, nullable=False)
     type = db.Column(db.String, nullable=False)
     difficulty= db.Column(db.String, nullable=False)
     question= db.Column(db.String, nullable=False)
     correct_answer = db.Column(db.String, nullable=False)
     incorrect_answers = db.Column(db.String, nullable=False)
+
+    # external relation: foreign key
+    user = db.relationship('User', back_populates='question')
 
     # INTERNAL-MODEL RELATIONS (PRIMARY KEY):
     deck_question = db.relationship('Deck_question', back_populates='question')
@@ -26,6 +30,7 @@ class Question(db.Model):
     def to_dict(self):
         return {
             'id': self.id,
+            'owner_id': self.owner_id,
             'category': self.category,
             'type': self.type,
             'difficulty': self.difficulty,

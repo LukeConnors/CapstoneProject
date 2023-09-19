@@ -4,6 +4,7 @@ from sqlalchemy.sql import text
 def seed_questions():
 #1
     general1 = Question(
+        owner_id=1,
         category="General Knowledge",
         type="multiple",
         difficulty="medium",
@@ -13,6 +14,7 @@ def seed_questions():
     )
 #2
     general2 = Question(
+        owner_id=1,
         category="General Knowledge",
         type="boolean",
         difficulty="easy",
@@ -21,7 +23,7 @@ def seed_questions():
         incorrect_answers="True"
     )
 #3
-    general3 = Question(
+    general3 = Question( owner_id=3,
         category="General Knowledge",
         type="boolean",
         difficulty="medium",
@@ -30,7 +32,7 @@ def seed_questions():
         incorrect_answers="False"
     )
 #4
-    general4 = Question(
+    general4 = Question( owner_id=4,
         category="General Knowledge",
         type="boolean",
         difficulty="easy",
@@ -39,7 +41,7 @@ def seed_questions():
         incorrect_answers="False"
     )
 #5
-    general5 = Question(
+    general5 = Question( owner_id=5,
         category="General Knowledge",
         type="multiple",
         difficulty="medium",
@@ -48,7 +50,7 @@ def seed_questions():
         incorrect_answers="Going, Ghost, Geronimo"
     )
 #6
-    general6 = Question(
+    general6 = Question( owner_id=6,
         category="General Knowledge",
         type="multiple",
         difficulty="easy",
@@ -57,7 +59,7 @@ def seed_questions():
         incorrect_answers="Sphere, Cylinder, Pyramid"
     )
 #7
-    general7 = Question(
+    general7 = Question( owner_id=7,
         category="General Knowledge",
         type="multiple",
         difficulty="easy",
@@ -66,7 +68,7 @@ def seed_questions():
         incorrect_answers="Meat Beat Mania, Guitar Hero Live, Dance Dance Revolution"
     )
 #8
-    general8 = Question(
+    general8 = Question( owner_id=5,
         category="General Knowledge",
         type="boolean",
         difficulty="medium",
@@ -75,7 +77,7 @@ def seed_questions():
         incorrect_answers="False"
     )
 #9
-    general9 = Question(
+    general9 = Question( owner_id=4,
         category="General Knowledge",
         type="boolean",
         difficulty="easy",
@@ -84,7 +86,7 @@ def seed_questions():
         incorrect_answers="True"
     )
 #10
-    general10 = Question(
+    general10 = Question( owner_id=3,
         category="General Knowledge",
         type="multiple",
         difficulty="easy",
@@ -94,7 +96,7 @@ def seed_questions():
     )
 
 #11
-    general11 = Question(
+    general11 = Question( owner_id=6,
         category="General Knowledge",
         type="boolean",
         difficulty="medium",
@@ -103,7 +105,7 @@ def seed_questions():
         incorrect_answers="False"
     )
 #12
-    general12 = Question(
+    general12 = Question( owner_id=7,
         category="General Knowledge",
         type="boolean",
         difficulty="easy",
@@ -112,7 +114,7 @@ def seed_questions():
         incorrect_answers="True"
     )
 #13
-    general13 = Question(
+    general13 = Question( owner_id=7,
         category="General Knowledge",
         type="boolean",
         difficulty="medium",
@@ -121,7 +123,7 @@ def seed_questions():
         incorrect_answers="True"
     )
 #14
-    general14 = Question(
+    general14 = Question( owner_id=8,
         category="General Knowledge",
         type="multiple",
         difficulty="medium",
@@ -130,7 +132,7 @@ def seed_questions():
         incorrect_answers="Ukiyo, Majime, Ikigai"
     )
 #15
-    general15 = Question(
+    general15 = Question( owner_id=9,
         category="General Knowledge",
         type="multiple",
         difficulty="easy",
@@ -139,7 +141,7 @@ def seed_questions():
         incorrect_answers="Noah's Ark, Fat Man, Trojan Horse"
     )
 #16
-    general16 = Question(
+    general16 = Question( owner_id=2,
         category="General Knowledge",
         type="multiple",
         difficulty="medium",
@@ -148,7 +150,7 @@ def seed_questions():
         incorrect_answers="Biryani, Pani puri, Tiki masala"
     )
 #17
-    general17 = Question(
+    general17 = Question( owner_id=1,
         category="General Knowledge",
         type="multiple",
         difficulty="medium",
@@ -157,7 +159,7 @@ def seed_questions():
         incorrect_answers="Big Billy Bass, Singing Fish, Sardeen"
     )
 #18
-    general18 = Question(
+    general18 = Question( owner_id=3,
         category="General Knowledge",
         type="boolean",
         difficulty="medium",
@@ -166,7 +168,7 @@ def seed_questions():
         incorrect_answers="True"
     )
 #19
-    general19 = Question(
+    general19 = Question( owner_id=3,
         category="General Knowledge",
         type="multiple",
         difficulty="medium",
@@ -175,7 +177,7 @@ def seed_questions():
         incorrect_answers="1978, 1980, 1974"
     )
 #
-    general20 = Question(
+    general20 = Question( owner_id=4,
         category="General Knowledge",
         type="multiple",
         difficulty="easy",
@@ -184,7 +186,7 @@ def seed_questions():
         incorrect_answers="Kentucky Fresh Cheese, Kibbled Freaky Cow, Kiwi Food Cut"
     )
 #
-    general21 = Question(
+    general21 = Question( owner_id=5,
         category="General Knowledge",
         type="multiple",
         difficulty="medium",
@@ -193,7 +195,7 @@ def seed_questions():
         incorrect_answers="Count Chocula, Franken Berry, Boo-Berry"
     )
 #
-    general22 = Question(
+    general22 = Question( owner_id=1,
         category="General Knowledge",
         type="multiple",
         difficulty="easy",
@@ -202,7 +204,7 @@ def seed_questions():
         incorrect_answers="Whataburger, Burger King, Sonic"
     )
 #
-    general23 = Question(
+    general23 = Question( owner_id=2,
         category="General Knowledge",
         type="multiple",
         difficulty="medium",
@@ -211,7 +213,7 @@ def seed_questions():
         incorrect_answers="Pepsin Pop, Carolina Cola, Pepsin Syrup"
     )
 #
-    general24 = Question(
+    general24 = Question( owner_id=8,
         category="General Knowledge",
         type="boolean",
         difficulty="hard",
@@ -220,7 +222,7 @@ def seed_questions():
         incorrect_answers="False"
     )
 #
-    general25 = Question(
+    general25 = Question( owner_id=4,
         category="General Knowledge",
         type="boolean",
         difficulty="hard",
@@ -229,7 +231,7 @@ def seed_questions():
         incorrect_answers="False"
     )
 #
-    general26 = Question(
+    general26 = Question( owner_id=5,
         category="General Knowledge",
         type="multiple",
         difficulty="easy",
@@ -238,7 +240,7 @@ def seed_questions():
         incorrect_answers="Axles, Gears, Belts"
     )
 #
-    general27 = Question(
+    general27 = Question( owner_id=6,
         category="General Knowledge",
         type="multiple",
         difficulty="hard",
@@ -247,7 +249,7 @@ def seed_questions():
         incorrect_answers="Red, Brown, Pink"
     )
 #
-    general28 = Question(
+    general28 = Question( owner_id=3,
         category="General Knowledge",
         type="multiple",
         difficulty="hard",
@@ -256,7 +258,7 @@ def seed_questions():
         incorrect_answers="Red, Black, Purple"
     )
 #
-    general29 = Question(
+    general29 = Question( owner_id=1,
         category="General Knowledge",
         type="multiple",
         difficulty="medium",
@@ -265,7 +267,7 @@ def seed_questions():
         incorrect_answers="Gossypiboma, Jentacular, Meupareunia"
     )
 #
-    general30 = Question(
+    general30 = Question( owner_id=3,
         category="General Knowledge",
         type="multiple",
         difficulty="hard",
@@ -274,7 +276,7 @@ def seed_questions():
         incorrect_answers="Redwood City, California, Redmond, Washington, Santa Monica, CA"
     )
 #
-    general31 = Question(
+    general31 = Question( owner_id=2,
         category="General Knowledge",
         type="multiple",
         difficulty="easy",
@@ -283,7 +285,7 @@ def seed_questions():
         incorrect_answers="Peanuts, Walnuts, Pistachios"
     )
 #
-    general32 = Question(
+    general32 = Question( owner_id=10,
         category="General Knowledge",
         type="boolean",
         difficulty="medium",
@@ -292,7 +294,7 @@ def seed_questions():
         incorrect_answers="True"
     )
 #
-    general33 = Question(
+    general33 = Question( owner_id=9,
         category="General Knowledge",
         type="multiple",
         difficulty="medium",
@@ -301,7 +303,7 @@ def seed_questions():
         incorrect_answers="Colt 9mm, Thompson, MAC-10"
     )
 #
-    general34 = Question(
+    general34 = Question( owner_id=8,
         category="General Knowledge",
         type="multiple",
         difficulty="medium",
@@ -310,7 +312,7 @@ def seed_questions():
         incorrect_answers="Four, Five, Six"
     )
 #
-    general35 = Question(
+    general35 = Question( owner_id=5,
         category="General Knowledge",
         type="boolean",
         difficulty="easy",
@@ -319,7 +321,7 @@ def seed_questions():
         incorrect_answers="False"
     )
 #
-    general36 = Question(
+    general36 = Question( owner_id=5,
         category="General Knowledge",
         type="multiple",
         difficulty="hard",
@@ -328,7 +330,7 @@ def seed_questions():
         incorrect_answers="The inability to make decisions, A feverish desire to rip one's clothes off, The inability to stand up"
     )
 #
-    general37 = Question(
+    general37 = Question( owner_id=2,
         category="General Knowledge",
         type="multiple",
         difficulty="easy",
@@ -337,7 +339,7 @@ def seed_questions():
         incorrect_answers="Professor, Biologist, Musician"
     )
 #
-    general38 = Question(
+    general38 = Question( owner_id=2,
         category="General Knowledge",
         type="multiple",
         difficulty="medium",
@@ -346,7 +348,7 @@ def seed_questions():
         incorrect_answers="Starbucks, McDonalds, KFC"
     )
 #
-    general39 = Question(
+    general39 = Question( owner_id=1,
         category="General Knowledge",
         type="multiple",
         difficulty="easy",
@@ -355,7 +357,7 @@ def seed_questions():
         incorrect_answers="Stealth Blimp, Jet, Space Capsule"
     )
 #40
-    computers2 = Question(
+    computers2 = Question( owner_id=2,
         category="Science: Computers",
         type="multiple",
         difficulty="medium",
@@ -365,7 +367,7 @@ def seed_questions():
     )
 
 #41
-    videogames3 = Question(
+    videogames3 = Question( owner_id=6,
         category="Entertainment: Video Games",
         type="boolean",
         difficulty="easy",
@@ -375,7 +377,7 @@ def seed_questions():
     )
 
 #42
-    celebrities1 = Question(
+    celebrities1 = Question( owner_id=4,
         category="Celebrities",
         type="multiple",
         difficulty="medium",
@@ -385,7 +387,7 @@ def seed_questions():
     )
 
 #43
-    science2 = Question(
+    science2 = Question( owner_id=3,
         category="Science & Nature",
         type="multiple",
         difficulty="hard",
@@ -395,7 +397,7 @@ def seed_questions():
     )
 
 #44
-    musicals1 = Question(
+    musicals1 = Question( owner_id=1,
         category="Entertainment: Musicals & Theatres",
         type="multiple",
         difficulty="hard",
@@ -405,7 +407,7 @@ def seed_questions():
     )
 
 #45
-    boardgames1 = Question(
+    boardgames1 = Question( owner_id=10,
         category="Entertainment: Board Games",
         type="boolean",
         difficulty="easy",
@@ -415,7 +417,7 @@ def seed_questions():
     )
 
 #46
-    videogames4 = Question(
+    videogames4 = Question( owner_id=8,
         category="Entertainment: Video Games",
         type="multiple",
         difficulty="medium",
@@ -425,7 +427,7 @@ def seed_questions():
     )
 
 #47
-    books1 = Question(
+    books1 = Question( owner_id=10,
         category="Entertainment: Books",
         type="multiple",
         difficulty="medium",
@@ -435,7 +437,7 @@ def seed_questions():
     )
 
 #48
-    videogames5 = Question(
+    videogames5 = Question( owner_id=3,
         category="Entertainment: Video Games",
         type="multiple",
         difficulty="medium",
@@ -444,7 +446,7 @@ def seed_questions():
         incorrect_answers="Goombella, Goombarry, Goomby"
     )
 # 49
-    videogames6 = Question(
+    videogames6 = Question( owner_id=6,
         category="Entertainment: Video Games",
         type="multiple",
         difficulty="easy",
@@ -454,7 +456,7 @@ def seed_questions():
     )
 
 #50
-    anime1 = Question(
+    anime1 = Question( owner_id=3,
         category="Entertainment: Japanese Anime & Manga",
         type="multiple",
         difficulty="easy",
@@ -464,7 +466,7 @@ def seed_questions():
     )
 
 #51
-    history1 = Question(
+    history1 = Question( owner_id=2,
         category="History",
         type="multiple",
         difficulty="easy",
@@ -474,7 +476,7 @@ def seed_questions():
     )
 
 #52
-    boardgames2 = Question(
+    boardgames2 = Question( owner_id=6,
         category="Entertainment: Board Games",
         type="multiple",
         difficulty="easy",
@@ -484,7 +486,7 @@ def seed_questions():
     )
 
 #53
-    computers3 = Question(
+    computers3 = Question( owner_id=7,
         category="Science: Computers",
         type="multiple",
         difficulty="easy",
@@ -493,7 +495,7 @@ def seed_questions():
         incorrect_answers="Long Taco Service, Ludicrous Transfer Speed, Ludicrous Turbo Speed"
     )
 #54
-    music2 = Question(
+    music2 = Question( owner_id=3,
         category="Entertainment: Music",
         type="multiple",
         difficulty="medium",
@@ -503,7 +505,7 @@ def seed_questions():
     )
 
 #55
-    videogames7 = Question(
+    videogames7 = Question( owner_id=2,
         category="Entertainment: Video Games",
         type="multiple",
         difficulty="medium",
@@ -513,7 +515,7 @@ def seed_questions():
     )
 
 #56
-    history2 = Question(
+    history2 = Question( owner_id=4,
         category="History",
         type="boolean",
         difficulty="easy",
@@ -522,7 +524,7 @@ def seed_questions():
         incorrect_answers="False"
     )
 #57
-    science3 = Question(
+    science3 = Question( owner_id=5,
         category="Science & Nature",
         type="multiple",
         difficulty="hard",
@@ -532,7 +534,7 @@ def seed_questions():
     )
 
 #58
-    videogames8 = Question(
+    videogames8 = Question( owner_id=5,
         category="Entertainment: Video Games",
         type="multiple",
         difficulty="medium",
@@ -542,7 +544,7 @@ def seed_questions():
     )
 
 #59
-    music3 = Question(
+    music3 = Question( owner_id=10,
         category="Entertainment: Music",
         type="multiple",
         difficulty="medium",
@@ -551,7 +553,7 @@ def seed_questions():
         incorrect_answers="Kurt Cobain, Slash, Bono"
     )
 #60
-    film2 = Question(
+    film2 = Question( owner_id=8,
         category="Entertainment: Film",
         type="multiple",
         difficulty="medium",
@@ -561,7 +563,7 @@ def seed_questions():
     )
 
 #61
-    cartoon1 = Question(
+    cartoon1 = Question( owner_id=9,
         category="Entertainment: Cartoon & Animations",
         type="multiple",
         difficulty="easy",
@@ -571,7 +573,7 @@ def seed_questions():
     )
 
 #62
-    history3 = Question(
+    history3 = Question( owner_id=2,
         category="History",
         type="boolean",
         difficulty="easy",
@@ -580,7 +582,7 @@ def seed_questions():
         incorrect_answers="False"
     )
 #63
-    videogames9 = Question(
+    videogames9 = Question( owner_id=3,
         category="Entertainment: Video Games",
         type="multiple",
         difficulty="medium",
@@ -590,7 +592,7 @@ def seed_questions():
     )
 
 # 64
-    geography3 = Question(
+    geography3 = Question( owner_id=4,
         category="Geography",
         type="multiple",
         difficulty="medium",
@@ -600,7 +602,7 @@ def seed_questions():
     )
 
 #65
-    general40 = Question(
+    general40 = Question( owner_id=4,
         category="General Knowledge",
         type="multiple",
         difficulty="medium",
@@ -610,7 +612,7 @@ def seed_questions():
     )
 
 #66
-    film3 = Question(
+    film3 = Question( owner_id=1,
         category="Entertainment: Film",
         type="multiple",
         difficulty="medium",
@@ -620,7 +622,7 @@ def seed_questions():
     )
 
 #67
-    gadgets1 = Question(
+    gadgets1 = Question( owner_id=10,
         category="Science: Gadgets",
         type="multiple",
         difficulty="easy",
@@ -630,7 +632,7 @@ def seed_questions():
     )
 
 #68
-    videogames10 = Question(
+    videogames10 = Question( owner_id=6,
         category="Entertainment: Video Games",
         type="multiple",
         difficulty="hard",
@@ -639,7 +641,7 @@ def seed_questions():
         incorrect_answers="Sachs, Dracuul, Alucard"
     )
 #69
-    science4 = Question(
+    science4 = Question( owner_id=3,
         category="Science & Nature",
         type="multiple",
         difficulty="hard",
@@ -649,7 +651,7 @@ def seed_questions():
     )
 
 #70
-    videogames11 = Question(
+    videogames11 = Question( owner_id=4,
         category="Entertainment: Video Games",
         type="multiple",
         difficulty="medium",
@@ -659,7 +661,7 @@ def seed_questions():
     )
 
 #71
-    comics1 = Question(
+    comics1 = Question( owner_id=8,
         category="Entertainment: Comics",
         type="multiple",
         difficulty="medium",
@@ -669,7 +671,7 @@ def seed_questions():
     )
 
 #72
-    anime2 = Question(
+    anime2 = Question( owner_id=10,
         category="Entertainment: Japanese Anime & Manga",
         type="multiple",
         difficulty="hard",
@@ -679,7 +681,7 @@ def seed_questions():
     )
 
 #73
-    mythology1 = Question(
+    mythology1 = Question( owner_id=7,
         category="Mythology",
         type="multiple",
         difficulty="medium",
@@ -689,7 +691,7 @@ def seed_questions():
     )
 
 #74
-    computers4 = Question(
+    computers4 = Question( owner_id=3,
         category="Science: Computers",
         type="multiple",
         difficulty="medium",
@@ -698,7 +700,7 @@ def seed_questions():
         incorrect_answers="00:00:00 UTC on 1 January 1960, 00:00:00 UTC on 1 January 1980, 00:00:00 UTC on 1 January 1990"
     )
 #75
-    anime3 = Question(
+    anime3 = Question( owner_id=1,
         category="Entertainment: Japanese Anime & Manga",
         type="multiple",
         difficulty="medium",
@@ -707,7 +709,7 @@ def seed_questions():
         incorrect_answers="The difficulty of cooking a particular ingredient, The level of danger of a particular ingredient, The level of spiciness of a particular ingredient"
     )
 #76
-    gadgets2 = Question(
+    gadgets2 = Question( owner_id=6,
         category="Science: Gadgets",
         type="multiple",
         difficulty="medium",
@@ -716,7 +718,7 @@ def seed_questions():
         incorrect_answers="Fall detection, Blood Oxygen monitoring, ECG monitoring"
     )
 #77
-    general41 = Question(
+    general41 = Question( owner_id=1,
         category="General Knowledge",
         type="multiple",
         difficulty="medium",
@@ -725,7 +727,7 @@ def seed_questions():
         incorrect_answers="Earth, Saturn, Neptune"
     )
 #78
-    music4 = Question(
+    music4 = Question( owner_id=8,
         category="Entertainment: Music",
         type="multiple",
         difficulty="medium",
@@ -734,7 +736,7 @@ def seed_questions():
         incorrect_answers="Dr. Dre, Snoop Dogg, Jay-Z"
     )
 #79
-    books2 = Question(
+    books2 = Question( owner_id=9,
         category="Entertainment: Books",
         type="multiple",
         difficulty="medium",
@@ -743,7 +745,7 @@ def seed_questions():
         incorrect_answers="1955, 1965, 1970"
     )
 #80
-    science5 = Question(
+    science5 = Question( owner_id=10,
         category="Science & Nature",
         type="multiple",
         difficulty="medium",
@@ -753,7 +755,7 @@ def seed_questions():
     )
 
 #81
-    videogames12 = Question(
+    videogames12 = Question( owner_id=2,
         category="Entertainment: Video Games",
         type="multiple",
         difficulty="medium",
@@ -763,7 +765,7 @@ def seed_questions():
     )
 
 #82
-    gadgets3 = Question(
+    gadgets3 = Question( owner_id=4,
         category="Science: Gadgets",
         type="multiple",
         difficulty="medium",
@@ -773,7 +775,7 @@ def seed_questions():
     )
 
 #83
-    film4 = Question(
+    film4 = Question( owner_id=5,
         category="Entertainment: Film",
         type="multiple",
         difficulty="medium",
@@ -782,7 +784,7 @@ def seed_questions():
         incorrect_answers="The Bike Master, The Great Escape, The Stunt Master"
     )
 #84
-    computers5 = Question(
+    computers5 = Question( owner_id=7,
         category="Science: Computers",
         type="multiple",
         difficulty="medium",
@@ -791,7 +793,7 @@ def seed_questions():
         incorrect_answers="ILOVEYOU, Mydoom, Storm Worm"
     )
 #85
-    music5 = Question(
+    music5 = Question( owner_id=1,
         category="Entertainment: Music",
         type="multiple",
         difficulty="medium",
@@ -801,7 +803,7 @@ def seed_questions():
     )
 
 #86
-    general42 = Question(
+    general42 = Question( owner_id=10,
         category="General Knowledge",
         type="multiple",
         difficulty="medium",
@@ -811,7 +813,7 @@ def seed_questions():
     )
 
 #87
-    music6 = Question(
+    music6 = Question( owner_id=4,
         category="Entertainment: Music",
         type="multiple",
         difficulty="medium",
@@ -820,7 +822,7 @@ def seed_questions():
         incorrect_answers="Just Dance, Poker Face, LoveGame"
     )
 #88
-    computers6 = Question(
+    computers6 = Question( owner_id=5,
         category="Science: Computers",
         type="multiple",
         difficulty="easy",

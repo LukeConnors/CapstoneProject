@@ -19,6 +19,7 @@ depends_on = None
 def upgrade():
     op.create_table('questions',
     sa.Column('id', sa.Integer(), autoincrement=True, nullable=False, primary_key=True),
+    sa.Column('owner_id', sa.Integer(), nullable=False),
     sa.Column('category', sa.String(), nullable=False),
     sa.Column('type', sa.String(), nullable=False),
     sa.Column('difficulty', sa.String(), nullable=False),

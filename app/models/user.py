@@ -16,6 +16,8 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
 
+
+    question = db.relationship('Question', back_populates='user')
     review = db.relationship('Review', back_populates='user')
     deck = db.relationship('Deck', back_populates='user')
     correct = db.relationship('Correct_answer', back_populates='user')

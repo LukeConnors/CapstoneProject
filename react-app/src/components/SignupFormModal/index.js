@@ -6,17 +6,27 @@ import "./SignupForm.css";
 
 function SignupFormModal() {
 	const dispatch = useDispatch();
-	const [email, setEmail] = useState("");
-	const [username, setUsername] = useState("");
-	const [password, setPassword] = useState("");
+	const [formData, setFormData] = useState({
+		email: "",
+		username: "",
+		description: "",
+		picture: "",
+		password: ""
+	  });
 	const [confirmPassword, setConfirmPassword] = useState("");
 	const [errors, setErrors] = useState([]);
 	const { closeModal } = useModal();
 
 	const handleSubmit = async (e) => {
+		const formDataToSend = new FormData()
+		formDataToSend.append("username", formData.username)
+		formDataToSend.append("email", formData.email)
+		formDataToSend.append("description", formData.description)
+		formDataToSend.append("picture", formData.picture)
+		formDataToSend.append("password", formData.password)
 		e.preventDefault();
-		if (password === confirmPassword) {
-			const data = await dispatch(signUp(username, email, password));
+		if (formData.password === confirmPassword) {
+			const data = await dispatch(signUp(formData));
 			if (data) {
 				setErrors(data);
 			} else {
@@ -29,6 +39,7 @@ function SignupFormModal() {
 		}
 	};
 
+	console.log("!!!!!!!!!!!", formData)
 	return (
 		<>
 			<h1>Sign Up</h1>
@@ -42,8 +53,8 @@ function SignupFormModal() {
 					Email
 					<input
 						type="text"
-						value={email}
-						onChange={(e) => setEmail(e.target.value)}
+						value={formData.email}
+						onChange={(e) => setFormData({...formData, email: e.target.value})}
 						required
 					/>
 				</label>
@@ -51,17 +62,35 @@ function SignupFormModal() {
 					Username
 					<input
 						type="text"
-						value={username}
-						onChange={(e) => setUsername(e.target.value)}
+						value={formData.username}
+						onChange={(e) => setFormData({...formData, username: e.target.value})}
 						required
 					/>
 				</label>
 				<label>
+          Tell us about yourself... Your interests, hobbies, passion for trivia, etc.
+          <input
+            type="text"
+            value={formData.description}
+            onChange={(e) => setFormData({...formData, description: e.target.value})}
+            required
+          />
+        </label>
+        <label>
+          Upload a profile picture
+          <input
+            type="file"
+            accept=".png, .jpeg, .jpg"
+            onChange={(e) => setFormData({...formData, picture: e.target.files[0]})}
+            required
+          />
+        </label>
+				<label>
 					Password
 					<input
 						type="password"
-						value={password}
-						onChange={(e) => setPassword(e.target.value)}
+						value={formData.password}
+						onChange={(e) => setFormData({...formData, password: e.target.value})}
 						required
 					/>
 				</label>
