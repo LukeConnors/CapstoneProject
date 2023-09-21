@@ -35,11 +35,12 @@ def question_details(id):
 def create_question():
     form = QuestionForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-
+    print("!!!!!!!!!!!!!!!!!!", current_user)
     if form.validate_on_submit():
         new_question = Question(
             category=form.data["category"],
             type=form.data["type"],
+            owner_id=current_user.id,
             difficulty=form.data["difficulty"],
             question=form.data["question"],
             correct_answer=form.data["correct_answer"],
@@ -48,6 +49,7 @@ def create_question():
         db.session.add(new_question)
         db.session.commit()
         return new_question.to_dict()
+
 
 # PUT a question by ID
 @question_routes.route("/<int:id>", methods=["PUT"])
@@ -79,11 +81,17 @@ def edit_question(id):
 
 
 # DELETE a question by ID
-# @question_routes.route("/<int:id>", methods=["DELETE"])
-# def delete_question(id):
-#     question = Question.question.get(id)
+@question_routes.route("/<int:id>", methods=["DELETE"])
+def delete_question(id):
+    question = Question.query.get(id)
 
-#     if not question:
-#         return jsonify({"error": "Question not found"})
+    if not question:
+        return jsonify({"error": "Question not found"}), 404
 
-#     if Question
+    if question.owner_id != current_user.id:
+        return jsonify({"error": "Unauthorized"}), 403
+
+    db.session.delete(question)
+    db.session.commit()
+
+    return jsonify({"Message": "Successfully deleted!"})
