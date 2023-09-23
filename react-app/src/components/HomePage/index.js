@@ -1,20 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "./HomePage.css";
 import { Link } from "react-router-dom";
-import { decksSelector } from "../../store/decks";
-import { useSelector, useDispatch } from 'react-redux';
-import { useHistory } from "react-router-dom";
-import * as deckActions from "../../store/decks"
-
 
 function HomePage(){
-const history = useHistory();
-const dispatch = useDispatch();
-const decks = useSelector(decksSelector)
 
 return (
     <div className="card-container">
-        <Link to="/decks/deck_category">
+        <Link to="/decks/deck_category?category=General%20Knowledge">
         <div className="card">
             <h1>General Knowledge</h1>
         </div>

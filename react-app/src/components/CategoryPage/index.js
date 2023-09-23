@@ -21,7 +21,7 @@ useEffect(() => {
 
 return(
     <div className="card-container">
-       {deckIds.map((deckId) => {
+       {decks !== null ? deckIds.map((deckId) => {
         const deck = decks[deckId];
         const redirectToDeck = async (e) => {
             history.push(`/decks/${deck.id}`)
@@ -35,7 +35,11 @@ return(
         </div>
         )
 
-       })}
+       }) : (
+            <>
+            <h1>No Decks created for this Category yet!</h1>
+            </>
+       )}
     </div>
 )
 

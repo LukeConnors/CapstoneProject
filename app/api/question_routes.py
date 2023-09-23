@@ -35,7 +35,6 @@ def question_details(id):
 def create_question():
     form = QuestionForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    print("!!!!!!!!!!!!!!!!!!", current_user)
     if form.validate_on_submit():
         new_question = Question(
             category=form.data["category"],

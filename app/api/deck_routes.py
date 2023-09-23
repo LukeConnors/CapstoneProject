@@ -50,6 +50,7 @@ def get_deck_reviews(id):
 
 # POST a deck to decks
 @deck_routes.route('/', methods=["POST"])
+@login_required
 def create_deck():
     form = DeckForm()
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -61,12 +62,14 @@ def create_deck():
             description=form.data["description"],
             category=form.data["category"],
         )
+        print("!!!!!!!!!!!THIS IS THE BACKEND NEW DECK!!!!!!!!!!!!!!!", new_deck)
         db.session.add(new_deck)
         db.session.commit()
-        return new_question.to_dict()
+        return new_deck.to_dict()
 
 # POST a review by deckID
 @deck_routes.route("/<int:id>", methods=["POST"])
+@login_required
 def create_review(id):
     form = ReviewForm()
     form["csrf_token"].data = request.cookies["csrf_token"]
@@ -84,6 +87,7 @@ def create_review(id):
 
 # PUT a deck by ID
 @deck_routes.route("/<int:id>", methods=["PUT"])
+@login_required
 def edit_deck(id):
     form = DeckForm()
     form["csrf_token"].data = request.cookies["csrf_token"]
