@@ -25,7 +25,7 @@ if(deckIds.length){
            {deckIds.map((deckId) => {
             const deck = decks[deckId];
             const redirectToDeck = async (e) => {
-                history.push(`/decks/${deck.id}`)
+                history.push(`/decks/${deckId}`)
             }
             if (!deck){
                 return null

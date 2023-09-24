@@ -3,6 +3,7 @@ export const SET_DECKS = "decks/SET_DECKS"
 export const SET_DECK_DETAILS = "decks/SET_DECK_DETAILS"
 export const SET_DECK_QUESTIONS = "decks/SET_DECK_QUESTIONS"
 export const ADD_DECK = "decks/ADD_DECK"
+export const ADD_DECK_QUESTION = "decks/ADD_DECK_QUESTION"
 export const UPDATE_DECK = "decks/UPDATE_DECK"
 export const DELETE_DECK = "decks/DELETE_DECK"
 
@@ -36,6 +37,11 @@ const setDeckQuestions = (deck_questions) => ({
 const addDeck = (deck) => ({
     type: ADD_DECK,
     payload: deck
+})
+
+const addDeckQuestion = (question) => ({
+    type: ADD_DECK_QUESTION,
+    payload: question
 })
 
 const updateDeck = (deck) => ({
@@ -99,6 +105,26 @@ export const createDeck = (payload) => async (dispatch) => {
             return newDeck
         }
     } catch(e) {
+        return e
+    }
+}
+
+// Add a questions to a deck with the deckId
+export const createDeckQuestion = (deckId, payload) => async (dispatch) => {
+    try {
+        const res = await fetch(`/api/decks/${deckId}/questions`, {
+            method: ["POST"],
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(payload)
+        })
+        if(res.ok){
+            const deckQuestion = await res.json()
+            dispatch(addDeckQuestion(deckQuestion))
+            return deckQuestion
+        }
+    } catch(e){
         return e
     }
 }

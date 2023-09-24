@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import * as deckActions from "../../store/decks"
@@ -9,6 +9,7 @@ import DeleteDeck from "../DeleteDeckModal";
 
 function DeckDetails(){
     const { deckId } = useParams();
+    const history = useHistory();
     const dispatch = useDispatch();
     const deck = useSelector(deckActions.deckDetailsSelector)
     const deckOwner = useSelector(userActions.userSelector)
@@ -19,7 +20,9 @@ function DeckDetails(){
         .then(() => {dispatch(deckActions.fetchDeckQuestions(deckId))})
     }, [dispatch, deckId])
 
-
+    const handleQuestionsClick = async (e) => {
+    history.push(`/decks/${deckId}/questions`)
+    }
 
     return (
         <div className="details-container">
@@ -42,9 +45,9 @@ function DeckDetails(){
                  buttonText={"Delete Deck"}
                  modalComponent={<DeleteDeck deck={deck} deckId={deck?.id}/>}
                   />
-                  <OpenModalButton
-                  buttonText={"Add a Question"}
-                  />
+                  <button onClick={handleQuestionsClick}>
+                    View Deck Questions
+                  </button>
                   </>
             ) : (
                 <>

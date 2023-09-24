@@ -9,6 +9,8 @@ import HomePage from "./components/HomePage";
 import Category from "./components/CategoryPage";
 import DeckForm from "./components/DeckForm";
 import DeckDetails from "./components/DeckDetailsPage";
+import DeckQuestionsPage from "./components/DeckQuestionsPage";
+import QuestionForm from "./components/QuestionForm";
 
 function App() {
   const dispatch = useDispatch();
@@ -25,8 +27,8 @@ function App() {
           <Route path='/decks/deck_category'>
             <Category />
           </Route>
-          <Route exact path="/decks/:deckId/edit_deck">
-
+          <Route exact path="/decks/:deckId/questions">
+          <DeckQuestionsPage />
           </Route>
           <Route exact path="/decks/:deckId">
             <DeckDetails />
@@ -39,6 +41,9 @@ function App() {
           </Route>
           <Route path="/new_deck">
           <DeckForm />
+          </Route>
+          <Route path="/new_question">
+          <QuestionForm />
           </Route>
           <Route exact path="/">
             <HomePage />
