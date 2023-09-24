@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import * as deckActions from "../../store/decks"
 import * as userActions from "../../store/session"
 import OpenModalButton from "../OpenModalButton";
@@ -13,11 +13,13 @@ function DeckDetails(){
     const deck = useSelector(deckActions.deckDetailsSelector)
     const deckOwner = useSelector(userActions.userSelector)
     const currentUser = useSelector(state => state.session.user)
-
     useEffect(() => {
         dispatch(deckActions.fetchDetails(deckId))
-        dispatch(userActions.getUserDetails(deck?.user_id))
-    }, [dispatch, deckId, deck?.user_id])
+        .then((data) => dispatch(userActions.getUserDetails(data?.user_id)))
+        .then(() => {dispatch(deckActions.fetchDeckQuestions(deckId))})
+    }, [dispatch, deckId])
+
+
 
     return (
         <div className="details-container">
@@ -39,6 +41,9 @@ function DeckDetails(){
                  <OpenModalButton
                  buttonText={"Delete Deck"}
                  modalComponent={<DeleteDeck deck={deck} deckId={deck?.id}/>}
+                  />
+                  <OpenModalButton
+                  buttonText={"Add a Question"}
                   />
                   </>
             ) : (

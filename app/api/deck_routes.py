@@ -68,7 +68,7 @@ def create_deck():
         return new_deck.to_dict()
 
 # POST a review by deckID
-@deck_routes.route("/<int:id>", methods=["POST"])
+@deck_routes.route("/<int:id>/reviews", methods=["POST"])
 @login_required
 def create_review(id):
     form = ReviewForm()
@@ -126,7 +126,7 @@ def delete_deck(id):
 
 
 # ADD a question to a deck by deck id
-@deck_routes.route('/<int:id>', methods=["POST"])
+@deck_routes.route('/<int:id>/questions', methods=["POST"])
 def add_deck_question(id):
     question = request.json
     print(question)
