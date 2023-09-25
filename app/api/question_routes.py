@@ -30,6 +30,12 @@ def question_details(id):
     question = Question.query.get(id)
     return question.to_dict()
 
+# GET all questions owned by the current user
+@question_routes.route("/my_questions")
+def my_questions():
+    questions = Question.query.filter(Question.owner_id == current_user.id)
+    return {"questions": [question.to_dict() for question in questions]}
+
 # POST a question
 @question_routes.route("/", methods=["POST"])
 def create_question():

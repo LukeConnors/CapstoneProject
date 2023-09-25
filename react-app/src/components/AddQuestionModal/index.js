@@ -32,6 +32,7 @@ return (
                 <h3>{question.question}</h3>
                 <p>Difficulty: {question.difficulty}</p>
                 <p>Answers: {question.correct_answer}, {question.incorrect_answers}</p>
+                <p>Category: {question.category}</p>
                 <button disabled={buttonDis} onClick={handleAddClick}>{buttonText}</button>
             </div>
         )

@@ -16,7 +16,7 @@ class Deck(db.Model):
     category = db.Column(db.String, nullable=False)
 
     # INTERNAL-MODEL RELATIONS (PRIMARY KEY):
-    deck_question = db.relationship('Deck_question', back_populates='deck')
+    deck_question = db.relationship('Deck_question', back_populates='deck', cascade="all, delete-orphan")
     review = db.relationship('Review', back_populates='deck', cascade="all, delete-orphan")
 
     # EXTERNAL-MODEL RELATIONS (FOREIGN KEYS):

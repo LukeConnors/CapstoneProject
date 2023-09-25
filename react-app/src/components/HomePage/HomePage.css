@@ -1,0 +1,15 @@
+.card-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.card{
+    height: 100px;
+    width: 200px;
+}
+
+.gk-img{
+    height: 100px;
+    width: 100px;
+    border-radius: 20px;
+}

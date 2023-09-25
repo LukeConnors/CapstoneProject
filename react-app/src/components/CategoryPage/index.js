@@ -13,7 +13,6 @@ const location = useLocation();
 const category = location.search.split("=")[1]
 const dispatch = useDispatch();
 const decks = useSelector(decksSelector)
-console.log("THESE ARE THE DECKS!!!", decks)
 const deckIds = Object.keys(decks || {});
 
 useEffect(() => {
@@ -31,8 +30,8 @@ if(deckIds.length){
                 return null
             }
             return(
-            <div className="cat-card" onClick={redirectToDeck}>
-                <h1>{deck.title}</h1>
+            <div className="cat-card">
+                <h1 onClick={redirectToDeck}>{deck.title}</h1>
             </div>
             )
 

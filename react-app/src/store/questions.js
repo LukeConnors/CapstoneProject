@@ -36,10 +36,17 @@ const deleteQuestion = (questionId) => ({
     payload: questionId
 })
 
-export const fetchQuestions = () => async (dipatch) => {
+export const fetchQuestions = () => async (dispatch) => {
     const res = await fetch("/api/questions/")
     const data = await res.json();
-    dipatch(setQuestions(data.questions))
+    dispatch(setQuestions(data.questions))
+    return data
+}
+
+export const fetchMyQuestions = () => async (dispatch) => {
+    const res = await fetch("/api/questions/my_questions")
+    const data = await res.json();
+    dispatch(setQuestions(data.questions))
     return data
 }
 

@@ -1,24 +1,25 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useModal } from "../../context/Modal";
 import { useHistory } from 'react-router-dom'
-import * as deckActions from "../../store/decks"
 import * as questionActions from "../../store/questions"
 
-function QuestionForm(){
-    const [errors, setErrors] = useState({});
+function EditQuestion({question, questionId}){
+    const { closeModal } = useModal();
+    const [errors, setErrors] = useState({})
     const dispatch = useDispatch();
-    const history = useHistory();
+    const history = useHistory()
+    const incorrectAnswersArray = question.incorrect_answers.split(', ');
     const [formData, setFormData] = useState({
-        category: "",
-        type: "",
-        difficulty: "",
-        question: "",
-        correct_answer: "",
-        incorrect_answer1: "",
-        incorrect_answer2: "",
-        incorrect_answer3: ""
+        category: question.category,
+        type: question.type,
+        difficulty: question.difficulty,
+        question: question.question,
+        correct_answer: question.correct_answer,
+        incorrect_answer1: incorrectAnswersArray[0] || "",
+        incorrect_answer2: incorrectAnswersArray[1] || "",
+        incorrect_answer3: incorrectAnswersArray[2] || ""
     });
-
     const categoryChoices = ["General Knowledge", "Entertainment: Books", "Entertainment: Film",
     "Entertainment: Music", "Entertainment: Musicals & Theatres", "Entertainment: Television",
     "Entertainment: Video Games", "Entertainment: Board Games", "Science & Nature",
@@ -34,7 +35,7 @@ function QuestionForm(){
     };
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
+        e.preventDefault()
         const { incorrect_answer1, incorrect_answer2, incorrect_answer3 } = formData;
         let formErrors = {};
         if (!formData.question){
@@ -87,7 +88,6 @@ function QuestionForm(){
             setErrors(formErrors);
             return;
         }
-
         const incorrect_answers = [incorrect_answer1, incorrect_answer2, incorrect_answer3].join(', ');
 
         const finalFormData = {
@@ -95,10 +95,10 @@ function QuestionForm(){
             incorrect_answers
         };
 
-        await dispatch(questionActions.createQuestion(finalFormData));
-        history.push("/");
+        await dispatch(questionActions.editQuestion(questionId ,finalFormData));
+        await dispatch(questionActions.fetchMyQuestions())
+        closeModal()
     };
-
     return (
         <form onSubmit={handleSubmit}>
             <div>
@@ -203,6 +203,7 @@ function QuestionForm(){
             <button type="submit">Submit</button>
         </form>
     );
+
 }
 
-export default QuestionForm;
+export default EditQuestion

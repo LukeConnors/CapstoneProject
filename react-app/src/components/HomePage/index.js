@@ -9,6 +9,7 @@ return (
         <Link to="/decks/deck_category?category=General%20Knowledge">
         <div className="card">
             <h1>General Knowledge</h1>
+            <img className="gk-img" src="https://res.cloudinary.com/dyt7uoeck/image/upload/v1695652386/GK_w17j9r.png"></img>
         </div>
         </Link>
         <Link to="/decks/deck_category?category=Entertainment">

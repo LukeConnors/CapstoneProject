@@ -64,6 +64,14 @@ export const fetchDecks = () => async (dispatch) => {
     return data
 }
 
+// Fetch all decks owned by the current user
+export const fetchUserDecks = () => async (dispatch) => {
+    const res = await fetch("/api/decks/my_decks")
+    const data = await res.json();
+    dispatch(setDecks(data.decks))
+    return data
+}
+
 // Fetch deck details
 export const fetchDetails = (deckId) => async (dispatch) => {
     const res = await fetch(`/api/decks/${deckId}`);

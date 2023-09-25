@@ -11,6 +11,8 @@ import DeckForm from "./components/DeckForm";
 import DeckDetails from "./components/DeckDetailsPage";
 import DeckQuestionsPage from "./components/DeckQuestionsPage";
 import QuestionForm from "./components/QuestionForm";
+import MyProfile from "./components/MyProfilePage";
+import GamePage from "./components/GamePage";
 
 function App() {
   const dispatch = useDispatch();
@@ -24,14 +26,17 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
-          <Route path='/decks/deck_category'>
-            <Category />
+          <Route exact path="/decks/:deckId/play">
+          <GamePage />
           </Route>
           <Route exact path="/decks/:deckId/questions">
           <DeckQuestionsPage />
           </Route>
           <Route exact path="/decks/:deckId">
             <DeckDetails />
+          </Route>
+          <Route path='/decks/deck_category'>
+            <Category />
           </Route>
           <Route path="/login" >
             <LoginFormPage />
@@ -41,6 +46,9 @@ function App() {
           </Route>
           <Route path="/new_deck">
           <DeckForm />
+          </Route>
+          <Route path="/my_profile">
+          <MyProfile />
           </Route>
           <Route path="/new_question">
           <QuestionForm />

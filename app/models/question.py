@@ -22,7 +22,7 @@ class Question(db.Model):
     user = db.relationship('User', back_populates='question')
 
     # INTERNAL-MODEL RELATIONS (PRIMARY KEY):
-    deck_question = db.relationship('Deck_question', back_populates='question')
+    deck_question = db.relationship('Deck_question', back_populates='question', cascade="all, delete-orphan")
     correct = db.relationship('Correct_answer', back_populates='question')
     incorrect = db.relationship('Incorrect_answer', back_populates='question')
 

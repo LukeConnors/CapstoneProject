@@ -23,6 +23,9 @@ function DeckDetails(){
     const handleQuestionsClick = async (e) => {
     history.push(`/decks/${deckId}/questions`)
     }
+    const handleStartClick = async (e) => {
+        history.push(`/decks/${deckId}/play`)
+    }
 
     return (
         <div className="details-container">
@@ -53,7 +56,7 @@ function DeckDetails(){
                 <>
                 </>
             )}
-            <button>Start</button>
+            <button onClick={handleStartClick}>Start</button>
         </div>
     )
 }

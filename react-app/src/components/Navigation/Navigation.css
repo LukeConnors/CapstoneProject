@@ -5,3 +5,70 @@
 .hidden {
   display: none;
 }
+
+.nav-bar{
+  padding: 0px 30px;
+  height: 200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: #cecece 1px solid;
+  margin-bottom: 20px;
+}
+
+.profile-dropdown {
+  position: absolute;
+  margin-top: 160px;
+  right: 10px;
+  list-style-type: none;
+  text-align: center;
+  padding: 10px;
+  background-color: #06c0d1;
+  border-radius: 10px;
+  color: #000000;
+  z-index: 100;
+}
+
+.logo{
+  width: 175px;
+  height: 175px;
+}
+
+.login-signup {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 0px 15px;
+  height: 100px;
+}
+
+.profile-button{
+  margin: 10px;
+}
+
+.login-signup > button{
+  border: 1px blue solid;
+  border-radius: 20px;
+  padding: 5px 18px;
+}
+
+.login-div{
+  margin-bottom: 5px;
+}
+
+.start-deck{
+  text-decoration: none;
+  color: gray;
+  font-size: 24px;
+}
+
+.start-question{
+  text-decoration: none;
+  color: gray;
+  font-size: 24px;
+}
+.home-button{
+  text-decoration: none;
+  color: gray;
+  font-size: 24px;
+}
