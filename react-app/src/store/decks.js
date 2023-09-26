@@ -83,7 +83,6 @@ export const fetchDetails = (deckId) => async (dispatch) => {
 export const fetchDeckQuestions = (deckId) => async (dispatch) => {
     const res = await fetch(`/api/decks/${deckId}/questions`);
     const data = await res.json();
-    console.log('FETCH DECK QUESTION DATA', data)
     dispatch(setDeckQuestions(data.deck_questions))
     return data
 }
@@ -92,7 +91,6 @@ export const fetchDeckQuestions = (deckId) => async (dispatch) => {
 export const fetchDecksCategory = (cat) => async (dispatch) => {
     const res = await fetch(`/api/decks/deck_category?category=${cat}`)
     const data = await res.json();
-    console.log("this is our data from our fetch", data)
     dispatch(setDecks(data.decks))
     return data
 }

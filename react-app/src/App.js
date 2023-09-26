@@ -26,6 +26,9 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
+          <Route path='/decks/deck_category'>
+            <Category />
+          </Route>
           <Route exact path="/decks/:deckId/play">
           <GamePage />
           </Route>
@@ -34,9 +37,6 @@ function App() {
           </Route>
           <Route exact path="/decks/:deckId">
             <DeckDetails />
-          </Route>
-          <Route path='/decks/deck_category'>
-            <Category />
           </Route>
           <Route path="/login" >
             <LoginFormPage />
