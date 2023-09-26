@@ -13,6 +13,7 @@ function DeleteQuestion({question, questionId}){
         closeModal()
     }
     const handleDelete = async (e) => {
+        e.preventDefault();
         await dispatch(questionActions.removeQuestion(questionId))
         setDeleted(true)
     }

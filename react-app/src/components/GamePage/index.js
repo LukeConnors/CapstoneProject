@@ -32,10 +32,13 @@ function GamePage() {
     answersArray.push(currentQuestion.correct_answer)
     shuffle(answersArray)
 
-    const handleAnswer = (answer) => {
+    const handleAnswer = (e, answer) => {
         // Compare current question's correct answer with selected answer
         if (currentQuestion.correct_answer === answer) {
-            setCorrect()
+            setCorrect(correct + 1)
+
+        } else {
+            setWrong(wrong + 1)
         }
         // Move to the next question
         if (questionIndex < questionIds.length - 1) {
@@ -57,13 +60,29 @@ function GamePage() {
                     <h2>Question #{questionIndex + 1}</h2>
                     <h4>{currentQuestion.question}</h4>
                     {!answersArray[0] ? (<></>)
-                        : (<button onClick={() => handleAnswer(answersArray[0])}>{answersArray[0]}</button>)}
+                        : (
+                        <button onClick={(e) => handleAnswer(e, answersArray[0])}>
+                            {answersArray[0]}
+                            </button>
+                        )}
                     {!answersArray[1] ? (<></>)
-                        : (<button onClick={handleAnswer}>{answersArray[1]}</button>)}
+                        : (
+                        <button onClick={(e) => handleAnswer(e, answersArray[1])}>
+                            {answersArray[1]}
+                            </button>
+                        )}
                     {!answersArray[2] ? (<></>)
-                        : (<button onClick={handleAnswer}>{answersArray[2]}</button>)}
+                        : (
+                        <button onClick={(e) => handleAnswer(e, answersArray[2])}>
+                            {answersArray[2]}
+                            </button>
+                        )}
                     {!answersArray[3] ? (<></>)
-                        : (<button onClick={handleAnswer}>{answersArray[3]}</button>)}
+                        : (
+                        <button onClick={() => handleAnswer(answersArray[3])}>
+                            {answersArray[3]}
+                            </button>
+                        )}
 
                 </div>
             )}
