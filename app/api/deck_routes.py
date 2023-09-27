@@ -143,8 +143,7 @@ def add_deck_question(id):
 def remove_deck_question(d_id, q_id):
     deck = Deck.query.get(d_id)
     question = Question.query.get(q_id)
-    deck_question = Deck_question.query.filter(Deck_question.deck_id == deck.id and Deck_question.question_id == question.id)
-
+    deck_question = Deck_question.query.filter(Deck_question.deck_id == deck.id and Deck_question.question_id == question.id).first()
     if not deck:
         return jsonify({"error": "Deck not found"}), 404
     if not question:

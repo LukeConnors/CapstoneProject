@@ -6,6 +6,7 @@ export const ADD_DECK = "decks/ADD_DECK"
 export const ADD_DECK_QUESTION = "decks/ADD_DECK_QUESTION"
 export const UPDATE_DECK = "decks/UPDATE_DECK"
 export const DELETE_DECK = "decks/DELETE_DECK"
+export const DELETE_DECK_QUESTION = "decks/DELETE_DECK_QUESTION"
 
 export const decksSelector = (state) => {
     return state.decks
@@ -54,6 +55,10 @@ const deleteDeck = (deckId) => ({
     payload: deckId
 })
 
+const deleteDeckQuestion = (deckId, questionId) => ({
+    type: DELETE_DECK_QUESTION,
+    payload: deckId, questionId
+})
 
 
 // Fetch all decks
@@ -115,7 +120,7 @@ export const createDeck = (payload) => async (dispatch) => {
     }
 }
 
-// Add a questions to a deck with the deckId
+// Add a question to a deck with the deckId
 export const createDeckQuestion = (deckId, payload) => async (dispatch) => {
     try {
         const res = await fetch(`/api/decks/${deckId}/questions`, {
@@ -168,6 +173,18 @@ export const removeDeck = (deckId) => async (dispatch) => {
     }
 }
 
+// Remove a deck question
+export const removeDeckQuestion = (deckId, questionId) => async (dispatch) => {
+    console.log("!!!!!!!!!",questionId)
+    const res = fetch(`/api/decks/${deckId}/questions/${questionId}`, {
+        method: "DELETE"
+    });
+    if(res.ok){
+        const message = await res.json();
+        dispatch(deleteDeckQuestion(deckId, questionId))
+        return message
+    }
+}
 
 // reducer
 const decksReducer = (state = {}, action) => {

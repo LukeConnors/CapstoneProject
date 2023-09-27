@@ -24,11 +24,15 @@ const handleReturnClick = () => {
     history.push(`/decks/${deckId}`)
 }
 
-    return (
-        <div className="question-card-container">
+return (
+    <div className="question-card-container">
             <button onClick={handleReturnClick}>Return to deck</button>
         {dqIds.map((dqId) => {
             const deckQuestion = deckQuestions[dqId]
+            console.log("deck question!!!!!!!", deckQuestion)
+            const handleRemoveClick = () => {
+                dispatch(deckActions.removeDeckQuestion(deckId, deckQuestion?.id))
+            }
             if(!deckQuestion){
                 return (
                     null
@@ -46,6 +50,7 @@ const handleReturnClick = () => {
                         <h4>Incorrect answer(s):</h4>
                         <p>{deckQuestion.incorrect_answers}</p>
                         </div>
+                        <button onClick={handleRemoveClick}>Remove question</button>
 
                     </div>
                 )
