@@ -1,12 +1,10 @@
 
 export const SET_DECKS = "decks/SET_DECKS"
 export const SET_DECK_DETAILS = "decks/SET_DECK_DETAILS"
-export const SET_DECK_QUESTIONS = "decks/SET_DECK_QUESTIONS"
 export const ADD_DECK = "decks/ADD_DECK"
-export const ADD_DECK_QUESTION = "decks/ADD_DECK_QUESTION"
 export const UPDATE_DECK = "decks/UPDATE_DECK"
 export const DELETE_DECK = "decks/DELETE_DECK"
-export const DELETE_DECK_QUESTION = "decks/DELETE_DECK_QUESTION"
+
 
 export const decksSelector = (state) => {
     return state.decks
@@ -30,20 +28,12 @@ const setDeckDetails = (deck) => ({
     deck
 })
 
-const setDeckQuestions = (deck_questions) => ({
-    type: SET_DECK_QUESTIONS,
-    deck_questions
-})
 
 const addDeck = (deck) => ({
     type: ADD_DECK,
     payload: deck
 })
 
-const addDeckQuestion = (question) => ({
-    type: ADD_DECK_QUESTION,
-    payload: question
-})
 
 const updateDeck = (deck) => ({
     type: UPDATE_DECK,
@@ -53,11 +43,6 @@ const updateDeck = (deck) => ({
 const deleteDeck = (deckId) => ({
     type: DELETE_DECK,
     payload: deckId
-})
-
-const deleteDeckQuestion = (deckId, questionId) => ({
-    type: DELETE_DECK_QUESTION,
-    payload: deckId, questionId
 })
 
 
@@ -85,12 +70,6 @@ export const fetchDetails = (deckId) => async (dispatch) => {
     return data
 }
 
-export const fetchDeckQuestions = (deckId) => async (dispatch) => {
-    const res = await fetch(`/api/decks/${deckId}/questions`);
-    const data = await res.json();
-    dispatch(setDeckQuestions(data.deck_questions))
-    return data
-}
 
 // Fetch all decks by category
 export const fetchDecksCategory = (cat) => async (dispatch) => {
@@ -120,25 +99,6 @@ export const createDeck = (payload) => async (dispatch) => {
     }
 }
 
-// Add a question to a deck with the deckId
-export const createDeckQuestion = (deckId, payload) => async (dispatch) => {
-    try {
-        const res = await fetch(`/api/decks/${deckId}/questions`, {
-            method: ["POST"],
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(payload)
-        })
-        if(res.ok){
-            const deckQuestion = await res.json()
-            dispatch(addDeckQuestion(deckQuestion))
-            return deckQuestion
-        }
-    } catch(e){
-        return e
-    }
-}
 
 // Edit a deck with deckId
 export const editDeck = (deckId, payload) => async (dispatch) => {
@@ -173,18 +133,7 @@ export const removeDeck = (deckId) => async (dispatch) => {
     }
 }
 
-// Remove a deck question
-export const removeDeckQuestion = (deckId, questionId) => async (dispatch) => {
-    console.log("!!!!!!!!!",questionId)
-    const res = fetch(`/api/decks/${deckId}/questions/${questionId}`, {
-        method: "DELETE"
-    });
-    if(res.ok){
-        const message = await res.json();
-        dispatch(deleteDeckQuestion(deckId, questionId))
-        return message
-    }
-}
+
 
 // reducer
 const decksReducer = (state = {}, action) => {
@@ -199,15 +148,6 @@ const decksReducer = (state = {}, action) => {
                 ...state,
                 detailedDeck: action.deck
             }
-
-        case SET_DECK_QUESTIONS:
-            // console.log('ACTION DECK_QUESTIONS', action.deck_questions)
-            newState = {
-                ...state,
-                deckQuestions: {}
-            }
-            action.deck_questions.forEach(deck_question => newState.deckQuestions[deck_question.id] = deck_question)
-            return newState
         case ADD_DECK:
             const newDeck = action.payload
             newState = {...state}

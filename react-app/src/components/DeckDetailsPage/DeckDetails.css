@@ -1,0 +1,53 @@
+.button-container > button{
+    background: none;
+    height: 40px;
+    width: 100px;
+    color: #06c0d1;
+    border-radius: 20px;
+    transition: transform 0.2 ease-in-out;
+}
+
+.button-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.button-container > button:hover{
+cursor: pointer;
+transform: scale(1.02);
+}
+
+
+.start-button{
+    margin-top: 20px;
+    background: none;
+    height: 70px;
+    width: 300px;
+    color: #04a1af;
+    background-color: lightgray;
+    border-radius: 20px;
+    transition: transform 0.2 ease-in-out;
+    font-size: 28px;
+}
+
+.start-button:hover{
+    cursor: pointer;
+    transform: scale(1.02);
+}
+
+.details-title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.deck-title{
+    font-size: 60px;
+}
+
+.details-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

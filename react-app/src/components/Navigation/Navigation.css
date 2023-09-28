@@ -7,12 +7,11 @@
 }
 
 .nav-bar{
-  padding: 0px 30px;
   height: 200px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  border-bottom: #cecece 1px solid;
+  border-bottom: #aaaaaa 1px solid;
   margin-bottom: 20px;
 }
 
@@ -40,6 +39,10 @@
   justify-content: space-evenly;
   padding: 0px 15px;
   height: 100px;
+}
+
+.profile-button:hover {
+  cursor: pointer;
 }
 
 .profile-button{

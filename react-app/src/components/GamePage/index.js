@@ -25,7 +25,7 @@ function GamePage() {
 
 
     useEffect(() => {
-        dispatch(deckActions.fetchDeckQuestions(deckId))
+        dispatch(questionActions.fetchDeckQuestions(deckId))
     }, [dispatch])
 
 
@@ -64,8 +64,6 @@ shuffle(answersArray)
                 setquestionIndex(questionIndex + 1);
             } else {
                 //  When reaching end of questions open completion page
-                console.log("!!!!!!!!!", correct)
-                console.log("!!!!!!!!!", wrong)
                 setModalContent(<Completion correct={correct + tempCorrect} wrong={wrong + tempWrong} deckId={deckId}/>)
             }
             return () => clearTimeout(timeout)
@@ -78,33 +76,40 @@ shuffle(answersArray)
 
     if(questionIndex <= questionIds.length - 1){
         return (
+            <div className="t-card-container">
                     <div className="trivia-card">
-                        <h2>Question #{questionIndex + 1}</h2>
-                        <h4>{currentQuestion.question}</h4>
+                        <div className="card-top">
+                        <h2 className="question-num">Question #{questionIndex + 1}</h2>
+                        <h2>Difficulty: {currentQuestion.difficulty}</h2>
+                        </div>
+                        <h4 className="quest">{currentQuestion.question}</h4>
+                        <div className="answers-container">
                         {!answersArray[0] ? (<></>)
                             : (
-                            <button disabled={disable} id="answer1" onClick={(e) => handleAnswer(e, answersArray[0])}>
+                            <button className="answer" disabled={disable} id="answer1" onClick={(e) => handleAnswer(e, answersArray[0])}>
                                 {answersArray[0]}
                                 </button>
                             )}
                         {!answersArray[1] ? (<></>)
                             : (
-                            <button disabled={disable} id="answer2" onClick={(e) => handleAnswer(e, answersArray[1])}>
+                            <button className="answer" disabled={disable} id="answer2" onClick={(e) => handleAnswer(e, answersArray[1])}>
                                 {answersArray[1]}
                                 </button>
                             )}
                         {!answersArray[2] ? (<></>)
                             : (
-                            <button disabled={disable} id="answer3" onClick={(e) => handleAnswer(e, answersArray[2])}>
+                            <button className="answer" disabled={disable} id="answer3" onClick={(e) => handleAnswer(e, answersArray[2])}>
                                 {answersArray[2]}
                                 </button>
                             )}
                         {!answersArray[3] ? (<></>)
                             : (
-                            <button disabled={disable} id="answer4" onClick={(e) => handleAnswer(e, answersArray[3])}>
+                            <button className="answer" disabled={disable} id="answer4" onClick={(e) => handleAnswer(e, answersArray[3])}>
                                 {answersArray[3]}
                                 </button>
                             )}
+                            </div>
+            </div>
             </div>
         )
 

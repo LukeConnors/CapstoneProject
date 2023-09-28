@@ -24,8 +24,8 @@ return (
     {questionIds.map((questionId) => {
         const question = questions[questionId]
         const handleAddClick = async (e) => {
-            await dispatch(deckActions.createDeckQuestion(deckId, question))
-            await dispatch(deckActions.fetchDeckQuestions(deckId))
+            await dispatch(questionActions.createDeckQuestion(deckId, question))
+            // await dispatch(deckActions.fetchDeckQuestions(deckId))
         }
         return (
             <div className="add-q-card">

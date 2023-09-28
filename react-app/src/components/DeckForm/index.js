@@ -1,14 +1,16 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { useHistory } from 'react-router-dom'
 import * as deckActions from "../../store/decks"
+import * as userActions from "../../store/session"
 
 
 function DeckForm(){
     const [errors, setErrors] = useState({})
     const dispatch = useDispatch();
     const history = useHistory()
+    const user = useSelector(state => state.session.user)
     const [formData, setFormData] = useState({
         title: "",
         description: "",
@@ -41,7 +43,9 @@ function DeckForm(){
           return newDeck;
         }
     }
-
+if(user === null){
+history.push("/login")
+}
 return (
     <div className="form-container">
         <h1>Create a New Deck</h1>
