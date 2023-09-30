@@ -90,7 +90,7 @@ export const signUp = (data) => async (dispatch) => {
 		headers: {
 			"Content-Type": "application/json",
 		},
-		body: data
+		body: JSON.stringify(data)
 	});
 
 	if (response.ok) {

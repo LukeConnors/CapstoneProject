@@ -27,8 +27,9 @@ function DeckQuestionsPage() {
     }
 
     return (
+        <>
+            <button className="login-button" onClick={handleReturnClick}> ← Return to deck</button>
         <div className="question-card-container">
-            <button onClick={handleReturnClick}>Return to deck</button>
             {dqIds.map((dqId) => {
                 const deckQuestion = deckQuestions[dqId]
                 console.log("deck question!!!!!!!", deckQuestion)
@@ -52,18 +53,21 @@ function DeckQuestionsPage() {
                                 <h4>Incorrect answer(s):</h4>
                                 <p>{deckQuestion.incorrect_answers}</p>
                             </div>
-                            <button onClick={handleRemoveClick}>Remove question</button>
+                            <button className="remove-q-btn" onClick={handleRemoveClick}>Remove question</button>
 
                         </div>
                     )
                 }
             })}
+            <div className="add-question-card">
             <h3>Add a Question</h3>
             <OpenModalButton
                 buttonText={"+"}
                 modalComponent={<AddQuestion deckId={deckId} />}
             />
+            </div>
         </div>
+        </>
 
     )
 

@@ -1,0 +1,26 @@
+.add-q-card{
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    border-radius: 20px;
+}
+
+.q-card-container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0 10%;
+    gap: 40px;
+    margin-bottom: 20px;
+    justify-items: center;
+}
+
+.add-q-title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

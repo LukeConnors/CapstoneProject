@@ -25,6 +25,17 @@ function SignupFormPage() {
     formData.append("picture", picture)
     formData.append("password", password)
     e.preventDefault();
+    let formErrors = {};
+    if(!formData.username){
+      formErrors.username = "Username is required"
+     }
+     if(!formData.description){
+      formErrors.description = "Please provide a description about yourself"
+     }
+     if (Object.keys(formErrors).length > 0){
+       setErrors(formErrors);
+       return;
+   }
     if (password === confirmPassword) {
         const data = await dispatch(signUp(formData.username, formData.email, formData.description, formData.picture, formData.password));
         if (data) {
@@ -39,43 +50,35 @@ function SignupFormPage() {
     <>
       <h1>Sign Up</h1>
       <form onSubmit={handleSubmit}>
-        <ul>
-          {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-        </ul>
         <label>
           Email
           <input
             type="text"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            required
           />
         </label>
-        <label>
-          Username
+
+         <h3>Username</h3>
+          <div className="errors">{errors?.username}</div>
           <input
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            required
           />
-        </label>
-        <label>
-          Tell us about yourself... Your interests, hobbies, passion for trivia, etc.
+        <h3>Tell us about yourself... Your interests, hobbies, passion for trivia, etc.</h3>
+          <div className="errors">{errors?.description}</div>
           <input
             type="text"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            required
           />
-        </label>
         <label>
           Upload a profile picture
           <input
             type="file"
             accept=".png, .jpeg, .jpg"
             onChange={(e) => setPicture(e.target.files[0])}
-            required
           />
         </label>
         <label>
@@ -84,7 +87,6 @@ function SignupFormPage() {
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            required
           />
         </label>
         <label>
@@ -93,7 +95,6 @@ function SignupFormPage() {
             type="password"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
-            required
           />
         </label>
         <button type="submit">Sign Up</button>

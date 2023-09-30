@@ -67,6 +67,75 @@ function MyProfile() {
                         <h1>Your Questions:</h1>
                         {questionIds.map((questionId) => {
                             const question = questions[questionId]
+                            if (question === undefined) {
+                                return (
+                                    <>
+                                    </>
+                                )
+                            } else {
+                                return (
+                                    <div className="profile-question">
+                                        <h4>{question.question}</h4>
+                                        <div className="question-buttons-div">
+                                        <OpenModalButton
+                                            buttonText={"Edit Question"}
+                                            modalComponent={<EditQuestion question={question} questionId={question?.id} />}
+                                        />
+                                        <OpenModalButton
+                                            buttonText={"Delete Question"}
+                                            modalComponent={<DeleteQuestion question={question} questionId={question?.id} />}
+                                        />
+                                        </div>
+                                    </div>
+                                )
+                            }
+
+                        })}
+                    </div>
+                </div>
+            </div>
+        )
+    } else {
+        return (
+            <div className="profile-container">
+                <h1>{user.username}</h1>
+                <div className="profile-des">
+                    <h3>{user.description}</h3>
+                    {user.picture ? (
+                        <img className="profile-pic" src={user.picture} />
+                    ) : (
+                        <img className="profile-pic" src="https://res.cloudinary.com/dyt7uoeck/image/upload/v1695947352/noprofile-removebg_r8qryg.png" />
+                    )}
+                </div>
+                <div className="data-container">
+                    <div className="decks-div">
+                        <h1>Your decks:</h1>
+                        {deckIds.map((deckId) => {
+                            const deck = decks[deckId];
+                            const redirectToDeck = async (e) => {
+                                history.push(`/decks/${deckId}`)
+                            }
+                            return (
+                                <div className="profile-deck">
+                                    <h4 className="profile-deck-title" onClick={redirectToDeck}>{deck.title}</h4>
+                                    <div className="deck-buttons-div">
+                                    <OpenModalButton
+                                        buttonText={"Edit Deck"}
+                                        modalComponent={<EditDeck deck={deck} deckId={deck?.id} />}
+                                    />
+                                    <OpenModalButton
+                                        buttonText={"Delete Deck"}
+                                        modalComponent={<DeleteDeck deck={deck} deckId={deck?.id} />}
+                                    />
+                                    </div>
+                                </div>
+                            )
+                        })}
+                    </div>
+                    <div className="questions-div">
+                        <h1>Your Questions:</h1>
+                        {questionIds.map((questionId) => {
+                            const question = questions[questionId]
                             if (question !== undefined) {
                                 return (
                                     <div className="profile-question">
@@ -94,39 +163,6 @@ function MyProfile() {
                     </div>
                 </div>
             </div>
-        )
-    } else {
-        return (
-            <div className="profile-container">
-                <h1>{user.username}</h1>
-                <h3>{user.description}</h3>
-                <h1>Your Questions:</h1>
-                {questionIds.map((questionId) => {
-                    const question = questions[questionId]
-                    if (question !== undefined) {
-                        return (
-                            <div className="profile-question">
-                                <h4>{question.question}</h4>
-                                <OpenModalButton
-                                    buttonText={"Edit Question"}
-                                    modalComponent={<EditQuestion question={question} questionId={question?.id} />}
-                                />
-                                <OpenModalButton
-                                    buttonText={"Delete Question"}
-                                    modalComponent={<DeleteQuestion question={question} questionId={question?.id} />}
-                                />
-                            </div>
-                        )
-                    } else {
-                        return (
-                            <>
-                            </>
-                        )
-                    }
-
-                })}
-            </div>
-
         )
 
     }

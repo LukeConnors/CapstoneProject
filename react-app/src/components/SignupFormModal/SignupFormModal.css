@@ -22,3 +22,7 @@
     border-radius: 5px;
     border: 1px #06c0d1 solid;
 }
+
+.login-button:hover{
+    cursor: pointer;
+}

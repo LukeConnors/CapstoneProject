@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { signUp } from "../../store/session";
-import "./SignupForm.css";
+import "./SignupFormModal.css";
 
 function SignupFormModal() {
 	const dispatch = useDispatch();
@@ -10,7 +10,7 @@ function SignupFormModal() {
 		email: "",
 		username: "",
 		description: "",
-		picture: "",
+		// picture: "",
 		password: ""
 	});
 	const [confirmPassword, setConfirmPassword] = useState("");
@@ -22,7 +22,7 @@ function SignupFormModal() {
 		formDataToSend.append("username", formData.username)
 		formDataToSend.append("email", formData.email)
 		formDataToSend.append("description", formData.description)
-		formDataToSend.append("picture", formData.picture)
+		// formDataToSend.append("picture", formData.picture || "")
 		formDataToSend.append("password", formData.password)
 		e.preventDefault();
 		if (formData.password === confirmPassword) {
@@ -38,8 +38,8 @@ function SignupFormModal() {
 			]);
 		}
 	};
+	console.log("this is our frontend form data!!!!", formData)
 
-	console.log("!!!!!!!!!!!", formData)
 	return (
 		<div className="signup-container">
 			<h1>Sign Up</h1>
@@ -55,7 +55,6 @@ function SignupFormModal() {
 					className="form-input-signup"
 					value={formData.email}
 					onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-					required
 				/>
 
 				<h3>Username</h3>
@@ -64,24 +63,23 @@ function SignupFormModal() {
 					className="form-input-signup"
 					value={formData.username}
 					onChange={(e) => setFormData({ ...formData, username: e.target.value })}
-					required
 				/>
 				<h4>Tell us about yourself... Your interests, hobbies, passion for trivia, etc.</h4>
 				<textarea
 					className="form-input-signup-des"
 					value={formData.description}
 					onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-					required
 				/>
 
 					<h3>Upload a profile picture</h3>
-					<input
+					<p>Feature coming soon!</p>
+					{/* <input
 						type="file"
 						className="profile-upload"
 						accept=".png, .jpeg, .jpg"
 						onChange={(e) => setFormData({ ...formData, picture: e.target.files[0] })}
 						required
-					/>
+					/> */}
 
 					<h3>Password</h3>
 					<input
@@ -89,7 +87,6 @@ function SignupFormModal() {
 						className="form-input-signup"
 						value={formData.password}
 						onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-						required
 					/>
 					<h3>Confirm Password</h3>
 					<input
@@ -97,7 +94,6 @@ function SignupFormModal() {
 						className="form-input-signup"
 						value={confirmPassword}
 						onChange={(e) => setConfirmPassword(e.target.value)}
-						required
 					/>
 					<div className="login-button-div">
 				<button className="login-button" type="submit">Sign Up</button>
