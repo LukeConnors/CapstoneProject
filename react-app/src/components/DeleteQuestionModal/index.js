@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import * as questionActions from "../../store/questions"
+import "./DeleteQuestion.css"
 
 
 function DeleteQuestion({question, questionId}){
@@ -20,7 +21,6 @@ function DeleteQuestion({question, questionId}){
     useEffect(() => {
         if (deleted) {
           const timeout = setTimeout(() => {
-            dispatch(questionActions.fetchMyQuestions())
             closeModal();
           }, 1500);
 
@@ -29,7 +29,7 @@ function DeleteQuestion({question, questionId}){
       }, [deleted, closeModal]);
 
       return (
-        <div className="delete-modal">
+        <div className="delete-q-modal">
             {deleted ? (
                 <>
                 <h1>Deleted Successfully!</h1>
@@ -38,8 +38,8 @@ function DeleteQuestion({question, questionId}){
             <>
             <h1>Are you sure you want to delete your Question?</h1>
             <div className="delete-deck-btn">
-                <button onClick={handleCancel}>Cancel</button>
-                <button className="delete btn" onClick={handleDelete}>
+                <button className="cancel-btn" onClick={handleCancel}>Cancel</button>
+                <button className="delete-btn" onClick={handleDelete}>
                     Delete
                 </button>
 

@@ -1,0 +1,10 @@
+.edit-form-container{
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+height: 500px;
+width: 1000px;
+border-radius: 5px;
+border: #06c0d1 1px solid;
+}

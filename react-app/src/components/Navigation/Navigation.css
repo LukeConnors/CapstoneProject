@@ -55,6 +55,10 @@
   padding: 5px 18px;
 }
 
+.login-signup > button:hover{
+cursor: pointer;
+}
+
 .login-div{
   margin-bottom: 5px;
 }
@@ -74,4 +78,29 @@
   text-decoration: none;
   color: gray;
   font-size: 24px;
+}
+
+.nav-div{
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-div-profile-button{
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-div-profile-button > button{
+border-radius: 50px;
+height: 50px;
+width: 50px;
+background-color: #06c0d1;
+}
+
+.nav-div-profile-button > button:hover{
+cursor: pointer;
 }

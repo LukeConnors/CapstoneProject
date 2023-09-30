@@ -1,0 +1,10 @@
+.edit-question-container{
+    height: 1100px;
+    width: 1000px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 5px;
+    border: #06c0d1 1px solid;
+}

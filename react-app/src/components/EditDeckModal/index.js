@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { useHistory } from 'react-router-dom'
 import * as deckActions from "../../store/decks"
+import "./EditDeck.css"
 
 
 
@@ -47,7 +48,7 @@ function EditDeck({deck, deckId}){
     }
 
 return (
-    <div className="form-container">
+    <div className="edit-form-container">
         <h1>Edit your Deck</h1>
         <form onSubmit={handleSubmit}>
         <h2>Give your Deck a Title:</h2>
@@ -105,7 +106,9 @@ return (
             Celebrities
         </option>
         </select>
-        <button type="submit">Submit</button>
+        <div className="login-button-div">
+        <button className="login-button" type="submit">Submit</button>
+        </div>
         </form>
 
     </div>

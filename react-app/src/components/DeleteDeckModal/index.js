@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { useHistory } from 'react-router-dom'
 import * as deckActions from "../../store/decks"
+import "./DeleteDeck.css"
 
 
 
@@ -25,7 +26,6 @@ function DeleteDeck({deck, deckId}){
         if (deleted) {
           const timeout = setTimeout(() => {
             closeModal();
-            history.push(`/decks/deck_category?category=${deck?.category}`)
           }, 1500);
 
           return () => clearTimeout(timeout);
@@ -42,8 +42,8 @@ function DeleteDeck({deck, deckId}){
             <>
             <h1>Are you sure you want to delete your Deck?</h1>
             <div className="delete-deck-btn">
-                <button onClick={handleCancel}>Cancel</button>
-                <button className="delete btn" onClick={handleDelete}>
+                <button className="cancel-btn" onClick={handleCancel}>Cancel</button>
+                <button className="delete-btn" onClick={handleDelete}>
                     Delete
                 </button>
 

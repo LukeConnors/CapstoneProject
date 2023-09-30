@@ -14,6 +14,10 @@ export const questionsSelector = (state) => {
     return state.questions
 }
 
+export const deckQuestionsSelector = (state) => {
+    return state.questions.deckQuestions
+}
+
 const setQuestions = (questions) => ({
     type: SET_QUESTIONS,
     questions
@@ -142,25 +146,27 @@ export const editQuestion = (questionId, payload) => async (dispatch) => {
 }
 
 export const removeQuestion = (questionId) => async (dispatch) => {
-    const res = fetch(`/api/questions/${questionId}`, {
+    const res = await fetch(`/api/questions/${questionId}`, {
         method: "DELETE"
     });
     if (res.ok) {
-        const message = await res.json();
+        // const message = await res.json();
+        console.log("THIS IS BEFORE THE DISPATCH")
         dispatch(deleteQuestion(questionId))
-        return message
+        console.log("WE MADE IT PAST DISPATCH")
+        // return message
     }
 }
 
 // Remove a deck question
 export const removeDeckQuestion = (deckId, questionId) => async (dispatch) => {
-    const res = fetch(`/api/decks/${deckId}/questions/${questionId}`, {
+    const res = await fetch(`/api/decks/${deckId}/questions/${questionId}`, {
         method: "DELETE"
     });
     if (res.ok) {
-        const message = await res.json();
+        // const message = await res.json();
         dispatch(deleteDeckQuestion(deckId, questionId))
-        return message
+        // return message
     }
 }
 
@@ -201,8 +207,22 @@ const questionsReducer = (state = {}, action) => {
             const questionId = action.payload.id
             newState[questionId] = { ...state[questionId], ...action.payload }
             return newState
-        // case DELETE_DECK_QUESTION:
-        //     delete newState.deckQuestions[action.payload]
+
+        case DELETE_QUESTION:
+            const q_id = action.payload
+            newState ={
+                ...state,
+                deckQuestions: { ...state.deckQuestions }
+            }
+            delete newState[q_id]
+            return newState
+        case DELETE_DECK_QUESTION:
+            newState = {
+                ...state,
+                deckQuestions: { ...state.deckQuestions }
+            }
+            delete newState.deckQuestions[action.payload]
+            return newState
         default:
             return state;
     }

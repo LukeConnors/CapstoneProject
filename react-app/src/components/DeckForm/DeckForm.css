@@ -1,0 +1,55 @@
+.form-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: 0px 2px 17px 1px rgba(0, 0, 0, 0.4);
+    width: 65%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.form-input{
+    width: 900px;
+    height: 50px;
+    border-radius: 5px;
+    border: 1px #06c0d1 solid;
+}
+
+.des-form-input{
+    width: 900px;
+    height: 180px;
+    border-radius: 5px;
+    border: 1px #06c0d1 solid;
+}
+
+.deck-form-button-div{
+display: flex;
+align-items: center;
+justify-content: center;
+margin-top: 20px;
+
+}
+
+.errors{
+    color: red;
+}
+
+
+.deck-sub-button{
+background-color: #06c0d1;
+border-radius: 20px;
+height: 40px;
+width: 100px;
+margin-bottom: 20px;
+}
+
+.deck-sub-button:hover{
+    cursor: pointer;
+}
+
+label{
+    margin: 5px;
+    font-size: 20px;
+}

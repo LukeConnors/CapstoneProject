@@ -14,9 +14,6 @@ export const deckDetailsSelector = (state) => {
     return state.decks.detailedDeck
 }
 
-export const deckQuestionsSelector = (state) => {
-    return state.decks.deckQuestions
-}
 
 const setDecks = (decks) => ({
     type: SET_DECKS,
@@ -123,13 +120,13 @@ export const editDeck = (deckId, payload) => async (dispatch) => {
 
 // Delete a deck owned by the logged in user
 export const removeDeck = (deckId) => async (dispatch) => {
-    const res = fetch(`/api/decks/${deckId}`, {
+    const res = await fetch(`/api/decks/${deckId}`, {
         method: "DELETE"
     });
     if(res.ok){
-        const message = await res.json();
+        // const message = await res.json();
         dispatch(deleteDeck(deckId))
-        return message
+        // return message
     }
 }
 
@@ -157,6 +154,13 @@ const decksReducer = (state = {}, action) => {
             const deckId = action.payload.id
             newState[deckId] = {...state[deckId], ...action.payload}
             newState.detailedDeck = {...state.detailedDeck, ...action.payload}
+            return newState
+        case DELETE_DECK:
+            const d_id = action.payload
+            newState = {
+                ...state
+            }
+            delete newState[d_id]
             return newState
         default:
             return state;

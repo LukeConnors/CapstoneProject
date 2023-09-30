@@ -12,7 +12,7 @@ function SignupFormModal() {
 		description: "",
 		picture: "",
 		password: ""
-	  });
+	});
 	const [confirmPassword, setConfirmPassword] = useState("");
 	const [errors, setErrors] = useState([]);
 	const { closeModal } = useModal();
@@ -41,7 +41,7 @@ function SignupFormModal() {
 
 	console.log("!!!!!!!!!!!", formData)
 	return (
-		<>
+		<div className="signup-container">
 			<h1>Sign Up</h1>
 			<form onSubmit={handleSubmit}>
 				<ul>
@@ -49,63 +49,61 @@ function SignupFormModal() {
 						<li key={idx}>{error}</li>
 					))}
 				</ul>
-				<label>
-					Email
+				<h3>Email</h3>
+				<input
+					type="text"
+					className="form-input-signup"
+					value={formData.email}
+					onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+					required
+				/>
+
+				<h3>Username</h3>
+				<input
+					type="text"
+					className="form-input-signup"
+					value={formData.username}
+					onChange={(e) => setFormData({ ...formData, username: e.target.value })}
+					required
+				/>
+				<h4>Tell us about yourself... Your interests, hobbies, passion for trivia, etc.</h4>
+				<textarea
+					className="form-input-signup-des"
+					value={formData.description}
+					onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+					required
+				/>
+
+					<h3>Upload a profile picture</h3>
 					<input
-						type="text"
-						value={formData.email}
-						onChange={(e) => setFormData({...formData, email: e.target.value})}
+						type="file"
+						className="profile-upload"
+						accept=".png, .jpeg, .jpg"
+						onChange={(e) => setFormData({ ...formData, picture: e.target.files[0] })}
 						required
 					/>
-				</label>
-				<label>
-					Username
-					<input
-						type="text"
-						value={formData.username}
-						onChange={(e) => setFormData({...formData, username: e.target.value})}
-						required
-					/>
-				</label>
-				<label>
-          Tell us about yourself... Your interests, hobbies, passion for trivia, etc.
-          <input
-            type="text"
-            value={formData.description}
-            onChange={(e) => setFormData({...formData, description: e.target.value})}
-            required
-          />
-        </label>
-        <label>
-          Upload a profile picture
-          <input
-            type="file"
-            accept=".png, .jpeg, .jpg"
-            onChange={(e) => setFormData({...formData, picture: e.target.files[0]})}
-            required
-          />
-        </label>
-				<label>
-					Password
+
+					<h3>Password</h3>
 					<input
 						type="password"
+						className="form-input-signup"
 						value={formData.password}
-						onChange={(e) => setFormData({...formData, password: e.target.value})}
+						onChange={(e) => setFormData({ ...formData, password: e.target.value })}
 						required
 					/>
-				</label>
-				<label>
-					Confirm Password
+					<h3>Confirm Password</h3>
 					<input
 						type="password"
+						className="form-input-signup"
 						value={confirmPassword}
 						onChange={(e) => setConfirmPassword(e.target.value)}
 						required
 					/>
-				</label>
-				<button type="submit">Sign Up</button>
+					<div className="login-button-div">
+				<button className="login-button" type="submit">Sign Up</button>
+				</div>
 			</form>
-		</>
+		</div>
 	);
 }
 

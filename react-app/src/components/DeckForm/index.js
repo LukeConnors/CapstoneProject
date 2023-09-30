@@ -4,6 +4,7 @@ import { useModal } from "../../context/Modal";
 import { useHistory } from 'react-router-dom'
 import * as deckActions from "../../store/decks"
 import * as userActions from "../../store/session"
+import "./DeckForm.css"
 
 
 function DeckForm(){
@@ -65,7 +66,7 @@ return (
         <textarea
         cols="30"
         rows="5"
-        className="form-input"
+        className="des-form-input"
         placeholder="Description"
         value={formData.description}
         onChange={(e) => setFormData({ ...formData, description: e.target.value })}
@@ -75,6 +76,7 @@ return (
         <select
         name="categories"
         value={formData?.category}
+        className="form-input"
         onChange={(e)=> setFormData({ ...formData, category: e.target.value })}
         >
         <option>
@@ -105,7 +107,9 @@ return (
             Celebrities
         </option>
         </select>
-        <button type="submit">Submit</button>
+        <div className="deck-form-button-div">
+        <button className="deck-sub-button" type="submit">Submit</button>
+        </div>
         </form>
 
     </div>

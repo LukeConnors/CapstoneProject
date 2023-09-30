@@ -14,7 +14,7 @@ function DeckQuestionsPage() {
     const dispatch = useDispatch();
     const deckOwner = useSelector(userActions.userSelector)
     const currentUser = useSelector(state => state.session.user)
-    const deckQuestions = useSelector(state => state.questions.deckQuestions)
+    const deckQuestions = useSelector(questionActions.deckQuestionsSelector)
     const dqIds = Object.keys(deckQuestions || {});
 
     useEffect(() => {
@@ -31,8 +31,8 @@ function DeckQuestionsPage() {
             {dqIds.map((dqId) => {
                 const deckQuestion = deckQuestions[dqId]
                 console.log("deck question!!!!!!!", deckQuestion)
-                const handleRemoveClick = () => {
-                    dispatch(questionActions.removeDeckQuestion(deckId, deckQuestion?.id))
+                const handleRemoveClick = async () => {
+                   await dispatch(questionActions.removeDeckQuestion(deckId, deckQuestion?.id))
                 }
                 if (!deckQuestion) {
                     return (

@@ -1,0 +1,50 @@
+.delete-modal{
+    height: 200px;
+    width: 650px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 5px;
+    border: #06c0d1 1px solid;
+}
+
+.delete-btn{
+background-color: #833308;
+border-radius: 20px;
+height: 40px;
+width: 100px;
+margin-bottom: 20px;
+color: white;
+transition: transform 0.2s ease-in;
+}
+
+.delete-btn:hover{
+    cursor: pointer;
+    transform: scale(.95);
+    background-color: #b0450b;
+}
+
+.cancel-btn {
+background-color: #06c0d1;
+border-radius: 20px;
+height: 40px;
+width: 100px;
+margin-bottom: 20px;
+transition: transform 0.2s ease-in;
+}
+
+.cancel-btn:hover{
+    cursor: pointer;
+    transform: scale(.95);
+    background-color: #09929f;
+}
+
+.delete-deck-btn{
+    display: flex;
+    width: 300px;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+
+}

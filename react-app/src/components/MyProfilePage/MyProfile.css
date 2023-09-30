@@ -1,0 +1,80 @@
+.profile-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.decks-div{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.data-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    height: auto;
+    width: 2000px;
+}
+
+.profile-des{
+    width: 1200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.profile-pic{
+    height: 200px;
+    width: 200px;
+}
+
+.profile-deck{
+    width: 400px;
+    height: 130px;
+    border: 2px solid black;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: transform 0.2s ease-in-out;
+}
+
+.profile-deck:hover{
+    transform: scale(1.02);
+}
+
+.profile-deck-title{
+    cursor: pointer;
+}
+
+.profile-question{
+    width: 400px;
+    height: 130px;
+    border: 2px solid black;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: transform 0.2s ease-in-out;
+}
+
+.profile-question:hover{
+    cursor: pointer;
+    transform: scale(1.02);
+}
+
+.question-buttons-div > button {
+    cursor: pointer;
+}
+
+.deck-buttons-div > button {
+    cursor: pointer;
+}
