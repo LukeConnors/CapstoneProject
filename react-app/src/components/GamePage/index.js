@@ -69,6 +69,7 @@ function GamePage() {
                 } else {
                     //  When reaching end of questions open completion page
                     setModalContent(<Completion correct={correct + tempCorrect} wrong={wrong + tempWrong} deckId={deckId} />)
+                    history.push(`/decks/${deckId}`)
                 }
                 return () => clearTimeout(timeout)
             }, 3000)
@@ -133,7 +134,7 @@ function GamePage() {
         return (
             <>
                 <h1>This deck has no questions yet!</h1>
-                <button onClick={handleHomeClick}>Take Me Home</button>
+                <button className="login-button" onClick={handleHomeClick}>Take Me Home</button>
             </>
 
         )

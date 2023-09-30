@@ -16,6 +16,10 @@ const dispatch = useDispatch();
 const decks = useSelector(decksSelector)
 const deckIds = Object.keys(decks || {});
 
+const handleBack = () => {
+    history.push(`/`)
+}
+
 useEffect(() => {
     dispatch(deckActions.fetchDecksCategory(category))
 }, [dispatch])
@@ -33,8 +37,8 @@ if(deckIds.length && category === "General%20Knowledge"){
                 return null
             }
             return(
-            <div className="outer">
-            <div className="cat-card"  onClick={redirectToDeck}>
+            <div className="outer" onClick={redirectToDeck}>
+            <div className="cat-card">
                 <h2>{deck.title}</h2>
             </div>
             </div>
@@ -59,9 +63,11 @@ if(deckIds.length && category === "General%20Knowledge"){
                 return null
             }
             return(
-            <div className="cat-card">
-                <h2 onClick={redirectToDeck}>{deck.title}</h2>
-            </div>
+                <div className="outer" onClick={redirectToDeck}>
+                <div className="cat-card">
+                    <h2>{deck.title}</h2>
+                </div>
+                </div>
             )
 
            })}
@@ -72,6 +78,7 @@ if(deckIds.length && category === "General%20Knowledge"){
     return (
         <>
         <h1>No Decks created for this Category yet!</h1>
+        <button className="login-button" onClick={handleBack}>Home</button>
         </>
 
     )

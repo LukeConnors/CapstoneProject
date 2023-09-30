@@ -107,9 +107,10 @@ function QuestionForm() {
     }
     return (
         <div className="question-form-container">
+            <h1>Create Your Question:</h1>
             <form onSubmit={handleSubmit}>
-                <div className="errors">{errors?.question}</div>
                 <h3>Question</h3>
+                <div className="errors">{errors?.question}</div>
                 <textarea
                     id="question"
                     name="question"
@@ -117,8 +118,8 @@ function QuestionForm() {
                     value={formData.question}
                     onChange={handleChange}
                 />
-                <div className="errors">{errors?.correct_answer}</div>
                 <h3>Correct Answer</h3>
+                <div className="errors">{errors?.correct_answer}</div>
                 <input
                     type="text"
                     id="correct_answer"
@@ -127,8 +128,8 @@ function QuestionForm() {
                     value={formData.correct_answer}
                     onChange={handleChange}
                 />
-                <div className="errors">{errors?.incorrect_answer1}</div>
                 <h3>Incorrect Answer #1</h3>
+                <div className="errors">{errors?.incorrect_answer1}</div>
                 <input
                     type="text"
                     id="incorrect_answer1"
@@ -137,8 +138,8 @@ function QuestionForm() {
                     value={formData.incorrect_answer1}
                     onChange={handleChange}
                 />
-                <div className="errors">{errors?.incorrect_answer2}</div>
                 <h3>Incorrect Answer #2</h3>
+                <div className="errors">{errors?.incorrect_answer2}</div>
                 <input
                     type="text"
                     id="incorrect_answer2"
@@ -147,8 +148,8 @@ function QuestionForm() {
                     value={formData.incorrect_answer2}
                     onChange={handleChange}
                 />
-                <div className="errors">{errors?.incorrect_answer3}</div>
                 <h3>Incorrect Answer #3</h3>
+                <div className="errors">{errors?.incorrect_answer3}</div>
                 <input
                     type="text"
                     id="incorrect_answer3"
@@ -157,8 +158,8 @@ function QuestionForm() {
                     value={formData.incorrect_answer3}
                     onChange={handleChange}
                 />
-                <div className="errors">{errors?.category}</div>
                 <h3>Category</h3>
+                <div className="errors">{errors?.category}</div>
                 <select
                     id="category"
                     name="category"
@@ -173,8 +174,8 @@ function QuestionForm() {
                         </option>
                     ))}
                 </select>
-                <div className="errors">{errors?.type}</div>
                 <h3>Type</h3>
+                <div className="errors">{errors?.type}</div>
                 <select
                     className="form-input"
                     value={formData.type}
@@ -185,8 +186,8 @@ function QuestionForm() {
                     <option value="multiple">Multiple Choice</option>
                     <option value="boolean">True/False</option>
                 </select>
-                <div className="errors">{errors?.difficulty}</div>
                 <h3>Difficulty</h3>
+                <div className="errors">{errors?.difficulty}</div>
                 <select
                     className="form-input"
                     value={formData.difficulty}

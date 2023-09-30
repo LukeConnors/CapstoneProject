@@ -29,4 +29,11 @@
     height: 40px;
     width: 100px;
     margin-bottom: 20px;
+    transition: transform 0.2s ease-in;
+}
+
+.login-button:hover {
+    cursor: pointer;
+    transform: scale(.95);
+    background-color: #037b86;
 }

@@ -6,6 +6,7 @@ import * as userActions from "../../store/session"
 import * as questionActions from "../../store/questions"
 import OpenModalButton from "../OpenModalButton";
 import AddQuestion from "../AddQuestionModal";
+import "./DeckQuestions.css"
 
 
 function DeckQuestionsPage() {
