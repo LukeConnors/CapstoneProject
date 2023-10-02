@@ -22,35 +22,37 @@ function LoginFormPage() {
   };
 
   return (
-    <>
-      <h1>Log In</h1>
+    <div className="loginform-container">
+      <h1 className="login-title">Log In</h1>
       <form onSubmit={handleSubmit}>
         <ul>
           {errors.map((error, idx) => (
-            <li key={idx}>{error}</li>
+            <li className="errors" key={idx}>{error}</li>
           ))}
         </ul>
         <label>
           Email
           <input
             type="text"
+            className="form-input"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            required
           />
         </label>
         <label>
           Password
           <input
             type="password"
+            className="form-input"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            required
           />
         </label>
-        <button type="submit">Log In</button>
+        <div className="login-button-div">
+        <button className="login-button" type="submit">Log In</button>
+        </div>
       </form>
-    </>
+    </div>
   );
 }
 

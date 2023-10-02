@@ -25,6 +25,7 @@ function DeleteDeck({deck, deckId}){
     useEffect(() => {
         if (deleted) {
           const timeout = setTimeout(() => {
+            history.push(`/decks/deck_category?category=${deck.category}`)
             closeModal();
           }, 1500);
 

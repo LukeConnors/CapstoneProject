@@ -20,6 +20,10 @@ const handleBack = () => {
     history.push(`/`)
 }
 
+const handleCreateClick = () => {
+    history.push('/new_deck')
+}
+
 useEffect(() => {
     dispatch(deckActions.fetchDecksCategory(category))
 }, [dispatch])
@@ -76,10 +80,13 @@ if(deckIds.length && category === "General%20Knowledge"){
     )
 } else {
     return (
-        <>
+        <div className="no-decks-container">
         <h1>No Decks created for this Category yet!</h1>
+        <div className="no-decks-button-div">
         <button className="login-button" onClick={handleBack}>Home</button>
-        </>
+        <button className="login-button" onClick={handleCreateClick}>Create a deck</button>
+        </div>
+        </div>
 
     )
 

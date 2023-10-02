@@ -23,25 +23,25 @@ function GamePage() {
     const [disable, setDisable] = useState(false)
     const [questionIndex, setquestionIndex] = useState(0);
     let answersArray = []
-
+    let num = Math.floor(Math.random() * 3)
+    console.log("THIS IS THE RANDOM NUMBER!",num)
 
     useEffect(() => {
-        dispatch(questionActions.fetchDeckQuestions(deckId))
+        dispatch(deckActions.fetchDetails(deckId))
+        .then(dispatch(questionActions.fetchDeckQuestions(deckId)))
     }, [dispatch])
 
-    useEffect(() => {
-        shuffle(answersArray)
-    }, [disable])
+    // useEffect(() => {
+    //     shuffle(answersArray)
+    // }, [disable, currentQuestion])
 
     if (questionIds.length) {
-
         //  Key into the current question
         const currentQuestion = questions[questionIds[questionIndex]]
-
-        // Put all answers together and randomize them
-
         const incorrect = currentQuestion.incorrect_answers.split(', ');
         answersArray = currentQuestion.incorrect_answers.split(', ');
+
+        // Put all answers together and randomize them
         answersArray.push(currentQuestion.correct_answer)
 
 
@@ -131,10 +131,14 @@ function GamePage() {
         const handleHomeClick = async () => {
             history.push('/')
         }
+        const handleDeckClick = async () => {
+            history.push(`/decks/${deckId}`)
+        }
         return (
             <>
                 <h1>This deck has no questions yet!</h1>
                 <button className="login-button" onClick={handleHomeClick}>Take Me Home</button>
+                <button className="login-button" onClick={handleDeckClick}>Return to Deck</button>
             </>
 
         )

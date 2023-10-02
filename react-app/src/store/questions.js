@@ -174,7 +174,6 @@ const questionsReducer = (state = {}, action) => {
     let newState = {}
     switch (action.type) {
         case SET_QUESTIONS:
-            newState.deckQuestions = state.deckQuestions
             action.questions.forEach(question => newState[question.id] = question);
             return newState
         case SET_DECK_QUESTIONS:
