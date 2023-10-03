@@ -1,7 +1,8 @@
 from flask import Blueprint, jsonify, session, request
-from app.models import Question, Deck, Deck_question, Review, db
+from app.models import Question, User, Deck, Deck_question, Review, db
 from app.forms import DeckForm, ReviewForm
 from flask_login import current_user, login_required
+from sqlalchemy.orm import joinedload
 # import requests
 
 deck_routes = Blueprint('decks', __name__)
@@ -45,7 +46,8 @@ def get_deck(id):
 # GET all reviews by deck ID
 @deck_routes.route('/<int:id>/reviews')
 def get_deck_reviews(id):
-    reviews = Review.query.filter(Review.deck_id == id)
+    reviews = Review.query.join(User).filter(Review.deck_id == id).all()
+    
     return {"reviews": [review.to_dict() for review in reviews]}
 
 # POST a deck to decks

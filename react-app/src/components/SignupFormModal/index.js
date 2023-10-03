@@ -38,7 +38,6 @@ function SignupFormModal() {
 			]);
 		}
 	};
-	console.log("this is our frontend form data!!!!", formData)
 
 	return (
 		<div className="signup-container">

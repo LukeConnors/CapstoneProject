@@ -31,7 +31,6 @@ export const fetchReviews = (deckId) => async (dispatch) => {
     try{
         const res = await fetch(`/api/decks/${deckId}/reviews`)
         const data = await res.json();
-        console.log("THIS IS OUR DATA", data)
         dispatch(setReviews(data.reviews))
         return data
     } catch(e){

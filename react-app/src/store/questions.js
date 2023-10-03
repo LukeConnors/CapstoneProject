@@ -151,9 +151,7 @@ export const removeQuestion = (questionId) => async (dispatch) => {
     });
     if (res.ok) {
         // const message = await res.json();
-        console.log("THIS IS BEFORE THE DISPATCH")
         dispatch(deleteQuestion(questionId))
-        console.log("WE MADE IT PAST DISPATCH")
         // return message
     }
 }

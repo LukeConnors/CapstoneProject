@@ -17,8 +17,6 @@ function AddQuestion({ deckId }) {
     const deckQuestions = useSelector(state => state.questions.deckQuestions)
     const deckQuestionIds = Object.keys(deckQuestions || {})
     const questionIds = Object.keys(questions || {})
-    console.log("these are the deckQuestionIds", deckQuestionIds)
-    console.log("these are the questionIds", questionIds)
     useEffect(() => {
         dispatch(questionActions.fetchQuestions())
     }, [dispatch])

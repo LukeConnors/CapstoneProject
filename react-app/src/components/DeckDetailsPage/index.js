@@ -28,20 +28,20 @@ function DeckDetails() {
     }, [dispatch, deckId])
 
 
-useEffect(() => {
-    const fetchReviewOwners = async () => {
-        const owners = {};
-        for (const reviewId of reviewIds) {
-            const review = reviews[reviewId];
-            const res = await fetch(`/api/users/${review.user_id}`);
-            const data = await res.json();
-            owners[reviewId] = data;
-        }
-        setReviewOwner(owners);
-    };
+    useEffect(() => {
+        const fetchReviewOwners = async () => {
+            const owners = {};
+            for (const reviewId of reviewIds) {
+                const review = reviews[reviewId];
+                const res = await fetch(`/api/users/${review.user_id}`);
+                const data = await res.json();
+                owners[reviewId] = data;
+            }
+            setReviewOwner(owners);
+        };
 
-    fetchReviewOwners();
-}, [dispatch, deckId]);
+        fetchReviewOwners();
+    }, [dispatch, deckId]);
 
     const handleQuestionsClick = async (e) => {
         history.push(`/decks/${deckId}/questions`)
@@ -49,7 +49,6 @@ useEffect(() => {
     const handleStartClick = async (e) => {
         history.push(`/decks/${deckId}/play`)
     }
-    console.log("this is our review owner", reviewOwner);
 
     return (
         <div className="details-container">
@@ -82,16 +81,30 @@ useEffect(() => {
             )}
             <button className="start-button" onClick={handleStartClick}>Start!</button>
             <div className="reviews-container">
-            {reviewIds.map((reviewId) => {
-                const review = reviews[reviewId];
-                const owner = reviewOwner[reviewId];
-                return (
+                {reviewIds.map((reviewId) => {
+                    const stars = [];
+                    const review = reviews[reviewId];
+                    for (let i = 0; i < review.stars; i++) {
+                        stars.push(<i class="fa-solid fa-star"></i>)
+                    }
+                    return (
                         <div className="review-card">
+                            <div className="review-head-div">
+                                <div className="stars-div">
+                                    {stars}
+                                </div>
+                                {review.user.picture ? (
+                                    <img className="review-pic" src={review.user.picture} />
+                                ) : (
+                                    <img className="review-pic" src="https://res.cloudinary.com/dyt7uoeck/image/upload/v1695947352/noprofile-removebg_r8qryg.png" />
+                                )}
+                            </div>
+
                             <h4>{review?.description}</h4>
-                            {/* <h2>{owner.username}</h2> */}
+                            <h3> - {review.user.username}</h3>
                         </div>
-                )
-            })}
+                    )
+                })}
             </div>
         </div>
     )

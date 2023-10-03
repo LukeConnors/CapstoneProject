@@ -99,7 +99,6 @@ export const signUp = (data) => async (dispatch) => {
 		return null;
 	} else if (response.status < 500) {
 		const data = await response.json();
-		console.log("THIS IS OUR DATA", data)
 		if (data.errors) {
 			console.log("THIS IS OUR ERROR", data.errors)
 			return data.errors;

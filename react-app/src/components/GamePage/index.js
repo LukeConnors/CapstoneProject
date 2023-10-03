@@ -17,14 +17,12 @@ function GamePage() {
     const dispatch = useDispatch();
     const questions = useSelector(questionActions.deckQuestionsSelector)
     const questionIds = Object.keys(questions || {})
-    console.log('THESE ARE THE QUESTIONS Ids!', questionIds)
     const [correct, setCorrect] = useState(0)
     const [wrong, setWrong] = useState(0)
     const [disable, setDisable] = useState(false)
     const [questionIndex, setquestionIndex] = useState(0);
     let answersArray = []
     let num = Math.floor(Math.random() * 3)
-    console.log("THIS IS THE RANDOM NUMBER!",num)
 
     useEffect(() => {
         dispatch(deckActions.fetchDetails(deckId))

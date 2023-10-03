@@ -32,7 +32,6 @@ function DeckQuestionsPage() {
         <div className="question-card-container">
             {dqIds.map((dqId) => {
                 const deckQuestion = deckQuestions[dqId]
-                console.log("deck question!!!!!!!", deckQuestion)
                 const handleRemoveClick = async () => {
                    await dispatch(questionActions.removeDeckQuestion(deckId, deckQuestion?.id))
                 }
