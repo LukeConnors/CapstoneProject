@@ -47,7 +47,7 @@ def get_deck(id):
 @deck_routes.route('/<int:id>/reviews')
 def get_deck_reviews(id):
     reviews = Review.query.join(User).filter(Review.deck_id == id).all()
-    
+
     return {"reviews": [review.to_dict() for review in reviews]}
 
 # POST a deck to decks
@@ -64,7 +64,6 @@ def create_deck():
             description=form.data["description"],
             category=form.data["category"],
         )
-        print("!!!!!!!!!!!THIS IS THE BACKEND NEW DECK!!!!!!!!!!!!!!!", new_deck)
         db.session.add(new_deck)
         db.session.commit()
         return new_deck.to_dict()
