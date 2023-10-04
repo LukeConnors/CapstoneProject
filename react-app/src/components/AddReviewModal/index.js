@@ -2,21 +2,21 @@ import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
 import { useModal } from "../../context/Modal";
 import * as reviewActions from "../../store/reviews"
+import { useParams } from "react-router-dom";
 import {FaStar} from "react-icons/fa"
 import "./AddReviewModal.css"
 
 
-function AddReview() {
+function AddReview(deckId) {
     const [errors, setErrors] = useState({});
     const dispatch = useDispatch();
-    const [stars, setStars] = useState(null)
+    const [reviewStars, setReviewStars] = useState(null)
     const [hover, setHover] = useState(null)
     const { closeModal } = useModal();
     const [formData, setFormData] = useState({
-        stars: "",
+        stars: reviewStars,
         description: "",
     })
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         let formErrors = {};
@@ -35,7 +35,7 @@ function AddReview() {
             setErrors(formErrors);
             return;
         }
-        let newReview = await dispatch(reviewActions.createReview(formData))
+        let newReview = await dispatch(reviewActions.createReview(deckId.deckId, formData))
         if (newReview && newReview?.id) {
             closeModal()
         }
@@ -57,19 +57,30 @@ function AddReview() {
                                     type="radio"
                                     name="stars"
                                     value={currentStars}
-                                    onClick={() => setStars(currentStars)}
-                                    checked={currentStars === stars}
+                                    onClick={() => setReviewStars(currentStars)}
+                                    onChange={(e) => setFormData({...formData, stars: currentStars})}
+                                    checked={currentStars === reviewStars}
                                 />
                                 <FaStar
                                 className="star"
-                                color={currentStars <= (hover || stars) ? "#06c0d1" : "#026770"}
+                                color={currentStars <= (hover || reviewStars) ? "#06c0d1" : "#026770"}
                                 onMouseEnter={() => setHover(currentStars)}
                                 onMouseLeave={() => setHover(null)}
                                 />
                             </label>
                         )
                     })}
-
+                    <h2>Give a Description of your experience:</h2>
+                    <div className="errors">{errors?.description}</div>
+                    <textarea
+                    cols="30"
+                    rows="5"
+                    className="form-input"
+                    placeholder="Description"
+                    value={formData.description}
+                    onChange={(e) => setFormData({...formData, description: e.target.value})}
+                    />
+                    <button className="login-button" type="submit">Submit</button>
                 </form>
 
             </div>

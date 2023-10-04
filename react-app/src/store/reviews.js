@@ -4,6 +4,9 @@ export const UPDATE_REVIEW = "reviews/UPDATE_REVIEW"
 export const DELETE_REVIEW = "reviews/DELETE_REVIEW"
 
 
+// export const reviewsSelector = (state) => {
+//     return state.reviews
+// }
 
 
 const setReviews = (reviews) => ({

@@ -10,10 +10,18 @@ import AddReview from "../AddReviewModal";
 function Completion({ correct, wrong, deckId }) {
     const history = useHistory()
     const { closeModal } = useModal()
+    const [existing, setExisting] = useState(false)
+    console.log("this is the existing status", existing)
+    const reviews = useSelector(state => state.reviews)
+    const reviewIds = Object.keys(reviews || {})
     const user = useSelector(state => state.session.user)
 
     const handleClick = () => {
         history.push(`/`)
+        closeModal()
+    }
+
+    const handleClose = () => {
         closeModal()
     }
     return (
@@ -33,13 +41,21 @@ function Completion({ correct, wrong, deckId }) {
             </div>
             <div className="completion-buttons-div">
                 <button className="login-button" onClick={handleClick}>Return Home</button>
-                {user ? (
+                <button className="login-button" onClick={handleClose}>Close</button>
+                {reviewIds.map((reviewId) => {
+                    const review = reviews[reviewId];
+                    if (user && review.userId === user.id) {
+                        setExisting(true)
+                    }
+                })}
+                {existing === false && user ? (
                     <OpenModalButton
                         buttonText={"Leave a Review"}
-                        modalComponent={<AddReview />}
+                        modalComponent={<AddReview deckId={deckId} />}
                     />
                 ) : (
-                    <></>
+                    <>
+                    </>
                 )}
             </div>
         </div>

@@ -25,6 +25,9 @@ function MyProfile() {
         dispatch(questionActions.fetchMyQuestions())
     }, [dispatch])
 
+    if(!user){
+        history.push('/login')
+    }
 
     if (deckIds.length) {
         return (
@@ -98,11 +101,11 @@ function MyProfile() {
     } else {
         return (
             <div className="profile-container">
-                <h1>{user.username}</h1>
+                <h1>{user?.username}</h1>
                 <div className="profile-des">
-                    <h3>{user.description}</h3>
-                    {user.picture ? (
-                        <img className="profile-pic" src={user.picture} />
+                    <h3>{user?.description}</h3>
+                    {user?.picture ? (
+                        <img className="profile-pic" src={user?.picture} />
                     ) : (
                         <img className="profile-pic" src="https://res.cloudinary.com/dyt7uoeck/image/upload/v1695947352/noprofile-removebg_r8qryg.png" />
                     )}
