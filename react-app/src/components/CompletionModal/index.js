@@ -49,10 +49,12 @@ function Completion({ correct, wrong, deckId }) {
                     }
                 })}
                 {existing === false && user ? (
+                    <div className="com-rev-button">
                     <OpenModalButton
                         buttonText={"Leave a Review"}
                         modalComponent={<AddReview deckId={deckId} />}
                     />
+                    </div>
                 ) : (
                     <>
                     </>

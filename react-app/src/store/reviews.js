@@ -61,6 +61,35 @@ export const createReview = (deckId, payload) => async (dispatch) => {
     }
 }
 
+export const editReview = (reviewId, payload) => async (dispatch) => {
+    try{
+        const res = await fetch(`/api/reviews/${reviewId}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+
+            },
+            body: JSON.stringify(payload)
+        });
+        if(res.ok){
+            const editedReview = await res.json();
+            dispatch(updateReview(editedReview))
+            return editedReview
+        }
+    } catch (e){
+        return e
+    }
+}
+
+export const removeReview = (reviewId) => async (dispatch) => {
+    const res = await fetch(`/api/reviews/${reviewId}`, {
+        method: "DELETE",
+    });
+    if(res.ok){
+        dispatch(deleteReview(reviewId))
+    }
+}
+
 const reviewsReducer = (state = {}, action) => {
     let newState = {}
     switch (action.type) {
@@ -71,6 +100,16 @@ const reviewsReducer = (state = {}, action) => {
             const newReview = action.payload
             newState = {...state}
             newState[newReview.id] = newReview
+            return newState
+        case UPDATE_REVIEW:
+            newState = {...state}
+            const reviewId = action.payload.id
+            newState[reviewId] = {...state[reviewId], ...action.payload}
+            return newState
+        case DELETE_REVIEW:
+            const r_id = action.payload
+            newState = {...state}
+            delete newState[r_id]
             return newState
         default:
             return state

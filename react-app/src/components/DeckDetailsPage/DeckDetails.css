@@ -69,6 +69,10 @@ transform: scale(1.02);
     border: 2px black solid;
     border-radius: 10px;
     padding: 10px;
+    margin: 20px;
+    width: 95%;
+    height: 90%;
+    overflow: auto;
 }
 
 .review-pic{
@@ -85,4 +89,23 @@ transform: scale(1.02);
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.rev-button-container > button {
+        background-color: #06c0d1;
+        border-radius: 20px;
+        height: 40px;
+        width: 100px;
+        margin-bottom: 20px;
+        transition: transform 0.2s ease-in;
+}
+.rev-button-container > button:hover {
+    cursor: pointer;
+    transform: scale(1.02);
+}
+
+.rev-button-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

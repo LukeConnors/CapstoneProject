@@ -48,3 +48,12 @@
 .com-title{
     width: 130px;
 }
+
+.com-rev-button > button {
+        background-color: #06c0d1;
+        border-radius: 20px;
+        height: 40px;
+        width: 100px;
+        margin-bottom: 20px;
+        transition: transform 0.2s ease-in;
+}

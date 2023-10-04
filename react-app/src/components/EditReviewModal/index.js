@@ -1,26 +1,27 @@
-import { useState } from "react"
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
+import { useHistory } from 'react-router-dom'
 import * as reviewActions from "../../store/reviews"
-import { useParams } from "react-router-dom";
 import {FaStar} from "react-icons/fa"
-import "./AddReviewModal.css"
+import "./EditReviewModal.css"
 
 
-function AddReview(deckId) {
-    const [errors, setErrors] = useState({});
+
+function EditReview({review, reviewId}){
+    const {closeModal} = useModal();
     const dispatch = useDispatch();
-    const [reviewStars, setReviewStars] = useState(null)
+    const [reviewStars, setReviewStars] = useState(review.stars)
     const [hover, setHover] = useState(null)
-    const { closeModal } = useModal();
+    const [errors, setErrors] = useState({})
     const [formData, setFormData] = useState({
-        stars: reviewStars,
-        description: "",
+        stars: review.stars,
+        description: review.description
     })
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         let formErrors = {};
-
         if (!formData.stars) {
             formErrors.stars = "Please provide a star rating"
         }
@@ -30,23 +31,24 @@ function AddReview(deckId) {
         if (formData.description.length < 25) {
             formErrors.description = "Description needs to be 25 or more characters";
         }
-
         if (Object.keys(formErrors).length > 0) {
             setErrors(formErrors);
             return;
         }
-        let newReview = await dispatch(reviewActions.createReview(deckId.deckId, formData))
-        if (newReview && newReview?.id) {
+
+        let editedReview = await dispatch(reviewActions.editReview(reviewId, formData))
+        if(editedReview && editedReview?.id){
             closeModal()
+        } else {
+            return editedReview
         }
     }
-
-    return (
+    return(
         <div>
             <div className="form-container">
-                <h1>Add your Review</h1>
+                <h1>Edit your Review</h1>
                 <form onSubmit={handleSubmit}>
-                    <h2>Rate your experience 1-5 stars:</h2>
+                <h2>Rate your experience 1-5 stars:</h2>
                     <div className="errors">{errors?.stars}</div>
                     {[...Array(5)].map((star, index) => {
                         const currentStars = index + 1
@@ -56,7 +58,7 @@ function AddReview(deckId) {
                                     className="star-input"
                                     type="radio"
                                     name="stars"
-                                    value={currentStars}
+                                    value={formData.stars}
                                     onClick={() => setReviewStars(currentStars)}
                                     onChange={(e) => setFormData({...formData, stars: currentStars})}
                                     checked={currentStars === reviewStars}
@@ -81,6 +83,7 @@ function AddReview(deckId) {
                     onChange={(e) => setFormData({...formData, description: e.target.value})}
                     />
                     <button className="login-button" type="submit">Submit</button>
+
                 </form>
 
             </div>
@@ -88,4 +91,4 @@ function AddReview(deckId) {
     )
 }
 
-export default AddReview
+export default EditReview

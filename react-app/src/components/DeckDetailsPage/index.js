@@ -9,6 +9,8 @@ import OpenModalButton from "../OpenModalButton";
 import EditDeck from "../EditDeckModal";
 import DeleteDeck from "../DeleteDeckModal";
 import "./DeckDetails.css"
+import EditReview from "../EditReviewModal";
+import DeleteReview from "../DeleteReviewModal";
 
 function DeckDetails() {
     const { deckId } = useParams();
@@ -102,6 +104,20 @@ function DeckDetails() {
 
                             <h4>{review?.description}</h4>
                             <h3> - {review.user.username}</h3>
+                            {currentUser && currentUser.id === review.user_id ? (
+                                <div className="rev-button-container">
+                                <OpenModalButton
+                                buttonText="Edit Review"
+                                modalComponent={<EditReview review={review} reviewId={review?.id}/>}
+                                />
+                                <OpenModalButton
+                                buttonText="Delete Review"
+                                modalComponent={<DeleteReview review={review} reviewId={review?.id}/>}
+                                />
+                                </div>
+                            ) : (
+                                <></>
+                            )}
                         </div>
                     )
                 })}
