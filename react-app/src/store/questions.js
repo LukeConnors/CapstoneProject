@@ -209,7 +209,6 @@ const questionsReducer = (state = {}, action) => {
             const q_id = action.payload
             newState ={
                 ...state,
-                deckQuestions: { ...state.deckQuestions }
             }
             delete newState[q_id]
             return newState

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
+import { useHistory } from 'react-router-dom'
 import * as questionActions from "../../store/questions"
 import "./DeleteQuestion.css"
 
@@ -9,6 +10,7 @@ function DeleteQuestion({question, questionId}){
     const {closeModal} = useModal();
     const [deleted, setDeleted] = useState(false);
     const dispatch = useDispatch();
+    const history = useHistory();
 
     const handleCancel = () => {
         closeModal()
@@ -21,6 +23,7 @@ function DeleteQuestion({question, questionId}){
     useEffect(() => {
         if (deleted) {
           const timeout = setTimeout(() => {
+            history.push('/my_profile')
             closeModal();
           }, 1500);
 
