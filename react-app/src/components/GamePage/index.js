@@ -86,7 +86,7 @@ function GamePage() {
                 }
                 // return () => clearTimeout(timeout)
 
-            }, 2000)
+            }, 1000)
         };
 
         if (questionIds.length === 0) {
