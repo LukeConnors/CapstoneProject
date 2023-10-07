@@ -13,6 +13,7 @@ function DeckQuestionsPage() {
     const { deckId } = useParams();
     const history = useHistory();
     const dispatch = useDispatch();
+    const [addClick, setAddClick] = useState(0)
     const deckOwner = useSelector(userActions.userSelector)
     const currentUser = useSelector(state => state.session.user)
     const deckQuestions = useSelector(questionActions.deckQuestionsSelector)
@@ -20,12 +21,15 @@ function DeckQuestionsPage() {
 
     useEffect(() => {
         dispatch(questionActions.fetchDeckQuestions(deckId))
-    }, [dispatch])
+    }, [dispatch, addClick])
 
     const handleReturnClick = () => {
         history.push(`/decks/${deckId}`)
     }
 
+    const handleAddClick = () => {
+        setAddClick(addClick + 1)
+    }
     return (
         <>
             <button className="login-button" onClick={handleReturnClick}> ← Return to deck</button>
@@ -63,6 +67,7 @@ function DeckQuestionsPage() {
             <OpenModalButton
                 buttonText={"+"}
                 modalComponent={<AddQuestion deckId={deckId} />}
+                onClick={handleAddClick}
             />
             </div>
         </div>

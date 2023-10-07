@@ -20,6 +20,7 @@ function AddQuestion({ deckId }) {
     const questionIds = Object.keys(questions || {})
     useEffect(() => {
         dispatch(questionActions.fetchQuestions())
+        .then(dispatch(questionActions.fetchDeckQuestions(deckId)))
     }, [dispatch])
 
     useEffect(() => {
