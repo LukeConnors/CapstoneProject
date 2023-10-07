@@ -8,6 +8,9 @@ import shuffle from "../../helpers/shuffle";
 import "./GamePage.css"
 import OpenModalButton from "../OpenModalButton";
 import Completion from "../CompletionModal";
+import CorrectAnswer from "../CorrectAnswerModal";
+import IncorrectAnswer from "../IncorrectAnswerModal";
+
 
 
 function GamePage() {
@@ -17,7 +20,9 @@ function GamePage() {
     const dispatch = useDispatch();
     const questions = useSelector(questionActions.deckQuestionsSelector)
     const questionIds = Object.keys(questions || {})
+    const [right, setRight] = useState(false)
     const [correct, setCorrect] = useState(0)
+    const [answerModal, setAnswerModal] = useState(false)
     const [wrong, setWrong] = useState(0)
     const [disable, setDisable] = useState(false)
     const [questionIndex, setquestionIndex] = useState(0);
@@ -29,18 +34,23 @@ function GamePage() {
         .then(dispatch(questionActions.fetchDeckQuestions(deckId)))
     }, [dispatch])
 
+
+    let currQuestion = {}
+
     // useEffect(() => {
-    //     shuffle(answersArray)
-    // }, [disable, currentQuestion])
+    // }, [questionIndex])
 
     if (questionIds.length) {
         //  Key into the current question
         const currentQuestion = questions[questionIds[questionIndex]]
-        const incorrect = currentQuestion.incorrect_answers.split(', ');
+        // const incorrect = currentQuestion.incorrect_answers.split(', ');
         answersArray = currentQuestion.incorrect_answers.split(', ');
 
         // Put all answers together and randomize them
-        answersArray.push(currentQuestion.correct_answer)
+        answersArray.splice(num, 0, currentQuestion.correct_answer)
+        // answersArray.push(currentQuestion.correct_answer)
+
+        console.log("THIS IS OUR ANSWERS ARRAY", answersArray)
 
 
         const handleAnswer = async (e, answer) => {
@@ -49,28 +59,34 @@ function GamePage() {
             let tempCorrect = 0
             let tempWrong = 0
             // Compare current question's correct answer with selected answer
+            console.log("THIS IS THE CORRECT ANSWER", currentQuestion.correct_answer)
+            console.log("THIS WAS THE SELECTED ANSWER", answer)
             if (currentQuestion.correct_answer === answer) {
                 setCorrect(correct + 1)
                 tempCorrect += 1
                 clickedButton.classList.add("correct");
+                setModalContent(<CorrectAnswer answer={answer}/>)
             } else {
                 setWrong(wrong + 1)
                 tempWrong += 1
                 clickedButton.classList.add("wrong");
+                setModalContent(<IncorrectAnswer answer={answer}/>)
+
             }
             // Move to the next question after timeout
-            const timeout = setTimeout(() => {
+            const timeout = await setTimeout(() => {
                 clickedButton.classList.remove("correct", "wrong")
                 setDisable(false)
                 if (questionIndex < questionIds.length - 1) {
-                    setquestionIndex(questionIndex + 1);
+                     setquestionIndex(questionIndex + 1);
                 } else {
                     //  When reaching end of questions open completion page
                     setModalContent(<Completion correct={correct + tempCorrect} wrong={wrong + tempWrong} deckId={deckId} />)
                     history.push(`/decks/${deckId}`)
                 }
-                return () => clearTimeout(timeout)
-            }, 3000)
+                // return () => clearTimeout(timeout)
+
+            }, 2000)
         };
 
         if (questionIds.length === 0) {

@@ -57,3 +57,10 @@
         margin-bottom: 20px;
         transition: transform 0.2s ease-in;
 }
+
+
+.com-rev-button > button:hover {
+    cursor: pointer;
+    transform: scale(.95);
+    background-color: #037b86;
+}

@@ -12,6 +12,7 @@ function AddQuestion({ deckId }) {
     const dispatch = useDispatch();
     const [buttonDis, setButtonDis] = useState(false)
     const [buttonText, setButtonText] = useState("Add to Deck")
+    const [added, setAdded] = useState(0)
     const deckOwner = useSelector(userActions.userSelector)
     const questions = useSelector(questionActions.questionsSelector)
     const deckQuestions = useSelector(state => state.questions.deckQuestions)
@@ -20,6 +21,10 @@ function AddQuestion({ deckId }) {
     useEffect(() => {
         dispatch(questionActions.fetchQuestions())
     }, [dispatch])
+
+    useEffect(() => {
+        dispatch(questionActions.fetchDeckQuestions(deckId))
+    }, [dispatch, added])
 
     deckQuestionIds.forEach(id => {
         if (questionIds.includes(id)) {
@@ -35,6 +40,7 @@ function AddQuestion({ deckId }) {
                 {questionIds.map((questionId) => {
                     const question = questions[questionId]
                     const handleAddClick = async (e) => {
+                        setAdded(added + 1)
                         await dispatch(questionActions.createDeckQuestion(deckId, question))
                     }
                     if (question.question) {

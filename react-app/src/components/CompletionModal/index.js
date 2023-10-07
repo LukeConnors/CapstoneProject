@@ -10,11 +10,18 @@ import AddReview from "../AddReviewModal";
 function Completion({ correct, wrong, deckId }) {
     const history = useHistory()
     const { closeModal } = useModal()
-    const [existing, setExisting] = useState(false)
-    console.log("this is the existing status", existing)
+    let existing = false
+    const deck = useSelector(state => state.decks.detailedDeck)
     const reviews = useSelector(state => state.reviews)
     const reviewIds = Object.keys(reviews || {})
     const user = useSelector(state => state.session.user)
+
+    reviewIds.forEach((reviewId) => {
+        const review = reviews[reviewId];
+        if (user && review?.user_id === user.id) {
+           existing = true
+        }
+    })
 
     const handleClick = () => {
         history.push(`/`)
@@ -42,13 +49,7 @@ function Completion({ correct, wrong, deckId }) {
             <div className="completion-buttons-div">
                 <button className="login-button" onClick={handleClick}>Return Home</button>
                 <button className="login-button" onClick={handleClose}>Close</button>
-                {reviewIds.map((reviewId) => {
-                    const review = reviews[reviewId];
-                    if (user && review.userId === user.id) {
-                        setExisting(true)
-                    }
-                })}
-                {existing === false && user ? (
+                {!existing && user && user.id !== deck.user_id ? (
                     <div className="com-rev-button">
                     <OpenModalButton
                         buttonText={"Leave a Review"}
