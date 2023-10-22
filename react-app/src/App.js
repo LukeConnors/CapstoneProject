@@ -13,6 +13,7 @@ import DeckQuestionsPage from "./components/DeckQuestionsPage";
 import QuestionForm from "./components/QuestionForm";
 import MyProfile from "./components/MyProfilePage";
 import GamePage from "./components/GamePage";
+import UserProfile from "./components/UserProfilePage";
 
 function App() {
   const dispatch = useDispatch();
@@ -30,13 +31,16 @@ function App() {
             <Category />
           </Route>
           <Route exact path="/decks/:deckId/play">
-          <GamePage />
+            <GamePage />
           </Route>
           <Route exact path="/decks/:deckId/questions">
-          <DeckQuestionsPage />
+            <DeckQuestionsPage />
           </Route>
           <Route exact path="/decks/:deckId">
             <DeckDetails />
+          </Route>
+          <Route exact path="/users/:userId">
+            <UserProfile />
           </Route>
           <Route path="/login" >
             <LoginFormPage />
@@ -45,13 +49,13 @@ function App() {
             <SignupFormPage />
           </Route>
           <Route path="/new_deck">
-          <DeckForm />
+            <DeckForm />
           </Route>
           <Route path="/my_profile">
-          <MyProfile />
+            <MyProfile />
           </Route>
           <Route path="/new_question">
-          <QuestionForm />
+            <QuestionForm />
           </Route>
           <Route exact path="/">
             <HomePage />

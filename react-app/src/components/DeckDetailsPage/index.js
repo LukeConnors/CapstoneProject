@@ -52,6 +52,10 @@ function DeckDetails() {
         history.push(`/decks/${deckId}/play`)
     }
 
+    const handleProfileClick = (userId) => {
+        history.push(`/users/${userId}`)
+    }
+
     return (
         <div className="details-container">
             <div className="details-title">
@@ -96,9 +100,9 @@ function DeckDetails() {
                                     {stars}
                                 </div>
                                 {review.user.picture ? (
-                                    <img className="review-pic" src={review.user.picture} />
+                                    <img onClick={() => handleProfileClick(review.user.id)} className="review-pic" src={review.user.picture} />
                                 ) : (
-                                    <img className="review-pic" src="https://res.cloudinary.com/dyt7uoeck/image/upload/v1695947352/noprofile-removebg_r8qryg.png" />
+                                    <img onClick={() => handleProfileClick(review.user.id)} className="review-pic" src="https://res.cloudinary.com/dyt7uoeck/image/upload/v1695947352/noprofile-removebg_r8qryg.png" />
                                 )}
                             </div>
 

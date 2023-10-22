@@ -1,0 +1,13 @@
+.message-button{
+    background-color: #06c0d1;
+    border-radius: 20px;
+    height: 40px;
+    width: 100px;
+    margin-bottom: 20px;
+    transition: transform 0.2s ease-in;
+    margin-top: 10px;
+}
+
+.message-button:hover{
+    cursor: pointer;
+}

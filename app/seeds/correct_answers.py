@@ -171,7 +171,7 @@ def seed_correct_answers():
 
     db.session.commit()
 
-def correct_answers():
+def undo_correct_answers():
     if environment == "production":
         db.session.execute(f"TRUNCATE table {SCHEMA}.correct_answers RESTART IDENTITY CASCADE;")
     else:

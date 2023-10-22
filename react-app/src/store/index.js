@@ -4,12 +4,14 @@ import session from './session'
 import decksReducer from './decks';
 import questionsReducer from './questions';
 import reviewsReducer from './reviews';
+import messagesReducer from './messages';
 
 const rootReducer = combineReducers({
   session,
   decks: decksReducer,
   questions: questionsReducer,
   reviews: reviewsReducer,
+  messages: messagesReducer,
 
 });
 

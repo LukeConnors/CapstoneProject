@@ -22,5 +22,6 @@ class Correct_answer(db.Model):
         return {
             'id': self.id,
             'user_id': self.user_id,
-            'question_id': self.question_id
+            'question_id': self.question_id,
+            'question': self.question.to_dict()
         }

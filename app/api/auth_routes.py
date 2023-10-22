@@ -65,25 +65,28 @@ def sign_up():
 
     if form.validate_on_submit():
         print("THIS IS OUR DATA", form.data)
-        # profile_picture = request.files['picture']
+        profile_picture = request.files['picture']
 
-        # if profile_picture:
-        #     unique_filename = get_unique_filename(profile_picture.filename)
+        if profile_picture:
+            unique_filename = get_unique_filename(profile_picture.filename)
 
-        #     image_url = upload_file_to_s3(profile_picture)
+            image_url = upload_file_to_s3(profile_picture)
 
         user = User(
             username=form.data['username'],
             email=form.data['email'],
             description=form.data['description'],
-            # picture=form.data['picture'],
+            picture=image_url['url'],
             password=form.data['password']
         )
+        print("THIS IS THE URL", user.picture)
         db.session.add(user)
         db.session.commit()
         login_user(user)
         return user.to_dict()
-    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+    else:
+        print("FORM ERRORS!", form.errors)
+        return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
 @auth_routes.route('/unauthorized')

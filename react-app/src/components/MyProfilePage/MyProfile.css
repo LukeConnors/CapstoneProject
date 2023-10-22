@@ -17,7 +17,7 @@
     justify-content: space-around;
     align-items: flex-start;
     height: auto;
-    width: 2000px;
+    width: 90%;
 }
 
 .profile-des{
@@ -60,6 +60,7 @@
     width: 400px;
     height: 130px;
     border: 2px solid black;
+    padding-left: 10px;
     margin-bottom: 10px;
     border-radius: 10px;
     display: flex;
@@ -81,3 +82,67 @@
 .deck-buttons-div > button {
     cursor: pointer;
 }
+
+.badge{
+    height: 100px;
+    width: 100px;
+}
+
+.badges-div{
+    width: 400px;
+    height: 130px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 0 10%;
+    gap: 40px;
+    margin-bottom: 20px;
+    justify-items: center;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.buffer-div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.badge-text{
+    font-size: 12px;
+}
+
+.badge-div {
+    position: relative;
+  }
+
+  .tool-tip-text {
+    background-color: #06c0d1;
+    color: white;
+    border-radius: 7px;
+    padding: 5px 10px;
+    white-space: nowrap;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+  }
+
+  .tool-tip-text::before{
+    position: fixed;
+    content: '';
+    left: 50%;
+    top: 100%;
+    transform: translateX(-50%);
+    border: 5px solid;
+    border-color: #000 #0000 #0000 #0000;
+  }
+
+  .badge-div:hover .tool-tip-text {
+    visibility: visible;
+    opacity: 1;
+  }

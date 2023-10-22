@@ -10,7 +10,7 @@ function SignupFormModal() {
 		email: "",
 		username: "",
 		description: "",
-		// picture: "",
+		picture: "",
 		password: ""
 	});
 	const [confirmPassword, setConfirmPassword] = useState("");
@@ -18,15 +18,25 @@ function SignupFormModal() {
 	const { closeModal } = useModal();
 
 	const handleSubmit = async (e) => {
-		const formDataToSend = new FormData()
-		formDataToSend.append("username", formData.username)
-		formDataToSend.append("email", formData.email)
-		formDataToSend.append("description", formData.description)
-		// formDataToSend.append("picture", formData.picture || "")
-		formDataToSend.append("password", formData.password)
 		e.preventDefault();
+
+		const formDataToSend = new FormData()
+
+		formDataToSend.append("username", formData.username);
+		formDataToSend.append("email", formData.email);
+		formDataToSend.append("description", formData.description);
+		formDataToSend.append("password", formData.password);
+
+		if (formData.picture) {
+			formDataToSend.append("picture", formData.picture);
+		}
+
+
+		console.log("THIS IS THE FORM DATA BEING SENT", formDataToSend.entries())
+		console.log("THIS IS THE FORM DATA", formData)
+
 		if (formData.password === confirmPassword) {
-			const data = await dispatch(signUp(formData));
+			let data = await dispatch(signUp(formDataToSend));
 			if (data) {
 				setErrors(data);
 			} else {
@@ -71,14 +81,13 @@ function SignupFormModal() {
 				/>
 
 					<h3>Upload a profile picture</h3>
-					<p>Feature coming soon!</p>
-					{/* <input
+					<input
 						type="file"
 						className="profile-upload"
 						accept=".png, .jpeg, .jpg"
 						onChange={(e) => setFormData({ ...formData, picture: e.target.files[0] })}
 						required
-					/> */}
+					/>
 
 					<h3>Password</h3>
 					<input

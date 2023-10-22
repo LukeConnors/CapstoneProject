@@ -4,6 +4,9 @@ from .decks import seed_decks, undo_decks
 from .questions import seed_questions, undo_questions
 from .reviews import seed_reviews, undo_reviews
 from .deck_questions import seed_deck_questions, undo_deck_questions
+from .incorrect_answers import seed_incorrect_answers, undo_incorrect_answers
+from .correct_answers import seed_correct_answers, undo_correct_answers
+from .messages import seed_messages, undo_messages
 
 from app.models.db import db, environment, SCHEMA
 
@@ -25,11 +28,17 @@ def seed():
         undo_decks()
         undo_reviews()
         undo_deck_questions()
+        undo_incorrect_answers()
+        undo_correct_answers()
+        undo_messages()
     seed_users()
     seed_questions()
     seed_decks()
     seed_reviews()
     seed_deck_questions()
+    seed_incorrect_answers()
+    seed_correct_answers()
+    seed_messages()
     # Add other seed functions here
 
 
@@ -41,4 +50,7 @@ def undo():
     undo_decks()
     undo_reviews()
     undo_deck_questions()
+    undo_incorrect_answers()
+    undo_correct_answers()
+    undo_messages()
     # Add other undo functions here

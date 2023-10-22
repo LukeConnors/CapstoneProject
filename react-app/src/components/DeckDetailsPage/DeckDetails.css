@@ -80,6 +80,10 @@ transform: scale(1.02);
     width: 50px;
 }
 
+.review-pic:hover{
+cursor: pointer;
+}
+
 .review-head-div{
     display: flex;
     justify-content: space-between;

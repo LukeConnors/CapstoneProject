@@ -10,6 +10,7 @@ import OpenModalButton from "../OpenModalButton";
 import Completion from "../CompletionModal";
 import CorrectAnswer from "../CorrectAnswerModal";
 import IncorrectAnswer from "../IncorrectAnswerModal";
+import * as sessionActions from "../../store/session";
 
 
 
@@ -20,8 +21,11 @@ function GamePage() {
     const dispatch = useDispatch();
     const questions = useSelector(questionActions.deckQuestionsSelector)
     const questionIds = Object.keys(questions || {})
+    const user = useSelector(state => state.session.user)
     const [right, setRight] = useState(false)
     const [correct, setCorrect] = useState(0)
+    const [rightQuest, setRightQuest] = useState(null)
+    const [wrongQuest, setWrongQuest] = useState(null)
     const [answerModal, setAnswerModal] = useState(false)
     const [wrong, setWrong] = useState(0)
     const [disable, setDisable] = useState(false)
@@ -31,14 +35,20 @@ function GamePage() {
 
     useEffect(() => {
         dispatch(deckActions.fetchDetails(deckId))
-        .then(dispatch(questionActions.fetchDeckQuestions(deckId)))
+            .then(dispatch(questionActions.fetchDeckQuestions(deckId)))
     }, [dispatch])
 
+    useEffect(() => {
+        if(rightQuest){
+            dispatch(sessionActions.createCorrectAnswer(user.id, rightQuest))
+        }
+    }, [rightQuest])
 
-    let currQuestion = {}
-
-    // useEffect(() => {
-    // }, [questionIndex])
+    useEffect(() => {
+        if(wrongQuest){
+            dispatch(sessionActions.createIncorrectAnswer(user.id, wrongQuest))
+        }
+    }, [wrongQuest])
 
     if (questionIds.length) {
         //  Key into the current question
@@ -50,27 +60,26 @@ function GamePage() {
         answersArray.splice(num, 0, currentQuestion.correct_answer)
         // answersArray.push(currentQuestion.correct_answer)
 
-        console.log("THIS IS OUR ANSWERS ARRAY", answersArray)
-
-
+        console.log("THIS IS THE CURRENT rightAnswerQuestion", rightQuest)
+        console.log("THIS IS THE CURRENT wrongAnswerQuestion", wrongQuest)
         const handleAnswer = async (e, answer) => {
             const clickedButton = e.target
             setDisable(true)
             let tempCorrect = 0
             let tempWrong = 0
             // Compare current question's correct answer with selected answer
-            console.log("THIS IS THE CORRECT ANSWER", currentQuestion.correct_answer)
-            console.log("THIS WAS THE SELECTED ANSWER", answer)
             if (currentQuestion.correct_answer === answer) {
                 setCorrect(correct + 1)
+                setRightQuest(currentQuestion)
                 tempCorrect += 1
                 clickedButton.classList.add("correct");
-                setModalContent(<CorrectAnswer answer={answer}/>)
+                setModalContent(<CorrectAnswer answer={answer} />)
             } else {
                 setWrong(wrong + 1)
+                setWrongQuest(currentQuestion)
                 tempWrong += 1
                 clickedButton.classList.add("wrong");
-                setModalContent(<IncorrectAnswer answer={answer}/>)
+                setModalContent(<IncorrectAnswer answer={answer} />)
 
             }
             // Move to the next question after timeout
@@ -78,7 +87,7 @@ function GamePage() {
                 clickedButton.classList.remove("correct", "wrong")
                 setDisable(false)
                 if (questionIndex < questionIds.length - 1) {
-                     setquestionIndex(questionIndex + 1);
+                    setquestionIndex(questionIndex + 1);
                 } else {
                     //  When reaching end of questions open completion page
                     setModalContent(<Completion correct={correct + tempCorrect} wrong={wrong + tempWrong} deckId={deckId} />)
