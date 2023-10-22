@@ -29,17 +29,16 @@ function ChatModal({ recipientId, name }) {
             socket.disconnect()
         })
 
-
     })
 
     const updateMessageInput = (e) => {
         setMessageInput(e.target.value)
     };
 
-    const sendMessage = (e) => {
+    const sendMessage = async (e) => {
         e.preventDefault()
-        socket.emit("message", { message: messageInput }, recipientId)
-        dispatch(getUserMessages(recipientId))
+        await socket.emit("message", { message: messageInput }, recipientId)
+        await dispatch(getUserMessages(recipientId))
         setMessageInput('')
     }
 
