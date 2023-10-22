@@ -8,7 +8,6 @@ export const setUserMessages = (messages) => ({
 export const getUserMessages = (userId) => async (dispatch) => {
     const res = await fetch(`/api/messages/${userId}`)
     const data = await res.json()
-    console.log("THESE ARE THE MESSAGES", data)
     dispatch(setUserMessages(data.messages))
     return data.messages
 }

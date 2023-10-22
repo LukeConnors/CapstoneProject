@@ -32,8 +32,6 @@ function SignupFormModal() {
 		}
 
 
-		console.log("THIS IS THE FORM DATA BEING SENT", formDataToSend.entries())
-		console.log("THIS IS THE FORM DATA", formData)
 
 		if (formData.password === confirmPassword) {
 			let data = await dispatch(signUp(formDataToSend));

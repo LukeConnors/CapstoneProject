@@ -14,7 +14,6 @@ function ChatModal({ recipientId, name }) {
     const messageIds = Object.keys(messages || {})
     const [messageInput, setMessageInput] = useState('')
     const user = useSelector(state => state.session.user)
-    console.log("THIS IS THE RECIPIENT", recipientId)
 
     useEffect(() => {
         dispatch(getUserMessages(recipientId))

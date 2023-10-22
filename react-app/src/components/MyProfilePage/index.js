@@ -82,7 +82,6 @@ function MyProfile() {
         return total > 0 ? ((correctCount / total) * 100).toFixed(2) : 0;
     }
 
-console.log(correctUnique)
 
     return (
         <div className="profile-container">

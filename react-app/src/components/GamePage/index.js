@@ -59,9 +59,6 @@ function GamePage() {
         // Put all answers together and randomize them
         answersArray.splice(num, 0, currentQuestion.correct_answer)
         // answersArray.push(currentQuestion.correct_answer)
-
-        console.log("THIS IS THE CURRENT rightAnswerQuestion", rightQuest)
-        console.log("THIS IS THE CURRENT wrongAnswerQuestion", wrongQuest)
         const handleAnswer = async (e, answer) => {
             const clickedButton = e.target
             setDisable(true)
