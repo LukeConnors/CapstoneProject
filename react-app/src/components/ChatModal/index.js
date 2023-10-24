@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useModal } from "../../context/Modal";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { io } from "socket.io-client";
 import { getUserMessages } from "../../store/messages";
 import "./ChatModal.css"
@@ -14,6 +14,7 @@ function ChatModal({ recipientId, name }) {
     const messageIds = Object.keys(messages || {})
     const [messageInput, setMessageInput] = useState('')
     const user = useSelector(state => state.session.user)
+    const messagesContainerRef = useRef(null);
 
     useEffect(() => {
         dispatch(getUserMessages(recipientId))
@@ -22,14 +23,27 @@ function ChatModal({ recipientId, name }) {
     useEffect(() => {
         socket = io()
 
-        socket.on('message', () => {
+
+        socket.on('connect', () => {
+            console.log('Socket connected');
+        });
+
+        socket.on('message', (data) => {
             dispatch(getUserMessages(recipientId))
         })
-        return (() => {
-            socket.disconnect()
-        })
 
-    })
+        socket.on('disconnect', () => {
+            console.log('Socket disconnected');
+        });
+
+        socket.on('error', (error) => {
+            console.error('Socket error:', error);
+        });
+
+        return () => {
+            socket.disconnect();
+        };
+    }, [])
 
     const updateMessageInput = (e) => {
         setMessageInput(e.target.value)
@@ -42,18 +56,17 @@ function ChatModal({ recipientId, name }) {
         setMessageInput('')
     }
 
-
     return (
         <div className="chat-container">
             <h1>Chatting with {name}</h1>
-            <div className="messages-container">
+            <div className="messages-container" ref={messagesContainerRef}>
                 {messageIds.map((messageId) => {
                     const message = messages[messageId]
                     return message.sender_id === user.id ? (
                         <>
-                        <div className="my-message">
-                            <p>{message.message}</p>
-                        </div>
+                            <div className="my-message">
+                                <p>{message.message}</p>
+                            </div>
                         </>
                     ) : (
                         <div className="their-message">
@@ -65,7 +78,7 @@ function ChatModal({ recipientId, name }) {
             <form onSubmit={sendMessage}>
                 <input
                     value={messageInput}
-                onChange={updateMessageInput}
+                    onChange={updateMessageInput}
                 >
                 </input>
                 <button type="submit">Send</button>

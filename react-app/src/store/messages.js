@@ -16,6 +16,7 @@ const messagesReducer = (state = {}, action) => {
     let newState = {}
     switch(action.type) {
         case SET_MESSAGES:
+            newState = {...state}
             action.messages.forEach(message => newState[message.id] = message)
             return newState
         default:
