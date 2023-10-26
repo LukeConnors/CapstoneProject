@@ -56,6 +56,9 @@ function DeckDetails() {
         history.push(`/users/${userId}`)
     }
 
+    if (currentUser === null) {
+        history.push('/login')
+    }
     return (
         <div className="details-container">
             <div className="details-title">
@@ -99,10 +102,25 @@ function DeckDetails() {
                                 <div className="stars-div">
                                     {stars}
                                 </div>
-                                {review.user.picture ? (
+                                {review.user.picture && review.user.id !== currentUser.id ? (
                                     <img onClick={() => handleProfileClick(review.user.id)} className="review-pic" src={review.user.picture} />
                                 ) : (
+                                    <></>
+                                )}
+                                {!review.user.picture && review.user.id !== currentUser.id ? (
                                     <img onClick={() => handleProfileClick(review.user.id)} className="review-pic" src="https://res.cloudinary.com/dyt7uoeck/image/upload/v1695947352/noprofile-removebg_r8qryg.png" />
+                                ) : (
+                                    <></>
+                                )}
+                                {review.user.picture && review.user.id === currentUser.id ? (
+                                    <img className="review-pic" src={review.user.picture} />
+                                ) : (
+                                    <></>
+                                )}
+                                {!review.user.picture && review.user.id === currentUser.id ? (
+                                    <img className="review-pic" src="https://res.cloudinary.com/dyt7uoeck/image/upload/v1695947352/noprofile-removebg_r8qryg.png" />
+                                ) : (
+                                    <></>
                                 )}
                             </div>
 
@@ -110,14 +128,14 @@ function DeckDetails() {
                             <h3> - {review.user.username}</h3>
                             {currentUser && currentUser.id === review.user_id ? (
                                 <div className="rev-button-container">
-                                <OpenModalButton
-                                buttonText="Edit Review"
-                                modalComponent={<EditReview review={review} reviewId={review?.id}/>}
-                                />
-                                <OpenModalButton
-                                buttonText="Delete Review"
-                                modalComponent={<DeleteReview review={review} reviewId={review?.id}/>}
-                                />
+                                    <OpenModalButton
+                                        buttonText="Edit Review"
+                                        modalComponent={<EditReview review={review} reviewId={review?.id} />}
+                                    />
+                                    <OpenModalButton
+                                        buttonText="Delete Review"
+                                        modalComponent={<DeleteReview review={review} reviewId={review?.id} />}
+                                    />
                                 </div>
                             ) : (
                                 <></>

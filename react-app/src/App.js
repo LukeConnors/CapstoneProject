@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 import SignupFormPage from "./components/SignupFormPage";
 import LoginFormPage from "./components/LoginFormPage";
@@ -14,6 +14,7 @@ import QuestionForm from "./components/QuestionForm";
 import MyProfile from "./components/MyProfilePage";
 import GamePage from "./components/GamePage";
 import UserProfile from "./components/UserProfilePage";
+import PrivateRoute from "./helpers/privateRoute";
 
 function App() {
   const dispatch = useDispatch();
@@ -21,6 +22,8 @@ function App() {
   useEffect(() => {
     dispatch(authenticate()).then(() => setIsLoaded(true));
   }, [dispatch]);
+
+  const user = useSelector(state => state.session.user);
 
   return (
     <>
@@ -52,7 +55,7 @@ function App() {
             <DeckForm />
           </Route>
           <Route path="/my_profile">
-            <MyProfile />
+            { user !== null ? <MyProfile /> : <LoginFormPage />}
           </Route>
           <Route path="/new_question">
             <QuestionForm />

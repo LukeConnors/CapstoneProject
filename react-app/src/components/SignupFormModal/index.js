@@ -84,7 +84,6 @@ function SignupFormModal() {
 						className="profile-upload"
 						accept=".png, .jpeg, .jpg"
 						onChange={(e) => setFormData({ ...formData, picture: e.target.files[0] })}
-						required
 					/>
 
 					<h3>Password</h3>

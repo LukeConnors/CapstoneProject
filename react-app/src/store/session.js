@@ -177,9 +177,9 @@ export const createIncorrectAnswer = (userId, payload) => async (dispatch) => {
 	}
 
 }
-// const initialState = { user: null };
+const initialState = { user: null };
 
-export default function reducer(state = {}, action) {
+export default function reducer(state = initialState, action) {
 	let newState = {}
 	switch (action.type) {
 		case SET_USER:
@@ -194,7 +194,6 @@ export default function reducer(state = {}, action) {
 		case GET_USER:
 			return {
 				...state,
-				user: { ...state.user },
 				detailedUser: action.user
 			}
 		case GET_INCORRECT:

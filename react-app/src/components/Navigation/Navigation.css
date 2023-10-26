@@ -6,7 +6,7 @@
   display: none;
 }
 
-.nav-bar{
+.nav-bar {
   height: 200px;
   display: flex;
   justify-content: space-around;
@@ -28,7 +28,7 @@
   z-index: 100;
 }
 
-.logo{
+.logo {
   width: 175px;
   height: 175px;
 }
@@ -45,62 +45,75 @@
   cursor: pointer;
 }
 
-.profile-button{
+.profile-button {
   margin: 10px;
 }
 
-.login-signup > button{
+.login-signup>button {
   border: 1px blue solid;
   border-radius: 20px;
   padding: 5px 18px;
 }
 
-.login-signup > button:hover{
-cursor: pointer;
+.login-signup>button:hover {
+  cursor: pointer;
 }
 
-.login-div{
+.login-div {
   margin-bottom: 5px;
 }
 
-.start-deck{
+.start-deck {
   text-decoration: none;
   color: gray;
   font-size: 24px;
 }
 
-.start-question{
-  text-decoration: none;
-  color: gray;
-  font-size: 24px;
-}
-.home-button{
+.start-question {
   text-decoration: none;
   color: gray;
   font-size: 24px;
 }
 
-.nav-div{
+.home-button {
+  text-decoration: none;
+  color: gray;
+  font-size: 24px;
+}
+
+.nav-div {
   width: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.nav-div-profile-button{
+.nav-div-profile-button {
   width: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.nav-div-profile-button > button{
-border-radius: 50px;
-height: 50px;
-width: 50px;
-background-color: #06c0d1;
+.nav-div-profile-button>button {
+  border-radius: 50px;
+  height: 50px;
+  width: 50px;
+  background-color: #06c0d1;
 }
 
-.nav-div-profile-button > button:hover{
-cursor: pointer;
+.nav-div-profile-button>button:hover {
+  cursor: pointer;
+}
+
+.start-question:hover {
+  color: #06c0d1;
+}
+
+.start-deck:hover {
+  color: #06c0d1;
+}
+
+.home-button:hover {
+  color: #06c0d1;
 }

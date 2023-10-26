@@ -25,7 +25,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    border: black 2px solid;
+    border: lightgray 2px solid;
     border-radius: 5px;
     padding: 50px;
 }
@@ -33,12 +33,13 @@
 .profile-pic{
     height: 200px;
     width: 200px;
+    border-radius: 100px;
 }
 
 .profile-deck{
     width: 400px;
     height: 130px;
-    border: 2px solid black;
+    border: 1px solid lightgray;
     margin-bottom: 10px;
     border-radius: 10px;
     display: flex;
@@ -59,7 +60,7 @@
 .profile-question{
     width: 400px;
     height: 130px;
-    border: 2px solid black;
+    border: 1px solid lightgray;
     padding-left: 10px;
     margin-bottom: 10px;
     border-radius: 10px;
@@ -97,7 +98,7 @@
     gap: 40px;
     margin-bottom: 20px;
     justify-items: center;
-    border: 2px solid black;
+    border: 1px solid lightgray;
     border-radius: 10px;
 }
 
@@ -145,4 +146,39 @@
   .badge-div:hover .tool-tip-text {
     visibility: visible;
     opacity: 1;
+  }
+
+
+  .deck-edit-div > button {
+    cursor: pointer;
+    width: 100%;
+    height: 50%;
+    background-color: #06c0d1;
+    border: 1px solid black;
+    border-radius: 10px
+  }
+
+  .deck-delete-div > button {
+    cursor: pointer;
+    width: 100%;
+    height: 50%;
+    background-color: #06c0d1;
+    border: 1px solid black;
+    border-radius: 10px
+  }
+
+  .deck-delete-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 20px;
+  }
+
+
+  .deck-button-cont{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: row;
   }
