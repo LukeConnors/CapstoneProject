@@ -76,3 +76,8 @@
     border-radius: 10px;
     height: 10%;
 }
+
+.close-button:hover{
+    background-color: #017c87;
+    cursor: pointer;
+}
