@@ -33,7 +33,6 @@ if(deckIds.length && category === "General%20Knowledge"){
             <h1 className="category-title">General Knowledge:</h1>
            {deckIds.map((deckId) => {
             const deck = decks[deckId];
-            console.log("THIS IS THE DECK", deck)
             const redirectToDeck = async (e) => {
                 history.push(`/decks/${deckId}`)
             }

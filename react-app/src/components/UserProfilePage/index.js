@@ -72,7 +72,7 @@ function UserProfile() {
         const total = correctCount + incorrectCount;
         return total > 0 ? ((correctCount / total) * 100).toFixed(2) : 0;
     }
-
+    let capitalizedUsername = user?.username?.charAt(0).toUpperCase() + user?.username?.slice(1)
     if (!user) {
         return (
             <>
@@ -82,7 +82,7 @@ function UserProfile() {
     }
     return (
         <div className="profile-container">
-            <h1>{user.username}</h1>
+            <h1>{capitalizedUsername}</h1>
             <div className="profile-des">
                 <h3>{user.description}</h3>
                 {user.picture ? (
@@ -100,7 +100,7 @@ function UserProfile() {
                 <></>
             )}
                                 <div className="buffer-div">
-                    <h1>{user.username}'s stats:</h1>
+                    <h1>{capitalizedUsername}'s Stats:</h1>
                     <div className="stats-div">
                         <div className="answer-stat-div">
                             <div className="stat-div">

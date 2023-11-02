@@ -94,6 +94,8 @@ function DeckDetails() {
                     {reviewIds.map((reviewId) => {
                         const stars = [];
                         const review = reviews[reviewId];
+                        let capitalizedUsername = review?.user?.username?.charAt(0).toUpperCase() + review?.user?.username?.slice(1)
+
                         for (let i = 0; i < review.stars; i++) {
                             stars.push(<i class="fa-solid fa-star"></i>)
                         }
@@ -126,7 +128,7 @@ function DeckDetails() {
                                 </div>
 
                                 <h4>{review?.description}</h4>
-                                <h3> - {review.user.username}</h3>
+                                <h3> - {capitalizedUsername}</h3>
                                 {currentUser && currentUser.id === review.user_id ? (
                                     <div className="rev-button-container">
                                         <OpenModalButton
