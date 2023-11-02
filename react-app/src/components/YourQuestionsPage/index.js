@@ -8,7 +8,7 @@ import OpenModalButton from "../OpenModalButton";
 import "./YourQuestionsPage.css"
 
 
-function YourQuestionsPage (){
+function YourQuestionsPage() {
     const history = useHistory();
     const dispatch = useDispatch();
     const questions = useSelector(questionActions.questionsSelector)
@@ -21,43 +21,46 @@ function YourQuestionsPage (){
 
     return (
         <>
-        {questionIds.length ? (
-            <>
-            <button className="return" onClick={() => history.push("/my_profile")}>Return to profile</button>
-        <div className="my-q-container">
-             {questionIds.map((questionId) => {
+            <div className="edit-title">
+                <h1>Your Questions:</h1>
+            </div>
+            {questionIds.length ? (
+                <>
+                    <button className="return" onClick={() => history.push("/my_profile")}>Return to profile</button>
+                    <div className="my-q-container">
+                        {questionIds.map((questionId) => {
                             const question = questions[questionId]
 
-                                return (
-                                    <div className="profile-question">
-                                        <h4>{question.question}</h4>
-                                        <div className="question-buttons-div">
-                                            <OpenModalButton
-                                                buttonText={"Edit Question"}
-                                                modalComponent={<EditQuestion question={question} questionId={question?.id} />}
-                                            />
-                                            <OpenModalButton
-                                                buttonText={"Delete Question"}
-                                                modalComponent={<DeleteQuestion question={question} questionId={question?.id} />}
-                                            />
-                                        </div>
+                            return (
+                                <div className="profile-question">
+                                    <h4>{question.question}</h4>
+                                    <div className="question-buttons-div">
+                                        <OpenModalButton
+                                            buttonText={"Edit Question"}
+                                            modalComponent={<EditQuestion question={question} questionId={question?.id} />}
+                                        />
+                                        <OpenModalButton
+                                            buttonText={"Delete Question"}
+                                            modalComponent={<DeleteQuestion question={question} questionId={question?.id} />}
+                                        />
                                     </div>
-                                )
+                                </div>
+                            )
 
                         })}
-        </div>
-        </>
+                    </div>
+                </>
 
-        ) : (
-            <>
-            <button className="return" onClick={() => history.push("/my_profile")}>Return to profile</button>
-            <div className="no-questions">
-                <h1>
-                    No questions to display
-                </h1>
-            </div>
-            </>
-        )}
+            ) : (
+                <>
+                    <button className="return" onClick={() => history.push("/my_profile")}>Return to profile</button>
+                    <div className="no-questions">
+                        <h1>
+                            No questions to display
+                        </h1>
+                    </div>
+                </>
+            )}
         </>
     )
 }

@@ -64,3 +64,11 @@
     transform: scale(.95);
     background-color: #037b86;
 }
+
+.completion-buttons-div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin: 10px;
+}

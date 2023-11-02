@@ -6,6 +6,7 @@ import OpenModalButton from "../OpenModalButton";
 import { useHistory, useParams, useLocation } from "react-router-dom";
 import EditDeck from "../EditDeckModal";
 import DeleteDeck from "../DeleteDeckModal";
+import "./YourDecksPage.css"
 
 function YourDecksPage (){
     const history = useHistory();
@@ -18,8 +19,12 @@ function YourDecksPage (){
     }, [dispatch])
 
     return (
-        <div>
-              <h1>Your decks:</h1>
+        <div className="deck-page-container">
+            <div className="edit-title">
+              <h1>Your Decks:</h1>
+            </div>
+              <button className="return" onClick={() => history.push("/my_profile")}>Return to profile</button>
+                        <div className="my-deck-container">
                         {deckIds.map((deckId) => {
                             const deck = decks[deckId];
                             const redirectToDeck = async (e) => {
@@ -45,6 +50,7 @@ function YourDecksPage (){
                                 </div>
                             )
                         })}
+                        </div>
         </div>
     )
 }

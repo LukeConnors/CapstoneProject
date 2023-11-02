@@ -45,9 +45,10 @@ function AddReview(deckId) {
         <div>
             <div className="form-container">
                 <h1>Add your Review</h1>
-                <form onSubmit={handleSubmit}>
+                <form className="review-form" onSubmit={handleSubmit}>
                     <h2>Rate your experience 1-5 stars:</h2>
                     <div className="errors">{errors?.stars}</div>
+                    <div>
                     {[...Array(5)].map((star, index) => {
                         const currentStars = index + 1
                         return (
@@ -70,17 +71,18 @@ function AddReview(deckId) {
                             </label>
                         )
                     })}
+                    </div>
                     <h2>Give a Description of your experience:</h2>
                     <div className="errors">{errors?.description}</div>
                     <textarea
                     cols="30"
                     rows="5"
-                    className="form-input"
+                    className="description-input"
                     placeholder="Description"
                     value={formData.description}
                     onChange={(e) => setFormData({...formData, description: e.target.value})}
                     />
-                    <button className="login-button" type="submit">Submit</button>
+                    <button className="review-button" type="submit">Submit</button>
                 </form>
 
             </div>
