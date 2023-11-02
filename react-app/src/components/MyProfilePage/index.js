@@ -5,20 +5,11 @@ import { useHistory, useParams, useLocation } from "react-router-dom";
 import * as deckActions from "../../store/decks"
 import * as questionActions from "../../store/questions"
 import * as userActions from "../../store/session"
-import OpenModalButton from "../OpenModalButton";
-import EditDeck from "../EditDeckModal";
-import EditQuestion from "../EditQuestionModal";
-import DeleteDeck from "../DeleteDeckModal";
-import DeleteQuestion from "../DeleteQuestionModal";
 import "./MyProfile.css"
 
 function MyProfile() {
     const history = useHistory();
     const dispatch = useDispatch();
-    const decks = useSelector(decksSelector)
-    const questions = useSelector(questionActions.questionsSelector)
-    const deckIds = Object.keys(decks || {});
-    const questionIds = Object.keys(questions || {});
     const user = useSelector(state => state.session.user)
     const correctAnswers = useSelector(state => state.session.correct)
     const incorrectAnswers = useSelector(state => state.session.incorrect)
@@ -95,32 +86,7 @@ function MyProfile() {
                 </div>
                 <div className="data-container">
                     <div className="decks-div">
-                        <h1>Your decks:</h1>
-                        {deckIds.map((deckId) => {
-                            const deck = decks[deckId];
-                            const redirectToDeck = async (e) => {
-                                history.push(`/decks/${deckId}`)
-                            }
-                            return (
-                                <div className="profile-deck">
-                                    <h4 className="profile-deck-title" onClick={redirectToDeck}>{deck.title}</h4>
-                                    <div className="deck-button-cont">
-                                        <div className="deck-edit-div">
-                                            <OpenModalButton
-                                                buttonText={"Edit Deck"}
-                                                modalComponent={<EditDeck deck={deck} deckId={deck?.id} />}
-                                            />
-                                        </div>
-                                        <div className="deck-delete-div">
-                                            <OpenModalButton
-                                                buttonText={"Delete Deck"}
-                                                modalComponent={<DeleteDeck deck={deck} deckId={deck?.id} />}
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
-                            )
-                        })}
+                        <button className="deck-button" onClick={() => history.push('/my_profile/my_decks')}>Your Decks</button>
                     </div>
                     <div className="middle-div">
                         <div className="buffer-div">
@@ -139,66 +105,53 @@ function MyProfile() {
                         <div className="buffer-div">
                             <h1>Your Stats:</h1>
                             <div className="stats-div">
-                                <div className="stat-div">
-                                    <h3>Total Unique Correct Answers:</h3>
-                                    <h4>{correctUnique.length}</h4>
+                                <div className="answer-stat-div">
+                                    <div className="stat-div">
+                                        <h3>Total Unique Correct Answers:</h3>
+                                        <h4 className="answer-num-correct">
+                                            {correctUnique.length}
+                                        </h4>
+                                    </div>
+                                    <div className="stat-div">
+                                        <h3>Total Unique Incorrect Answers:</h3>
+                                        <h4 className="answer-num-incorrect">
+                                            {incorrectUnique.length}
+                                        </h4>
+                                    </div>
+                                    <div className="stat-div">
+                                        <h3>Total Correct Answers:</h3>
+                                        <h4 className="answer-num-correct">
+                                            {correctIds.length}
+                                        </h4>
+                                    </div>
+                                    <div className="stat-div">
+                                        <h3>Total Incorrect Answers:</h3>
+                                        <h4 className="answer-num-incorrect">
+                                            {incorrectIds.length}
+                                        </h4>
+                                    </div>
                                 </div>
-                                <div className="stat-div">
-                                    <h3>Total Unique Incorrect Answers:</h3>
-                                    <h4>{incorrectUnique.length}</h4>
+                                <div className="cat-stat-div">
+                                    {Object.keys(correctCategories).map((category) => {
+                                        const genStats = calculateCategoryStats(correctCategories, incorrectCategories, category);
+                                        if (correctCategories[category] && incorrectCategories[category] >= 1) {
+                                            return (
+                                                <div className="stat-div" key={category}>
+                                                    <h3>{category}:</h3>
+                                                    <h4>{`${genStats}% Correct`}</h4>
+                                                    <progress className="bar" value={genStats} max={100}></progress>
+                                                </div>
+                                            );
+                                        }
+                                        return null;
+                                    })}
                                 </div>
-                                <div className="stat-div">
-                                    <h3>Total Correct Answers:</h3>
-                                    <h4>{correctIds.length}</h4>
-                                </div>
-                                <div className="stat-div">
-                                    <h3>Total Incorrect Answers:</h3>
-                                    <h4>{incorrectIds.length}</h4>
-                                </div>
-                                {/* map the categories and create elements to hold data calculated by the helper function */}
-                                {Object.keys(correctCategories).map((category) => {
-                                    const genStats = calculateCategoryStats(correctCategories, incorrectCategories, category);
-                                    if (correctCategories[category] && incorrectCategories[category] >= 1) {
-                                        return (
-                                            <div className="stat-div" key={category}>
-                                                <h3>{category}:</h3>
-                                                <h4>{`${genStats}% Correct`}</h4>
-                                            </div>
-                                        );
-                                    }
-                                    return null;
-                                })}
                             </div>
                         </div>
                     </div>
                     <div className="questions-div">
-                        <h1>Your Questions:</h1>
-                        {questionIds.map((questionId) => {
-                            const question = questions[questionId]
-                            if (question === undefined) {
-                                return (
-                                    <>
-                                    </>
-                                )
-                            } else {
-                                return (
-                                    <div className="profile-question">
-                                        <h4>{question.question}</h4>
-                                        <div className="question-buttons-div">
-                                            <OpenModalButton
-                                                buttonText={"Edit Question"}
-                                                modalComponent={<EditQuestion question={question} questionId={question?.id} />}
-                                            />
-                                            <OpenModalButton
-                                                buttonText={"Delete Question"}
-                                                modalComponent={<DeleteQuestion question={question} questionId={question?.id} />}
-                                            />
-                                        </div>
-                                    </div>
-                                )
-                            }
-
-                        })}
+                        <button className="question-button" onClick={() => history.push('/my_profile/my_questions')}>Your Questions</button>
+                        <img />
                     </div>
                 </div>
             </div>

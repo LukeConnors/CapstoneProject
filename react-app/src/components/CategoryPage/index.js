@@ -29,11 +29,11 @@ useEffect(() => {
 }, [dispatch])
 if(deckIds.length && category === "General%20Knowledge"){
     return(
-        <>
+        <div className="cat-page-container">
             <h1 className="category-title">General Knowledge:</h1>
-        <div className="cat-card-container">
            {deckIds.map((deckId) => {
             const deck = decks[deckId];
+            console.log("THIS IS THE DECK", deck)
             const redirectToDeck = async (e) => {
                 history.push(`/decks/${deckId}`)
             }
@@ -41,23 +41,19 @@ if(deckIds.length && category === "General%20Knowledge"){
                 return null
             }
             return(
-            <div className="outer" onClick={redirectToDeck}>
-            <div className="cat-card">
+            <div className="cat-card" onClick={redirectToDeck}>
                 <h2>{deck.title}</h2>
-            </div>
             </div>
             )
 
            })}
         </div>
-        </>
     )
 
 } else if(deckIds.length) {
     return(
-        <>
+        <div className="cat-page-container">
             <h1 className="category-title">{category}:</h1>
-        <div className="cat-card-container">
            {deckIds.map((deckId) => {
             const deck = decks[deckId];
             const redirectToDeck = async (e) => {
@@ -67,16 +63,13 @@ if(deckIds.length && category === "General%20Knowledge"){
                 return null
             }
             return(
-                <div className="outer" onClick={redirectToDeck}>
-                <div className="cat-card">
+                <div className="cat-card" onClick={redirectToDeck}>
                     <h2>{deck.title}</h2>
-                </div>
                 </div>
             )
 
            })}
         </div>
-        </>
     )
 } else {
     return (

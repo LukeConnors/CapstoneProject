@@ -22,16 +22,14 @@ function GamePage() {
     const questions = useSelector(questionActions.deckQuestionsSelector)
     const questionIds = Object.keys(questions || {})
     const user = useSelector(state => state.session.user)
-    const [right, setRight] = useState(false)
     const [correct, setCorrect] = useState(0)
     const [rightQuest, setRightQuest] = useState(null)
     const [wrongQuest, setWrongQuest] = useState(null)
-    const [answerModal, setAnswerModal] = useState(false)
     const [wrong, setWrong] = useState(0)
     const [disable, setDisable] = useState(false)
     const [questionIndex, setquestionIndex] = useState(0);
     let answersArray = []
-    let num = Math.floor(Math.random() * 3)
+    let num = Math.floor(Math.random() * 4)
 
     useEffect(() => {
         dispatch(deckActions.fetchDetails(deckId))
@@ -70,7 +68,7 @@ function GamePage() {
                 setRightQuest(currentQuestion)
                 tempCorrect += 1
                 clickedButton.classList.add("correct");
-                setModalContent(<CorrectAnswer answer={answer} />)
+                setModalContent(<CorrectAnswer answer={currentQuestion.correct_answer} />)
             } else {
                 setWrong(wrong + 1)
                 setWrongQuest(currentQuestion)
@@ -86,7 +84,7 @@ function GamePage() {
                 if (questionIndex < questionIds.length - 1) {
                     setquestionIndex(questionIndex + 1);
                 } else {
-                    //  When reaching end of questions open completion page
+                    //  When reaching end of questions open completion Modal
                     setModalContent(<Completion correct={correct + tempCorrect} wrong={wrong + tempWrong} deckId={deckId} />)
                     history.push(`/decks/${deckId}`)
                 }

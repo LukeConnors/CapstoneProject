@@ -15,6 +15,8 @@ import MyProfile from "./components/MyProfilePage";
 import GamePage from "./components/GamePage";
 import UserProfile from "./components/UserProfilePage";
 import PrivateRoute from "./helpers/privateRoute";
+import YourQuestionsPage from "./components/YourDecksPage";
+import YourDecksPage from "./components/YourQuestionsPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -54,8 +56,14 @@ function App() {
           <Route path="/new_deck">
             <DeckForm />
           </Route>
-          <Route path="/my_profile">
+          <Route exact path="/my_profile">
             { user !== null ? <MyProfile /> : <LoginFormPage />}
+          </Route>
+          <Route exact path="/my_profile/my_questions">
+            <YourDecksPage />
+          </Route>
+          <Route exact path="/my_profile/my_decks">
+            <YourQuestionsPage />
           </Route>
           <Route path="/new_question">
             <QuestionForm />

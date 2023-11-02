@@ -78,6 +78,13 @@ transform: scale(1.02);
 .review-pic{
     height: 50px;
     width: 50px;
+    border-radius: 50px;
+}
+
+.my-pic{
+    height: 50px;
+    width: 50px;
+    border-radius: 50px;
 }
 
 .review-pic:hover{

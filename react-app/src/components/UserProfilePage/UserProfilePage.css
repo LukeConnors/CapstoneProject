@@ -25,4 +25,6 @@
 
 .profile-container > button:hover{
     cursor: pointer;
+    background-color: #079dab;
+    transform: scale(1.02);
 }

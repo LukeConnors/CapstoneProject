@@ -113,7 +113,7 @@ function DeckDetails() {
                                     <></>
                                 )}
                                 {review.user.picture && review.user.id === currentUser.id ? (
-                                    <img className="review-pic" src={review.user.picture} />
+                                    <img className="my-pic" src={review.user.picture} />
                                 ) : (
                                     <></>
                                 )}
