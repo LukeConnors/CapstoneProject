@@ -37,13 +37,13 @@ function GamePage() {
     }, [dispatch])
 
     useEffect(() => {
-        if(rightQuest){
+        if (rightQuest) {
             dispatch(sessionActions.createCorrectAnswer(user.id, rightQuest))
         }
     }, [rightQuest])
 
     useEffect(() => {
-        if(wrongQuest){
+        if (wrongQuest) {
             dispatch(sessionActions.createIncorrectAnswer(user.id, wrongQuest))
         }
     }, [wrongQuest])
@@ -97,7 +97,11 @@ function GamePage() {
             return <div>Loading...</div>;
         }
 
-        if (questionIndex <= questionIds.length - 1) {
+        if(user === null){
+            history.push('/login')
+        }
+
+        if (questionIndex <= questionIds.length - 1 && user) {
             return (
                 <div className="t-card-container">
                     <div className="trivia-card">
@@ -153,11 +157,15 @@ function GamePage() {
             history.push(`/decks/${deckId}`)
         }
         return (
-            <>
-                <h1>This deck has no questions yet!</h1>
+            <div className="empty-deck-container">
+                <div>
+                    <h1>This deck has no questions yet!</h1>
+                </div>
+                <div className="empty-deck-buttons">
                 <button className="login-button" onClick={handleHomeClick}>Take Me Home</button>
                 <button className="login-button" onClick={handleDeckClick}>Return to Deck</button>
-            </>
+                </div>
+            </div>
 
         )
     }

@@ -57,3 +57,20 @@
 .answer:hover{
     cursor: pointer;
 }
+
+.empty-deck-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+.empty-deck-buttons{
+    width: 20%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}

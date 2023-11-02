@@ -56,7 +56,7 @@ function YourQuestionsPage() {
                     <button className="return" onClick={() => history.push("/my_profile")}>Return to profile</button>
                     <div className="no-questions">
                         <h1>
-                            No questions to display
+                            No questions to display!
                         </h1>
                     </div>
                 </>

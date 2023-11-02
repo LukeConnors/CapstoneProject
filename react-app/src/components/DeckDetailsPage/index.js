@@ -59,93 +59,101 @@ function DeckDetails() {
     if (currentUser === null) {
         history.push('/login')
     }
-    return (
-        <div className="details-container">
-            <div className="details-title">
-                <h1 className="deck-title">{deck?.title}</h1>
-                <h4>Created by: {deckOwner?.username}</h4>
-            </div>
-            <div className="details-des">
-                <h3 className="deck-description">{deck?.description}</h3>
-            </div>
-            {currentUser && deck?.user_id === currentUser.id ? (
-                <div className="button-container">
-                    <OpenModalButton
-                        buttonText={"Edit Deck"}
-                        className="edit-button"
-                        modalComponent={<EditDeck deck={deck} deckId={deck?.id} />}
-                    />
-                    <OpenModalButton
-                        buttonText={"Delete Deck"}
-                        className="delete-button"
-                        modalComponent={<DeleteDeck deck={deck} deckId={deck?.id} />}
-                    />
-                    <button className="view-button" onClick={handleQuestionsClick}>
-                        View Deck Questions
-                    </button>
+    if(currentUser){
+        return (
+            <div className="details-container">
+                <div className="details-title">
+                    <h1 className="deck-title">{deck?.title}</h1>
+                    <h4>Created by: {deckOwner?.username}</h4>
                 </div>
-            ) : (
-                <>
-                </>
-            )}
-            <button className="start-button" onClick={handleStartClick}>Start!</button>
-            <div className="reviews-container">
-                {reviewIds.map((reviewId) => {
-                    const stars = [];
-                    const review = reviews[reviewId];
-                    for (let i = 0; i < review.stars; i++) {
-                        stars.push(<i class="fa-solid fa-star"></i>)
-                    }
-                    return (
-                        <div className="review-card">
-                            <div className="review-head-div">
-                                <div className="stars-div">
-                                    {stars}
+                <div className="details-des">
+                    <h3 className="deck-description">{deck?.description}</h3>
+                </div>
+                {currentUser && deck?.user_id === currentUser.id ? (
+                    <div className="button-container">
+                        <OpenModalButton
+                            buttonText={"Edit Deck"}
+                            className="edit-button"
+                            modalComponent={<EditDeck deck={deck} deckId={deck?.id} />}
+                        />
+                        <OpenModalButton
+                            buttonText={"Delete Deck"}
+                            className="delete-button"
+                            modalComponent={<DeleteDeck deck={deck} deckId={deck?.id} />}
+                        />
+                        <button className="view-button" onClick={handleQuestionsClick}>
+                            View Deck Questions
+                        </button>
+                    </div>
+                ) : (
+                    <>
+                    </>
+                )}
+                <button className="start-button" onClick={handleStartClick}>Start!</button>
+                <div className="reviews-container">
+                    {reviewIds.map((reviewId) => {
+                        const stars = [];
+                        const review = reviews[reviewId];
+                        for (let i = 0; i < review.stars; i++) {
+                            stars.push(<i class="fa-solid fa-star"></i>)
+                        }
+                        return (
+                            <div className="review-card">
+                                <div className="review-head-div">
+                                    <div className="stars-div">
+                                        {stars}
+                                    </div>
+                                    {review?.user?.picture && review?.user?.id !== currentUser?.id ? (
+                                        <img onClick={() => handleProfileClick(review.user.id)} className="review-pic" src={review.user.picture} />
+                                    ) : (
+                                        <></>
+                                    )}
+                                    {!review?.user?.picture && review?.user?.id !== currentUser?.id ? (
+                                        <img onClick={() => handleProfileClick(review.user.id)} className="review-pic" src="https://res.cloudinary.com/dyt7uoeck/image/upload/v1695947352/noprofile-removebg_r8qryg.png" />
+                                    ) : (
+                                        <></>
+                                    )}
+                                    {review?.user?.picture && review?.user?.id === currentUser?.id ? (
+                                        <img className="my-pic" src={review.user.picture} />
+                                    ) : (
+                                        <></>
+                                    )}
+                                    {!review?.user?.picture && review?.user?.id === currentUser?.id ? (
+                                        <img className="review-pic" src="https://res.cloudinary.com/dyt7uoeck/image/upload/v1695947352/noprofile-removebg_r8qryg.png" />
+                                    ) : (
+                                        <></>
+                                    )}
                                 </div>
-                                {review.user.picture && review.user.id !== currentUser.id ? (
-                                    <img onClick={() => handleProfileClick(review.user.id)} className="review-pic" src={review.user.picture} />
-                                ) : (
-                                    <></>
-                                )}
-                                {!review.user.picture && review.user.id !== currentUser.id ? (
-                                    <img onClick={() => handleProfileClick(review.user.id)} className="review-pic" src="https://res.cloudinary.com/dyt7uoeck/image/upload/v1695947352/noprofile-removebg_r8qryg.png" />
-                                ) : (
-                                    <></>
-                                )}
-                                {review.user.picture && review.user.id === currentUser.id ? (
-                                    <img className="my-pic" src={review.user.picture} />
-                                ) : (
-                                    <></>
-                                )}
-                                {!review.user.picture && review.user.id === currentUser.id ? (
-                                    <img className="review-pic" src="https://res.cloudinary.com/dyt7uoeck/image/upload/v1695947352/noprofile-removebg_r8qryg.png" />
+
+                                <h4>{review?.description}</h4>
+                                <h3> - {review.user.username}</h3>
+                                {currentUser && currentUser.id === review.user_id ? (
+                                    <div className="rev-button-container">
+                                        <OpenModalButton
+                                            buttonText="Edit Review"
+                                            modalComponent={<EditReview review={review} reviewId={review?.id} />}
+                                        />
+                                        <OpenModalButton
+                                            buttonText="Delete Review"
+                                            modalComponent={<DeleteReview review={review} reviewId={review?.id} />}
+                                        />
+                                    </div>
                                 ) : (
                                     <></>
                                 )}
                             </div>
-
-                            <h4>{review?.description}</h4>
-                            <h3> - {review.user.username}</h3>
-                            {currentUser && currentUser.id === review.user_id ? (
-                                <div className="rev-button-container">
-                                    <OpenModalButton
-                                        buttonText="Edit Review"
-                                        modalComponent={<EditReview review={review} reviewId={review?.id} />}
-                                    />
-                                    <OpenModalButton
-                                        buttonText="Delete Review"
-                                        modalComponent={<DeleteReview review={review} reviewId={review?.id} />}
-                                    />
-                                </div>
-                            ) : (
-                                <></>
-                            )}
-                        </div>
-                    )
-                })}
+                        )
+                    })}
+                </div>
             </div>
-        </div>
-    )
+        )
+
+    } else {
+        return(
+            <>
+            </>
+        )
+    }
 }
 
 export default DeckDetails

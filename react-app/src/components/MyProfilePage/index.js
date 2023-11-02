@@ -98,7 +98,9 @@ function MyProfile() {
                                         <span className='tool-tip-text'>Answer 5 General Knowledge questions correctly</span>
                                     </div>
                                 ) : (
-                                    <></>
+                                    <div>
+                                        <h2>None</h2>
+                                    </div>
                                 )}
                             </div>
                         </div>

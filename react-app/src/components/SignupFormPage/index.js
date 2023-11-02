@@ -17,6 +17,11 @@ function SignupFormPage() {
 
   if (sessionUser) return <Redirect to="/" />;
 
+  const validateEmail = (email) => {
+    // Use a regular expression to validate the email
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
+
   const handleSubmit = async (e) => {
     const formData = new FormData()
     formData.append("username", username)
@@ -29,6 +34,9 @@ function SignupFormPage() {
     if(!formData.username){
       formErrors.username = "Username is required"
      }
+     if (!validateEmail(email)) {
+      formErrors.email = "Please provide a valid email address";
+    }
      if(!formData.description){
       formErrors.description = "Please provide a description about yourself"
      }

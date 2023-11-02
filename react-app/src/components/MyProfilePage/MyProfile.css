@@ -199,6 +199,7 @@
   .stats-div{
     border: lightgray 1px solid;
     border-radius: 10px;
+    width: 100%;
   }
 
   .answer-num-correct{

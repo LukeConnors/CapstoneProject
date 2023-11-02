@@ -20,22 +20,23 @@ function DeleteQuestion({question, questionId}){
         await dispatch(questionActions.removeQuestion(questionId))
         setDeleted(true)
     }
-    useEffect(() => {
-        if (deleted) {
-          const timeout = setTimeout(() => {
-            history.push('/my_profile')
-            closeModal();
-          }, 1500);
+    // useEffect(() => {
+    //     if (deleted) {
+    //       const timeout = setTimeout(() => {
+    //         history.push('/my_profile')
+    //         closeModal();
+    //       }, 1500);
 
-          return () => clearTimeout(timeout);
-        }
-      }, [deleted, closeModal]);
+    //       return () => clearTimeout(timeout);
+    //     }
+    //   }, [deleted, closeModal]);
 
       return (
         <div className="delete-q-modal">
             {deleted ? (
                 <>
                 <h1>Deleted Successfully!</h1>
+                {closeModal()}
                 </>
             ) : (
             <>

@@ -64,7 +64,6 @@ def sign_up():
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
-        print("THIS IS OUR DATA", form.data)
         profile_picture = request.files['picture']
 
         if profile_picture:
@@ -79,7 +78,6 @@ def sign_up():
             picture=image_url['url'],
             password=form.data['password']
         )
-        print("THIS IS THE URL", user.picture)
         db.session.add(user)
         db.session.commit()
         login_user(user)

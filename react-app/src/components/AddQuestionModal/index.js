@@ -41,8 +41,8 @@ function AddQuestion({ deckId }) {
                 {questionIds.map((questionId) => {
                     const question = questions[questionId]
                     const handleAddClick = async (e) => {
-                        setAdded(added + 1)
                         await dispatch(questionActions.createDeckQuestion(deckId, question))
+                        setAdded(added + 1)
                     }
                     if (question.question) {
                         return (

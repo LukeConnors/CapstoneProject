@@ -17,8 +17,35 @@ function SignupFormModal() {
 	const [errors, setErrors] = useState([]);
 	const { closeModal } = useModal();
 
+
+	const validateEmail = (email) => {
+		// Use a regular expression to validate the email
+		return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+	  };
+
+
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+		let formErrors = {};
+
+		if(!formData.username){
+			formErrors.username = "Username is required"
+		}
+
+		if(!formData.description){
+			formErrors.description = "Please provide a description about yourself"
+		}
+
+		if(!validateEmail(formData.email)){
+			formErrors.email = "Please provide a valid email address";
+		}
+		if(!formData.password){
+			formErrors.password = "Password is required"
+		}
+
+		if(!formData.picture){
+			formErrors.picture = "Please upload a profile picture"
+		}
 
 		const formDataToSend = new FormData()
 
@@ -31,8 +58,6 @@ function SignupFormModal() {
 			formDataToSend.append("picture", formData.picture);
 		}
 
-
-
 		if (formData.password === confirmPassword) {
 			let data = await dispatch(signUp(formDataToSend));
 			if (data) {
@@ -41,22 +66,22 @@ function SignupFormModal() {
 				closeModal();
 			}
 		} else {
-			setErrors([
-				"Confirm Password field must be the same as the Password field",
-			]);
+			formErrors.conPassword = "Confirm Password field must be the same as the Password field"
 		}
+
+		if (Object.keys(formErrors).length > 0) {
+			setErrors(formErrors);
+			return;
+		}
+
 	};
 
 	return (
 		<div className="signup-container">
 			<h1>Sign Up</h1>
 			<form onSubmit={handleSubmit}>
-				<ul>
-					{errors.map((error, idx) => (
-						<li key={idx}>{error}</li>
-					))}
-				</ul>
 				<h3>Email</h3>
+				<div className="errors">{errors?.email}</div>
 				<input
 					type="text"
 					className="form-input-signup"
@@ -65,6 +90,7 @@ function SignupFormModal() {
 				/>
 
 				<h3>Username</h3>
+				<div className="errors">{errors?.username}</div>
 				<input
 					type="text"
 					className="form-input-signup"
@@ -72,6 +98,7 @@ function SignupFormModal() {
 					onChange={(e) => setFormData({ ...formData, username: e.target.value })}
 				/>
 				<h4>Tell us about yourself... Your interests, hobbies, passion for trivia, etc.</h4>
+				<div className="errors">{errors?.description}</div>
 				<textarea
 					className="form-input-signup-des"
 					value={formData.description}
@@ -79,6 +106,7 @@ function SignupFormModal() {
 				/>
 
 					<h3>Upload a profile picture</h3>
+					<div className="errors">{errors?.picture}</div>
 					<input
 						type="file"
 						className="profile-upload"
@@ -87,6 +115,7 @@ function SignupFormModal() {
 					/>
 
 					<h3>Password</h3>
+					<div className="errors">{errors?.password}</div>
 					<input
 						type="password"
 						className="form-input-signup"
@@ -94,6 +123,7 @@ function SignupFormModal() {
 						onChange={(e) => setFormData({ ...formData, password: e.target.value })}
 					/>
 					<h3>Confirm Password</h3>
+					<div className="errors">{errors?.conPassword}</div>
 					<input
 						type="password"
 						className="form-input-signup"

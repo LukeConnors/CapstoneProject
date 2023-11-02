@@ -13,6 +13,7 @@ function UserProfile() {
     const history = useHistory();
     const dispatch = useDispatch();
     const { userId } = useParams()
+    const loggedInUser = useSelector(state => state.session.user)
     const user = useSelector(state => state.session.detailedUser)
     const correctAnswers = useSelector(state => state.session.correct)
     const incorrectAnswers = useSelector(state => state.session.incorrect)
@@ -90,10 +91,14 @@ function UserProfile() {
                     <img className="profile-pic" src="https://res.cloudinary.com/dyt7uoeck/image/upload/v1695947352/noprofile-removebg_r8qryg.png" />
                 )}
             </div>
-            <OpenModalButton
-                className="chat-button"
-                buttonText={"Message"}
-                modalComponent={<ChatModal recipientId={user.id} name={user.username} />} />
+            { loggedInUser !== null ? (
+                <OpenModalButton
+                    className="chat-button"
+                    buttonText={"Message"}
+                    modalComponent={<ChatModal recipientId={user.id} name={user.username} />} />
+            ) : (
+                <></>
+            )}
                                 <div className="buffer-div">
                     <h1>{user.username}'s stats:</h1>
                     <div className="stats-div">

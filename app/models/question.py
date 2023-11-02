@@ -23,8 +23,8 @@ class Question(db.Model):
 
     # INTERNAL-MODEL RELATIONS (PRIMARY KEY):
     deck_question = db.relationship('Deck_question', back_populates='question', cascade="all, delete-orphan")
-    correct = db.relationship('Correct_answer', back_populates='question')
-    incorrect = db.relationship('Incorrect_answer', back_populates='question')
+    correct = db.relationship('Correct_answer', back_populates='question', cascade="all, delete-orphan")
+    incorrect = db.relationship('Incorrect_answer', back_populates='question', cascade="all, delete-orphan")
 
 
     def to_dict(self):

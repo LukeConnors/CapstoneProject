@@ -23,34 +23,48 @@ function YourDecksPage (){
             <div className="edit-title">
               <h1>Your Decks:</h1>
             </div>
+            {deckIds.length ? (
+                <>
               <button className="return" onClick={() => history.push("/my_profile")}>Return to profile</button>
-                        <div className="my-deck-container">
-                        {deckIds.map((deckId) => {
-                            const deck = decks[deckId];
-                            const redirectToDeck = async (e) => {
-                                history.push(`/decks/${deckId}`)
-                            }
-                            return (
-                                <div className="profile-deck">
-                                    <h4 className="profile-deck-title" onClick={redirectToDeck}>{deck.title}</h4>
-                                    <div className="deck-button-cont">
-                                        <div className="deck-edit-div">
-                                            <OpenModalButton
-                                                buttonText={"Edit Deck"}
-                                                modalComponent={<EditDeck deck={deck} deckId={deck?.id} />}
-                                            />
-                                        </div>
-                                        <div className="deck-delete-div">
-                                            <OpenModalButton
-                                                buttonText={"Delete Deck"}
-                                                modalComponent={<DeleteDeck deck={deck} deckId={deck?.id} />}
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
-                            )
-                        })}
-                        </div>
+              <div className="my-deck-container">
+              {deckIds.map((deckId) => {
+                  const deck = decks[deckId];
+                  const redirectToDeck = async (e) => {
+                      history.push(`/decks/${deckId}`)
+                  }
+                  return (
+                      <div className="profile-deck">
+                          <h4 className="profile-deck-title" onClick={redirectToDeck}>{deck.title}</h4>
+                          <div className="deck-button-cont">
+                              <div className="deck-edit-div">
+                                  <OpenModalButton
+                                      buttonText={"Edit Deck"}
+                                      modalComponent={<EditDeck deck={deck} deckId={deck?.id} />}
+                                  />
+                              </div>
+                              <div className="deck-delete-div">
+                                  <OpenModalButton
+                                      buttonText={"Delete Deck"}
+                                      modalComponent={<DeleteDeck deck={deck} deckId={deck?.id} />}
+                                  />
+                              </div>
+                          </div>
+                      </div>
+                  )
+              })}
+              </div>
+              </>
+            ) : (
+                <>
+              <button className="return" onClick={() => history.push("/my_profile")}>Return to profile</button>
+              <div className="no-decks">
+                  <h1>
+                      No decks to display!
+                  </h1>
+              </div>
+              </>
+            )}
+
         </div>
     )
 }
