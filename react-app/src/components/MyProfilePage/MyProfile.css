@@ -23,6 +23,8 @@
 .profile-des{
     width: 1200px;
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
     justify-content: space-between;
     border: lightgray 2px solid;
@@ -173,6 +175,8 @@
 
   .stat-div{
     margin: 20px;
+    overflow: hidden;
+    white-space: nowrap;
   }
 
   .question-buttons-div {
@@ -197,6 +201,7 @@
   }
 
   .stats-div{
+    display: flex;
     border: lightgray 1px solid;
     border-radius: 10px;
     width: 100%;

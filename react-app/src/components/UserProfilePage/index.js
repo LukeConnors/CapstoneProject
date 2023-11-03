@@ -84,21 +84,22 @@ function UserProfile() {
         <div className="profile-container">
             <h1>{capitalizedUsername}</h1>
             <div className="profile-des">
+                <div className="des-pic">
                 <h3>{user.description}</h3>
                 {user.picture ? (
                     <img className="profile-pic" src={user.picture} />
                 ) : (
                     <img className="profile-pic" src="https://res.cloudinary.com/dyt7uoeck/image/upload/v1695947352/noprofile-removebg_r8qryg.png" />
                 )}
-            </div>
+                </div>
             { loggedInUser !== null ? (
                 <OpenModalButton
-                    className="chat-button"
-                    buttonText={"Message"}
-                    modalComponent={<ChatModal recipientId={user.id} name={user.username} />} />
-            ) : (
-                <></>
-            )}
+                className="chat-button"
+                buttonText={"Message"}
+                modalComponent={<ChatModal recipientId={user.id} name={user.username} />} />
+                ) : (
+                    <></>
+                    )}
                                 <div className="buffer-div">
                     <h1>{capitalizedUsername}'s Stats:</h1>
                     <div className="stats-div">
@@ -145,6 +146,7 @@ function UserProfile() {
                         </div>
                     </div>
                 </div>
+                            </div>
         </div>
     )
 

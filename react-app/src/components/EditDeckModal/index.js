@@ -108,6 +108,7 @@ return (
         </select>
         <div className="login-button-div">
         <button className="login-button" type="submit">Submit</button>
+        <button className="login-button" onClick={() => closeModal()}>Close</button>
         </div>
         </form>
 

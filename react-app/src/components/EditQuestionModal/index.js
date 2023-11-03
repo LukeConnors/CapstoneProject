@@ -212,6 +212,7 @@ function EditQuestion({ question, questionId }) {
                 </div>
                 <div className="login-button-div">
                     <button className="login-button" type="submit">Submit</button>
+                    <button className="login-button" onClick={() => closeModal()}>Close</button>
                 </div>
             </form>
         </div>
