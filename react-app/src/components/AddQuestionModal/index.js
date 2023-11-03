@@ -10,9 +10,11 @@ import "./AddQuestionModal.css"
 
 function AddQuestion({ deckId }) {
     const dispatch = useDispatch();
+    const history = useHistory();
     const [buttonDis, setButtonDis] = useState(false)
     const [buttonText, setButtonText] = useState("Add to Deck")
     const [added, setAdded] = useState(0)
+    const { closeModal } = useModal();
     const deckOwner = useSelector(userActions.userSelector)
     const questions = useSelector(questionActions.questionsSelector)
     const deckQuestions = useSelector(state => state.questions.deckQuestions)
@@ -34,6 +36,9 @@ function AddQuestion({ deckId }) {
     });
     return (
         <>
+        <div>
+            <button className="re-button" onClick={() => closeModal()}>Return to Deck Questions</button>
+        </div>
             <div className="add-q-title">
                 <h1>Add a question to your Deck:</h1>
             </div>

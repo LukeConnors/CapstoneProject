@@ -17,13 +17,13 @@
     justify-content: space-around;
     align-items: flex-start;
     height: auto;
-    width: 90%;
+    width: 100%;
 }
 
 .profile-des{
     width: 1200px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     border: lightgray 2px solid;
     border-radius: 5px;
@@ -273,4 +273,11 @@
   .deck-button:hover{
     background-color: #079dab;
     transform: scale(1.02);
+  }
+
+  .des-pic{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
   }

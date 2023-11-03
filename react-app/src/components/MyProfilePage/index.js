@@ -79,83 +79,85 @@ function MyProfile() {
             <div className="profile-container">
                 <h1>{capitalizedUsername}</h1>
                 <div className="profile-des">
-                    <h3>{user.description}</h3>
-                    {user.picture ? (
-                        <img className="profile-pic" src={user.picture} />
-                    ) : (
-                        <img className="profile-pic" src="https://res.cloudinary.com/dyt7uoeck/image/upload/v1695947352/noprofile-removebg_r8qryg.png" />
-                    )}
-                </div>
-                <div className="data-container">
-                    <div className="decks-div">
-                        <button className="deck-button" onClick={() => history.push('/my_profile/my_decks')}>Your Decks</button>
+                    <div className="des-pic">
+                        <h3>{user.description}</h3>
+                        {user.picture ? (
+                            <img className="profile-pic" src={user.picture} />
+                        ) : (
+                            <img className="profile-pic" src="https://res.cloudinary.com/dyt7uoeck/image/upload/v1695947352/noprofile-removebg_r8qryg.png" />
+                        )}
                     </div>
-                    <div className="middle-div">
-                        <div className="buffer-div">
-                            <h1>Your Badges:</h1>
-                            <div className="badges-div">
-                                {correctCategories["General Knowledge"] >= 5 ? (
-                                    <div className="badge-div">
-                                        <img className="badge" src="https://res.cloudinary.com/dyt7uoeck/image/upload/v1697671493/gen5badge-removebg_lhlffz.png" />
-                                        <span className='tool-tip-text'>Answer 5 General Knowledge questions correctly</span>
-                                    </div>
-                                ) : (
-                                    <div>
-                                        <h2>None</h2>
-                                    </div>
-                                )}
-                            </div>
+                    <div className="data-container">
+                        <div className="decks-div">
+                            <button className="deck-button" onClick={() => history.push('/my_profile/my_decks')}>Your Decks</button>
                         </div>
-                        <div className="buffer-div">
-                            <h1>Your Stats:</h1>
-                            <div className="stats-div">
-                                <div className="answer-stat-div">
-                                    <div className="stat-div">
-                                        <h3>Total Unique Correct Answers:</h3>
-                                        <h4 className="answer-num-correct">
-                                            {correctUnique.length}
-                                        </h4>
-                                    </div>
-                                    <div className="stat-div">
-                                        <h3>Total Unique Incorrect Answers:</h3>
-                                        <h4 className="answer-num-incorrect">
-                                            {incorrectUnique.length}
-                                        </h4>
-                                    </div>
-                                    <div className="stat-div">
-                                        <h3>Total Correct Answers:</h3>
-                                        <h4 className="answer-num-correct">
-                                            {correctIds.length}
-                                        </h4>
-                                    </div>
-                                    <div className="stat-div">
-                                        <h3>Total Incorrect Answers:</h3>
-                                        <h4 className="answer-num-incorrect">
-                                            {incorrectIds.length}
-                                        </h4>
-                                    </div>
-                                </div>
-                                <div className="cat-stat-div">
-                                    {Object.keys(correctCategories).map((category) => {
-                                        const genStats = calculateCategoryStats(correctCategories, incorrectCategories, category);
-                                        if (correctCategories[category] && incorrectCategories[category] >= 1) {
-                                            return (
-                                                <div className="stat-div" key={category}>
-                                                    <h3>{category}:</h3>
-                                                    <h4>{`${genStats}% Correct`}</h4>
-                                                    <progress className="bar" value={genStats} max={100}></progress>
-                                                </div>
-                                            );
-                                        }
-                                        return null;
-                                    })}
+                        <div className="middle-div">
+                            <div className="buffer-div">
+                                <h1>Your Badges:</h1>
+                                <div className="badges-div">
+                                    {correctCategories["General Knowledge"] >= 5 ? (
+                                        <div className="badge-div">
+                                            <img className="badge" src="https://res.cloudinary.com/dyt7uoeck/image/upload/v1697671493/gen5badge-removebg_lhlffz.png" />
+                                            <span className='tool-tip-text'>Answer 5 General Knowledge questions correctly</span>
+                                        </div>
+                                    ) : (
+                                        <div>
+                                            <h2>None</h2>
+                                        </div>
+                                    )}
                                 </div>
                             </div>
+                            <div className="buffer-div">
+                                <h1>Your Stats:</h1>
+                                <div className="stats-div">
+                                    <div className="answer-stat-div">
+                                        <div className="stat-div">
+                                            <h3>Total Unique Correct Answers:</h3>
+                                            <h4 className="answer-num-correct">
+                                                {correctUnique.length}
+                                            </h4>
+                                        </div>
+                                        <div className="stat-div">
+                                            <h3>Total Unique Incorrect Answers:</h3>
+                                            <h4 className="answer-num-incorrect">
+                                                {incorrectUnique.length}
+                                            </h4>
+                                        </div>
+                                        <div className="stat-div">
+                                            <h3>Total Correct Answers:</h3>
+                                            <h4 className="answer-num-correct">
+                                                {correctIds.length}
+                                            </h4>
+                                        </div>
+                                        <div className="stat-div">
+                                            <h3>Total Incorrect Answers:</h3>
+                                            <h4 className="answer-num-incorrect">
+                                                {incorrectIds.length}
+                                            </h4>
+                                        </div>
+                                    </div>
+                                    <div className="cat-stat-div">
+                                        {Object.keys(correctCategories).map((category) => {
+                                            const genStats = calculateCategoryStats(correctCategories, incorrectCategories, category);
+                                            if (correctCategories[category] && incorrectCategories[category] >= 1) {
+                                                return (
+                                                    <div className="stat-div" key={category}>
+                                                        <h3>{category}:</h3>
+                                                        <h4>{`${genStats}% Correct`}</h4>
+                                                        <progress className="bar" value={genStats} max={100}></progress>
+                                                    </div>
+                                                );
+                                            }
+                                            return null;
+                                        })}
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div className="questions-div">
-                        <button className="question-button" onClick={() => history.push('/my_profile/my_questions')}>Your Questions</button>
-                        <img />
+                        <div className="questions-div">
+                            <button className="question-button" onClick={() => history.push('/my_profile/my_questions')}>Your Questions</button>
+                            <img />
+                        </div>
                     </div>
                 </div>
             </div>
