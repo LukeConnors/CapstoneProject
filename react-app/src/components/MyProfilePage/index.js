@@ -105,6 +105,15 @@ function MyProfile() {
                                             <h2>None</h2>
                                         </div>
                                     )}
+                                    {correctCategories["Entertainment: Film"] >= 5 ? (
+                                        <div className="badge-div">
+                                            <img className="badge" src="../assets/enterBadge-removebg.png" />
+                                            <span className='tool-tip-text'>Answer 5 Entertainment questions correctly</span>
+                                        </div>
+                                    ) : (
+                                        <>
+                                        </>
+                                    )}
                                 </div>
                             </div>
                             <div className="buffer-div">

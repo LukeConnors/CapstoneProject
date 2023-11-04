@@ -71,17 +71,17 @@ def sign_up():
 
             image_url = upload_file_to_s3(profile_picture)
 
-        user = User(
-            username=form.data['username'],
-            email=form.data['email'],
-            description=form.data['description'],
-            picture=image_url['url'],
-            password=form.data['password']
-        )
-        db.session.add(user)
-        db.session.commit()
-        login_user(user)
-        return user.to_dict()
+            user = User(
+                username=form.data['username'],
+                email=form.data['email'],
+                description=form.data['description'],
+                picture=image_url['url'],
+                password=form.data['password']
+            )
+            db.session.add(user)
+            db.session.commit()
+            login_user(user)
+            return user.to_dict()
     else:
         print("FORM ERRORS!", form.errors)
         return {'errors': validation_errors_to_error_messages(form.errors)}, 401
