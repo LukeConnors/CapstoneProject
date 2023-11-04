@@ -62,15 +62,11 @@ def sign_up():
     """
     form = SignUpForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-
     if form.validate_on_submit():
         profile_picture = request.files['picture']
-
-        if profile_picture:
-            unique_filename = get_unique_filename(profile_picture.filename)
-
-            image_url = upload_file_to_s3(profile_picture)
-
+        image_url = upload_file_to_s3(profile_picture)
+        if image_url:
+            # unique_filename = get_unique_filename(profile_picture.filename)
             print("!!!!!!!!!!!!!!!IMAGE URL!!!!!!!!!!!!!!!!!!!!!!!!", image_url)
             user = User(
                 username=form.data['username'],
@@ -83,9 +79,9 @@ def sign_up():
             db.session.commit()
             login_user(user)
             return user.to_dict()
-    else:
-        print("FORM ERRORS!", form.errors)
-        return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+    # else:
+    #     print("FORM ERRORS!", form.errors)
+    #     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
 @auth_routes.route('/unauthorized')
