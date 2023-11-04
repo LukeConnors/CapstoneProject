@@ -37,7 +37,7 @@ def upload_file_to_s3(file, acl="public-read"):
         print("!!!!!!!!", S3_LOCATION, "!!!!!!!!!!!!!!!!!")
     except Exception as e:
         # in case the your s3 upload fails
-        return {"errors": str(e)}
+        return {"errors": e}
 
     return {"url": f"{S3_LOCATION}{file.filename}"}
 
