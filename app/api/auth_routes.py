@@ -67,6 +67,7 @@ def sign_up():
         if profile_picture:
             profile_picture.filename = get_unique_filename(profile_picture.filename)
             image_url = upload_file_to_s3(profile_picture)
+            print("!!!!!!!!", image_url, "!!!!!!!!!!!!!!!!!")
             user = User(
                 username=form.data['username'],
                 email=form.data['email'],
