@@ -64,11 +64,9 @@ def sign_up():
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         profile_picture = request.files['picture']
-        image_url = upload_file_to_s3(profile_picture)
-        if image_url:
+        if profile_picture:
             # unique_filename = get_unique_filename(profile_picture.filename)
-            print("!!!!!!!!!!!!!!!profile picture!!!!!!!!!!!!!!!!!!!!!!!!", profile_picture)
-            print("!!!!!!!!!!!!!!!IMAGE URL!!!!!!!!!!!!!!!!!!!!!!!!", image_url)
+            image_url = upload_file_to_s3(profile_picture)
             user = User(
                 username=form.data['username'],
                 email=form.data['email'],
