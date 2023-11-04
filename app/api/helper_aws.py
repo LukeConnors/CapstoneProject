@@ -26,6 +26,7 @@ def upload_file_to_s3(file, acl="public-read"):
     print("!!!!!!!!", BUCKET_NAME, "!!!!!!!!!!!!!!!!!")
     print("!!!!!!!!", S3_LOCATION, "!!!!!!!!!!!!!!!!!")
     print("!!!!!!!!", file, "!!!!!!!!!!!!!!!!!")
+    print("!!!!!!!!", file.filename, "!!!!!!!!!!!!!!!!!")
     try:
         s3.upload_fileobj(
             file,
