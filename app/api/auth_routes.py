@@ -65,7 +65,7 @@ def sign_up():
     if form.validate_on_submit():
         profile_picture = request.files['picture']
         if profile_picture:
-            # unique_filename = get_unique_filename(profile_picture.filename)
+            profile_picture.filename = get_unique_filename(profile_picture.filename)
             image_url = upload_file_to_s3(profile_picture)
             user = User(
                 username=form.data['username'],
