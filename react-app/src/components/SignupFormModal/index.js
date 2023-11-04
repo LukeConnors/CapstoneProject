@@ -53,10 +53,9 @@ function SignupFormModal() {
 		formDataToSend.append("email", formData.email);
 		formDataToSend.append("description", formData.description);
 		formDataToSend.append("password", formData.password);
+		formDataToSend.append("picture", formData.picture);
 
-		if (formData.picture) {
-			formDataToSend.append("picture", formData.picture);
-		}
+
 
 		if (formData.password === confirmPassword) {
 			let data = await dispatch(signUp(formDataToSend));
