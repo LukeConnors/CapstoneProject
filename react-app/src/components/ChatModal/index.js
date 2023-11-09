@@ -47,9 +47,9 @@ function ChatModal({ recipientId, name }) {
       console.error("Socket error:", error);
     });
 
-    // return () => {
-    //   socket.disconnect();
-    // };
+    return () => {
+      socket.disconnect();
+    };
   }, [recipientId]);
 
   const updateMessageInput = (e) => {
