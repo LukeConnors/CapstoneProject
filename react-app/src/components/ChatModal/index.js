@@ -27,30 +27,30 @@ function ChatModal({ recipientId, name }) {
     dispatch(getUserMessages(recipientId));
   }, [dispatch, recipientId]);
 
-  useEffect(() => {
-    socket = io();
+  // useEffect(() => {
+  //   socket = io();
 
-    socket.on("connect", () => {
-      console.log("Socket connected");
-    });
+  //   socket.on("connect", () => {
+  //     console.log("Socket connected");
+  //   });
 
-    socket.on("message", (data) => {
-      dispatch(getUserMessages(recipientId));
-      scrollToBottom();
-    });
+  //   socket.on("message", (data) => {
+  //     dispatch(getUserMessages(recipientId));
+  //     scrollToBottom();
+  //   });
 
-    socket.on("disconnect", () => {
-      console.log("Socket disconnected");
-    });
+  //   socket.on("disconnect", () => {
+  //     console.log("Socket disconnected");
+  //   });
 
-    socket.on("error", (error) => {
-      console.error("Socket error:", error);
-    });
+  //   socket.on("error", (error) => {
+  //     console.error("Socket error:", error);
+  //   });
 
-    return () => {
-      socket.disconnect();
-    };
-  }, [recipientId]);
+  //   // return () => {
+  //   //   socket.disconnect();
+  //   // };
+  // }, [recipientId]);
 
   const updateMessageInput = (e) => {
     setMessageInput(e.target.value);
