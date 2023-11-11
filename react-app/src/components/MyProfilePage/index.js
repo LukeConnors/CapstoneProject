@@ -80,12 +80,16 @@ function MyProfile() {
                 <h1>{capitalizedUsername}</h1>
                 <div className="profile-des">
                     <div className="des-pic">
-                        <h3>{user.description}</h3>
-                        {user.picture ? (
-                            <img className="profile-pic" src={user.picture} />
-                        ) : (
-                            <img className="profile-pic" src="https://res.cloudinary.com/dyt7uoeck/image/upload/v1695947352/noprofile-removebg_r8qryg.png" />
-                        )}
+                        <div className="user-des">
+                            <h3>{user.description}</h3>
+                        </div>
+                        <div className="user-pic">
+                            {user.picture ? (
+                                <img className="profile-pic" src={user.picture} />
+                            ) : (
+                                <img className="profile-pic" src="https://res.cloudinary.com/dyt7uoeck/image/upload/v1695947352/noprofile-removebg_r8qryg.png" />
+                            )}
+                        </div>
                     </div>
                     <div className="data-container">
                         <div className="decks-div">
