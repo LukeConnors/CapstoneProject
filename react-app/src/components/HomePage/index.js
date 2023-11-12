@@ -6,7 +6,7 @@ function HomePage(){
 
 return (
     <>
-    <h1 className="welcome">Welcome to Trivia Titan! Please Select a Category:</h1>
+    <img className="banner" src="https://res.cloudinary.com/dyt7uoeck/image/upload/v1699747671/adjbanner_wcbofz.png"></img>
     <div className="card-container">
         <Link className="home-link" to="/decks/deck_category?category=General%20Knowledge">
         <div className="card">

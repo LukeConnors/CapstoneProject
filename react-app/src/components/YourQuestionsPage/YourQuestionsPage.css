@@ -64,3 +64,33 @@
     align-items: center;
     justify-content: center;
 }
+
+/* width */
+.profile-question::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  /* Height */
+.profile-question::-webkit-scrollbar-vertical {
+    height: 2px;
+}
+
+  /* Track */
+  .profile-question::-webkit-scrollbar-track {
+    background: #e2e1e1;
+    border-radius: 20px;
+    border: 1px solid rgb(176, 176, 176);
+    width: 50px;
+  }
+
+  /* Handle */
+  .profile-question::-webkit-scrollbar-thumb {
+    background: #06c0d1;
+    border-radius: 20px;
+  }
+
+  /* Handle on hover */
+  .profile-question::-webkit-scrollbar-thumb:hover {
+    background: #017c87;
+  }
