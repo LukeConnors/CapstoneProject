@@ -33,3 +33,33 @@
   box-sizing: border-box;
   border-radius: 5px;
 }
+
+/* width */
+#modal-content::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+ /* Height */
+ #modal-content::-webkit-scrollbar-vertical {
+  height: 2px;
+}
+
+/* Track */
+#modal-content::-webkit-scrollbar-track {
+  background: #e2e1e1;
+  border-radius: 20px;
+  border: 1px solid rgb(176, 176, 176);
+  width: 50px;
+}
+
+/* Handle */
+#modal-content::-webkit-scrollbar-thumb {
+  background: #06c0d1;
+  border-radius: 20px;
+}
+
+/* Handle on hover */
+#modal-content::-webkit-scrollbar-thumb:hover {
+  background: #079dab;
+  }
