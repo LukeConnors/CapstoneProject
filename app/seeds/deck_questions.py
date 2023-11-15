@@ -650,35 +650,6 @@ def seed_deck_questions():
         question_id=172
     )
 
-    dq130 = Deck_question(
-        deck_id=27,
-        question_id=173
-    )
-
-    dq131 = Deck_question(
-        deck_id=28,
-        question_id=174
-    )
-
-    dq132 = Deck_question(
-        deck_id=28,
-        question_id=175
-    )
-
-    dq133 = Deck_question(
-        deck_id=28,
-        question_id=176
-    )
-
-    dq134 = Deck_question(
-        deck_id=28,
-        question_id=177
-    )
-
-    dq135 = Deck_question(
-        deck_id=28,
-        question_id=178
-    )
 
 
     db.session.add_all([
@@ -695,8 +666,7 @@ def seed_deck_questions():
         dq101, dq102, dq103, dq104, dq105, dq106, dq107, dq108, dq109,
         dq110, dq111, dq112, dq113, dq114, dq115, dq116, dq117, dq118,
         dq119, dq120, dq121, dq122, dq123, dq124, dq125, dq126, dq127,
-        dq128, dq129, dq130, dq131, dq132, dq133, dq134, dq135
-
+        dq128, dq129
     ])
 
     db.session.commit()

@@ -1684,56 +1684,6 @@ def seed_questions():
         incorrect_answers="Hennessy Venom GT, Bugatti Veyron Super Sport, Pagani Huayra BC"
     )
 
-# 174
-    comics1 = Question(
-        owner_id=8,
-        category="Entertainment: Comics",
-        type="multiple",
-        difficulty="easy",
-        question="Who is Batman?",
-        correct_answer="Bruce Wayne",
-        incorrect_answers="Clark Kent, Barry Allen, Tony Stark"
-    )
-# 175
-    comics2 = Question(
-        owner_id=2,
-        category="Entertainment: Comics",
-        type="multiple",
-        difficulty="easy",
-        question="What is the full first name of the babysitter in Calvin and Hobbes?",
-        correct_answer="Rosalyn",
-        incorrect_answers="Rose, Ruby, Rachel"
-    )
-# 176
-    comics3 = Question(
-        owner_id=4,
-        category="Entertainment: Comics",
-        type="multiple",
-        difficulty="easy",
-        question="The main six-year-old protagonist in Calvin and Hobbes is named after what theologian?",
-        correct_answer="John Calvin",
-        incorrect_answers="Calvin Klein, Calvin Coolidge, Phillip Calvin McGraw"
-    )
-# 177
-    comics4 = Question(
-        owner_id=6,
-        category="Entertainment: Comics",
-        type="multiple",
-        difficulty="easy",
-        question="When was Marvel Comics founded?",
-        correct_answer="1939",
-        incorrect_answers="1932, 1951, 1936"
-    )
-# 178
-    comics5 = Question(
-        owner_id=10,
-        category="Entertainment: Comics",
-        type="multiple",
-        difficulty="hard",
-        question="Which pulp hero made appearances in Hellboy and BPRD comics before getting his own spin-off?",
-        correct_answer="Lobster Johnson",
-        incorrect_answers="Roger the Homunculus, The Spider, The Wendigo"
-    )
 
     db.session.add_all([
         general1, general2, general3, general4, general5, general6, general7, general8, general9, general10,
@@ -1751,7 +1701,7 @@ def seed_questions():
         comics6, geography2, geography3, geography4, geography5, geography6, mythology2, mythology3, mythology4, mythology5,
         mythology6, math1, math2, math3, math4, math5, tele1, tele2, tele3, tele4, tele5, sports1, sports2, sports3, sports4, sports5,
         politics1, politics2, politics3, politics4, politics5, art1, art2, art3, art4, art5, animals1, animals2, animals3, animals4, animals5,
-        vehicles1, vehicles2, vehicles3, vehicles4, vehicles5, comics1, comics2, comics3, comics4, comics5
+        vehicles1, vehicles2, vehicles3, vehicles4, vehicles5
     ])
 
 
