@@ -38,9 +38,9 @@ return (
             <img className="home-img" src="https://res.cloudinary.com/dyt7uoeck/image/upload/v1695841786/mythology_gk2acu.png"></img>
         </div>
         </Link>
-        <Link className="home-link" to="/decks/deck_category?category=Geology">
+        <Link className="home-link" to="/decks/deck_category?category=Geography">
         <div className="card">
-            <h1 className="home-title">Geology</h1>
+            <h1 className="home-title">Geography</h1>
             <img className="home-img" src="https://res.cloudinary.com/dyt7uoeck/image/upload/v1695842013/geology_wd6gjd.png"></img>
         </div>
         </Link>

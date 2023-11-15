@@ -831,8 +831,909 @@ def seed_questions():
         incorrect_answers="Multi-Player, Many Plays, Multiple Precussions"
     )
 
+    # 89
+    musicals2 = Question(
+        owner_id=3,
+        category="Entertainment: Musicals & Theatres",
+        type="multiple",
+        difficulty="medium",
+        question="When was the play \"Macbeth\" written?",
+        correct_answer="1606",
+        incorrect_answers="1605, 1723, 1628"
+    )
+# 90
+    musicals3 = Question(
+        owner_id=7,
+        category="Entertainment: Musicals & Theatres",
+        type="multiple",
+        difficulty="hard",
+        question="Who wrote the lyrics for Leonard Bernstein's 1957 Broadway musical West Side Story?",
+        correct_answer="Stephen Sondheim",
+        incorrect_answers="Himself, Oscar Hammerstein, Richard Rodgers"
+    )
+# 91
+    musicals4 = Question(
+        owner_id=5,
+        category="Entertainment: Musicals & Theatres",
+        type="multiple",
+        difficulty="hard",
+        question="Who serves as the speaker of the prologue in Shakespeare's Romeo and Juliet?",
+        correct_answer="Chorus",
+        incorrect_answers="Montague, Refrain, Capulet"
+    )
+# 92
+    musicals5 = Question(
+        owner_id=9,
+        category="Entertainment: Musicals & Theatres",
+        type="multiple",
+        difficulty="medium",
+        question="The musical \"Dirty Rotten Scoundrels\" is set in what country?",
+        correct_answer="France",
+        incorrect_answers="USA, Germany, Sweden"
+    )
+# 93
+    musicals6 = Question(
+        owner_id=2,
+        category="Entertainment: Musicals & Theatres",
+        type="multiple",
+        difficulty="hard",
+        question="Which Shakespeare play features the stage direction \"Enter a messenger, with two heads and a hand\"?",
+        correct_answer="Titus Andronicus",
+        incorrect_answers="Othello, Macbeth, King Lear"
+    )
+# 94
+    books3 = Question(
+    owner_id=4,
+    category="Entertainment: Books",
+    type="multiple",
+    difficulty="hard",
+    question="Where does the book \"The Silence of the Lambs\" get its title from?",
+    correct_answer="The main character's trauma in childhood",
+    incorrect_answers="The relation it has with killing the innocents, The villain's favourite meal, The voice of innocent people being shut by the powerful"
+    )
+#95
+    books4 = Question(
+        owner_id=8,
+        category="Entertainment: Books",
+        type="multiple",
+        difficulty="medium",
+        question="What book series published by Jim Butcher follows a wizard in modern-day Chicago?",
+        correct_answer="The Dresden Files",
+        incorrect_answers="A Hat in Time, The Cinder Spires, My Life as a Teenage Wizard"
+    )
+#96
+    books5 = Question(
+        owner_id=6,
+        category="Entertainment: Books",
+        type="multiple",
+        difficulty="medium",
+        question="In Terry Pratchett's Discworld novel 'Wyrd Sisters', which of these is not one of the three main witches?",
+        correct_answer="Winny Hathersham",
+        incorrect_answers="Granny Weatherwax, Nanny Ogg, Magrat Garlick"
+    )
+#97
+    books6 = Question(
+        owner_id=10,
+        category="Entertainment: Books",
+        type="multiple",
+        difficulty="easy",
+        question="Under what pseudonym did Stephen King publish five novels between 1977 and 1984?",
+        correct_answer="Richard Bachman",
+        incorrect_answers="J. D. Robb, Mark Twain, Lewis Carroll"
+    )
+#98
+    books7 = Question(
+        owner_id=2,
+        category="Entertainment: Books",
+        type="multiple",
+        difficulty="medium",
+        question="J.K. Rowling completed \"Harry Potter and the Deathly Hallows\" in which hotel in Edinburgh, Scotland?",
+        correct_answer="The Balmoral",
+        incorrect_answers="The Dunstane Hotel, Hotel Novotel, Sheraton Grand Hotel & Spa"
+    )
+# 99
+    celebrities2 = Question(
+        owner_id=4,
+        category="Celebrities",
+        type="multiple",
+        difficulty="easy",
+        question="By what name is Carlos Estevez better known?",
+        correct_answer="Charlie Sheen",
+        incorrect_answers="Ricky Martin, Bruno Mars, Joaquin Phoenix"
+    )
+# 100
+    celebrities3 = Question(
+        owner_id=8,
+        category="Celebrities",
+        type="multiple",
+        difficulty="medium",
+        question="When was Elvis Presley born?",
+        correct_answer="January 8, 1935",
+        incorrect_answers="December 13, 1931, July 18, 1940, April 17, 1938"
+    )
+# 101
+    celebrities4 = Question(
+        owner_id=6,
+        category="Celebrities",
+        type="boolean",
+        difficulty="easy",
+        question="Marilyn Monroe was born on July 1, 1926.",
+        correct_answer="False",
+        incorrect_answers="True"
+    )
+# 102
+    celebrities5 = Question(
+        owner_id=10,
+        category="Celebrities",
+        type="multiple",
+        difficulty="easy",
+        question="By which name is Ramon Estevez better known as?",
+        correct_answer="Martin Sheen",
+        incorrect_answers="Charlie Sheen, Ramon Sheen, Emilio Estevez"
+    )
+# 103
+    celebrities6 = Question(
+        owner_id=2,
+        category="Celebrities",
+        type="multiple",
+        difficulty="medium",
+        question="What year was O.J. Simpson acquitted of his murder charges?",
+        correct_answer="1995",
+        incorrect_answers="1992, 1996, 1991"
+    )
+# 104
+    boardgames3 = Question(
+        owner_id=4,
+        category="Entertainment: Board Games",
+        type="multiple",
+        difficulty="hard",
+        question="The board game \"Monopoly\" is a variation of what board game?",
+        correct_answer="The Landlord's Game",
+        incorrect_answers="Territorial Dispute, Property Feud, The Monopolist's Game"
+    )
+# 105
+    boardgames4 = Question(
+        owner_id=8,
+        category="Entertainment: Board Games",
+        type="multiple",
+        difficulty="easy",
+        question="How many pieces are there on the board at the start of a game of chess?",
+        correct_answer="32",
+        incorrect_answers="16, 20, 36"
+    )
+# 106
+    boardgames5 = Question(
+        owner_id=6,
+        category="Entertainment: Board Games",
+        type="multiple",
+        difficulty="medium",
+        question="In Chess, the Queen has the combined movement of which two pieces?",
+        correct_answer="Bishop and Rook",
+        incorrect_answers="Rook and King, Knight and Bishop, King and Knight"
+    )
+# 107
+    boardgames6 = Question(
+        owner_id=10,
+        category="Entertainment: Board Games",
+        type="multiple",
+        difficulty="hard",
+        question="What Magic: The Gathering card's flavor text is just 'Ribbit.'?",
+        correct_answer="Turn to Frog",
+        incorrect_answers="Spore Frog, Bloated Toad, Frogmite"
+    )
+# 108
+    boardgames7 = Question(
+        owner_id=2,
+        category="Entertainment: Board Games",
+        type="multiple",
+        difficulty="hard",
+        question="What is the sum of all the tiles in a standard box of Scrabble?",
+        correct_answer="187",
+        incorrect_answers="207, 197, 177"
+    )
+# 109
+    anime4 = Question(
+        owner_id=4,
+        category="Entertainment: Japanese Anime & Manga",
+        type="multiple",
+        difficulty="medium",
+        question="The main protagonist of the fifth part of JoJo's Bizarre Adventure is which of the following?",
+        correct_answer="Giorno Giovanna",
+        incorrect_answers="Guido Mista, Jonathan Joestar, Joey JoJo"
+    )
+# 110
+    anime5 = Question(
+        owner_id=8,
+        category="Entertainment: Japanese Anime & Manga",
+        type="multiple",
+        difficulty="medium",
+        question="What song plays in the ending credits of the anime 'Ergo Proxy'?",
+        correct_answer="Paranoid Android",
+        incorrect_answers="Sadistic Summer, Bittersweet Symphony, Mad World"
+    )
+# 111
+    anime6 = Question(
+        owner_id=6,
+        category="Entertainment: Japanese Anime & Manga",
+        type="multiple",
+        difficulty="medium",
+        question="What is the name of the final villain in the manga series 'Bleach'?",
+        correct_answer="Yhwach",
+        incorrect_answers="Juha Bach, Yuhabah, Juhabach"
+    )
+# 112
+    anime7 = Question(
+        owner_id=10,
+        category="Entertainment: Japanese Anime & Manga",
+        type="boolean",
+        difficulty="medium",
+        question="In 'JoJo's Bizarre Adventure', Father Enrico Pucci uses a total of 3 stands in Part 6: Stone Ocean.",
+        correct_answer="True",
+        incorrect_answers="False"
+    )
+# 113
+    anime8 = Question(
+        owner_id=2,
+        category="Entertainment: Japanese Anime & Manga",
+        type="multiple",
+        difficulty="medium",
+        question="'Silhouette', a song performed by the group 'KANA-BOON' is featured as the sixteenth opening of which anime?",
+        correct_answer="Naruto: Shippūden",
+        incorrect_answers="One Piece, Naruto, Gurren Lagann"
+    )
+# 114
+    film5 = Question(
+        owner_id=4,
+        category="Entertainment: Film",
+        type="multiple",
+        difficulty="medium",
+        question="What is the name of the first 'Star Wars' film by release order?",
+        correct_answer="A New Hope",
+        incorrect_answers="The Phantom Menace, The Force Awakens, Revenge of the Sith"
+    )
+# 115
+    film6 = Question(
+        owner_id=8,
+        category="Entertainment: Film",
+        type="multiple",
+        difficulty="hard",
+        question="In what Disney movie can you spot the character 'Pac-Man' in if you look closely enough in some scenes?",
+        correct_answer="Tron",
+        incorrect_answers="Big Hero 6, Fantasia, Monsters, Inc."
+    )
+# 116
+    film7 = Question(
+        owner_id=6,
+        category="Entertainment: Film",
+        type="multiple",
+        difficulty="medium",
+        question="In the 2010 Nightmare on Elm Street reboot, who played Freddy Krueger?",
+        correct_answer="Jackie Earle Haley",
+        incorrect_answers="Tyler Mane, Derek Mears, Gunnar Hansen"
+    )
+# 117
+    film8 = Question(
+        owner_id=10,
+        category="Entertainment: Film",
+        type="multiple",
+        difficulty="easy",
+        question="For the film 'Raiders of The Lost Ark', what was Harrison Ford sick with during the filming of the Cairo chase?",
+        correct_answer="Dysentery",
+        incorrect_answers="Anemia, Constipation, Acid Reflux"
+    )
+# 118
+    film9 = Question(
+        owner_id=2,
+        category="Entertainment: Film",
+        type="multiple",
+        difficulty="medium",
+        question="Which stand-up comedian voiced the talking parrot 'Iago' in Disney's 1992 adaptation of Aladdin?",
+        correct_answer="Gilbert Gottfried",
+        incorrect_answers="Robin Williams, Pauly Shore, Jonathan Freeman"
+    )
+# 119
+    cartoon2 = Question(
+        owner_id=4,
+        category="Entertainment: Cartoon & Animations",
+        type="boolean",
+        difficulty="easy",
+        question="In the 'Shrek' film franchise, Donkey is played by Eddie Murphy.",
+        correct_answer="True",
+        incorrect_answers="False"
+    )
+# 120
+    cartoon3 = Question(
+        owner_id=8,
+        category="Entertainment: Cartoon & Animations",
+        type="multiple",
+        difficulty="easy",
+        question="What is the relationship between Rick and Morty in the show 'Rick and Morty'?",
+        correct_answer="Grandfather and Grandson",
+        incorrect_answers="Father and Son, Best Friends, Crimefighting Partners"
+    )
+# 121
+    cartoon4 = Question(
+        owner_id=6,
+        category="Entertainment: Cartoon & Animations",
+        type="multiple",
+        difficulty="easy",
+        question="In 'Avatar: The Last Airbender', which element does Aang begin to learn after being defrosted?",
+        correct_answer="Water",
+        incorrect_answers="Air, Earth, Fire"
+    )
+# 122
+    cartoon5 = Question(
+        owner_id=10,
+        category="Entertainment: Cartoon & Animations",
+        type="multiple",
+        difficulty="medium",
+        question="Who created 'RWBY'?",
+        correct_answer="Monty Oum",
+        incorrect_answers="Miles Luna, Kerry Shawcross, Shane Newville"
+    )
+# 123
+    cartoon6 = Question(
+        owner_id=2,
+        category="Entertainment: Cartoon & Animations",
+        type="multiple",
+        difficulty="hard",
+        question="In 'Rick and Morty', from which dimension do Rick and Morty originate from?",
+        correct_answer="C-137",
+        incorrect_answers="J1977, C-136, C500-a"
+    )
+# 124
+    comics2 = Question(
+        owner_id=4,
+        category="Entertainment: Comics",
+        type="boolean",
+        difficulty="medium",
+        question="In the webcomic Homestuck, the first character introduced is Dave Strider.",
+        correct_answer="False",
+        incorrect_answers="True"
+    )
+# 125
+    comics3 = Question(
+        owner_id=8,
+        category="Entertainment: Comics",
+        type="multiple",
+        difficulty="easy",
+        question="This Marvel superhero is often called 'The man without fear'.",
+        correct_answer="Daredevil",
+        incorrect_answers="Thor, Wolverine, Hulk"
+    )
+# 126
+    comics4 = Question(
+        owner_id=6,
+        category="Entertainment: Comics",
+        type="multiple",
+        difficulty="hard",
+        question="Which of the following rings from the DC Comics' 'Lantern Corps' are classified as Parasitic?",
+        correct_answer="Indigo (Compassion)",
+        incorrect_answers="Green (Willpower), White (Life), Yellow (Fear)"
+    )
+# 127
+    comics5 = Question(
+        owner_id=10,
+        category="Entertainment: Comics",
+        type="multiple",
+        difficulty="easy",
+        question="What's the race of Invincible's father?",
+        correct_answer="Viltrumite",
+        incorrect_answers="Kryptonian, Kree, Irken"
+    )
+# 128
+    comics6 = Question(
+        owner_id=2,
+        category="Entertainment: Comics",
+        type="multiple",
+        difficulty="medium",
+        question="Who was the first American Vampire (Scott Snyder's American Vampire)?",
+        correct_answer="Skinner Sweet",
+        incorrect_answers="Hattie Hargrove, Pearl Jones, James 'Jim' Book"
+    )
+# 129
+    geography2 = Question(
+        owner_id=4,
+        category="Geography",
+        type="boolean",
+        difficulty="medium",
+        question="Antarctica is the largest desert in the world.",
+        correct_answer="True",
+        incorrect_answers="False"
+    )
+# 130
+    geography3 = Question(
+        owner_id=8,
+        category="Geography",
+        type="multiple",
+        difficulty="easy",
+        question="What is the capital of the US State of New York?",
+        correct_answer="Albany",
+        incorrect_answers="Buffalo, New York, Rochester"
+    )
+# 131
+    geography4 = Question(
+        owner_id=6,
+        category="Geography",
+        type="multiple",
+        difficulty="hard",
+        question="What is the land connecting North America and South America?",
+        correct_answer="Isthmus of Panama",
+        incorrect_answers="Isthmus of Suez, Urals, Australasia"
+    )
+# 132
+    geography5 = Question(
+        owner_id=10,
+        category="Geography",
+        type="multiple",
+        difficulty="medium",
+        question="How many rivers are in Saudi Arabia?",
+        correct_answer="0",
+        incorrect_answers="1, 2, 3"
+    )
+# 133
+    geography6 = Question(
+        owner_id=2,
+        category="Geography",
+        type="multiple",
+        difficulty="easy",
+        question="The longest shared border in the world can be found between which two nations?",
+        correct_answer="Canada and the United States",
+        incorrect_answers="Chile and Argentina, Russia and China, India and Pakistan"
+    )
+# 134
+    mythology2 = Question(
+        owner_id=4,
+        category="Mythology",
+        type="multiple",
+        difficulty="easy",
+        question="Who was the only god from Greece who did not get a name change in Rome?",
+        correct_answer="Apollo",
+        incorrect_answers="Demeter, Zeus, Athena"
+    )
+# 135
+    mythology3 = Question(
+        owner_id=8,
+        category="Mythology",
+        type="multiple",
+        difficulty="medium",
+        question="This Greek mythological figure is the god/goddess of battle strategy (among other things).",
+        correct_answer="Athena",
+        incorrect_answers="Ares, Artemis, Apollo"
+    )
+# 136
+    mythology4 = Question(
+        owner_id=6,
+        category="Mythology",
+        type="multiple",
+        difficulty="easy",
+        question="Who in Greek mythology led the Argonauts in search of the Golden Fleece?",
+        correct_answer="Jason",
+        incorrect_answers="Castor, Daedalus, Odysseus"
+    )
+# 137
+    mythology5 = Question(
+        owner_id=10,
+        category="Mythology",
+        type="multiple",
+        difficulty="medium",
+        question="A minotaur is half human half what?",
+        correct_answer="Bull",
+        incorrect_answers="Cow, Horse, Eagle"
+    )
+# 138
+    mythology6 = Question(
+        owner_id=2,
+        category="Mythology",
+        type="multiple",
+        difficulty="medium",
+        question="According to Japanese folklore, what is the favorite food of the Kappa?",
+        correct_answer="Cucumbers",
+        incorrect_answers="Kabocha, Nasu, Soba"
+    )
+# 139
+    math1 = Question(
+        owner_id=4,
+        category="Science: Mathematics",
+        type="multiple",
+        difficulty="easy",
+        question="What's the square root of 49?",
+        correct_answer="7",
+        incorrect_answers="4, 12, 9"
+    )
+# 140
+    math2 = Question(
+        owner_id=8,
+        category="Science: Mathematics",
+        type="multiple",
+        difficulty="easy",
+        question="What prime number comes next after 19?",
+        correct_answer="23",
+        incorrect_answers="25, 21, 27"
+    )
+# 141
+    math3 = Question(
+        owner_id=6,
+        category="Science: Mathematics",
+        type="boolean",
+        difficulty="medium",
+        question="E = MC^3",
+        correct_answer="False",
+        incorrect_answers="True"
+    )
+# 142
+    math4 = Question(
+        owner_id=10,
+        category="Science: Mathematics",
+        type="multiple",
+        difficulty="hard",
+        question="Which of these numbers is closest to the total number of possible states for an army standard Enigma Machine?",
+        correct_answer="1.58 x 10^20",
+        incorrect_answers="1.58 x 10^22, 1.58 x  10^18, 1.58 x 10^24"
+    )
+# 143
+    math5 = Question(
+        owner_id=2,
+        category="Science: Mathematics",
+        type="multiple",
+        difficulty="hard",
+        question="What is the fourth digit of π?",
+        correct_answer="1",
+        incorrect_answers="2, 3, 4"
+    )
 
+# 144
+    tele1 = Question(
+        owner_id=4,
+        category="Entertainment: Television",
+        type="multiple",
+        difficulty="hard",
+        question="Which of these in the Star Trek series is NOT Klingon food?",
+        correct_answer="Hors d'oeuvre",
+        incorrect_answers="Racht, Gagh, Bloodwine"
+    )
+# 145
+    tele2 = Question(
+        owner_id=8,
+        category="Entertainment: Television",
+        type="boolean",
+        difficulty="medium",
+        question="In 'Star Trek', Klingons respect William Shakespeare, they even suspect him having a Klingon lineage.",
+        correct_answer="True",
+        incorrect_answers="False"
+    )
+# 146
+    tele3 = Question(
+        owner_id=6,
+        category="Entertainment: Television",
+        type="multiple",
+        difficulty="medium",
+        question="What was Nickelodeon's original name?",
+        correct_answer="Pinwheel",
+        incorrect_answers="MTVKids, KidsTV, Splat!"
+    )
+# 147
+    tele4 = Question(
+        owner_id=10,
+        category="Entertainment: Television",
+        type="multiple",
+        difficulty="hard",
+        question="Which of these voices wasn't a choice for the House AI in 'The Simpsons Treehouse of Horror' short, House of Whacks?",
+        correct_answer="George Clooney",
+        incorrect_answers="Matthew Perry, Dennis Miller, Pierce Brosnan"
+    )
+# 148
+    tele5 = Question(
+        owner_id=2,
+        category="Entertainment: Television",
+        type="multiple",
+        difficulty="medium",
+        question="Baron Silas Greenback is the arch nemesis of which cartoon hero?",
+        correct_answer="Danger Mouse",
+        incorrect_answers="Bananaman, SuperTed, Captain Star"
+    )
+# 149
+    sports1 = Question(
+        owner_id=4,
+        category="Sports",
+        type="boolean",
+        difficulty="easy",
+        question="Peyton Manning retired after winning Super Bowl XLIX.",
+        correct_answer="False",
+        incorrect_answers="True"
+    )
+# 150
+    sports2 = Question(
+        owner_id=8,
+        category="Sports",
+        type="multiple",
+        difficulty="medium",
+        question="What is the highest belt you can get in Taekwondo?",
+        correct_answer="Black",
+        incorrect_answers="White, Red, Green"
+    )
+# 151
+    sports3 = Question(
+        owner_id=6,
+        category="Sports",
+        type="multiple",
+        difficulty="hard",
+        question="Which male player won the gold medal of table tennis singles in 2016 Olympics Games?",
+        correct_answer="Ma Long (China)",
+        incorrect_answers="Zhang Jike (China), Jun Mizutani (Japan), Vladimir Samsonov (Belarus)"
+    )
+# 152
+    sports4 = Question(
+        owner_id=10,
+        category="Sports",
+        type="multiple",
+        difficulty="medium",
+        question="In what sport does Fanny Chmelar compete for Germany?",
+        correct_answer="Skiing",
+        incorrect_answers="Swimming, Showjumping, Gymnastics"
+    )
+# 153
+    sports5 = Question(
+        owner_id=2,
+        category="Sports",
+        type="multiple",
+        difficulty="easy",
+        question="What team did England beat to win in the 1966 World Cup final?",
+        correct_answer="West Germany",
+        incorrect_answers="Soviet Union, Portugal, Brazil"
+    )
 
+# 154
+    politics1 = Question(
+        owner_id=4,
+        category="Politics",
+        type="boolean",
+        difficulty="medium",
+        question="George W. Bush lost the popular vote in the 2004 United States presidential election.",
+        correct_answer="False",
+        incorrect_answers="True"
+    )
+# 155
+    politics2 = Question(
+        owner_id=8,
+        category="Politics",
+        type="multiple",
+        difficulty="hard",
+        question="Which of the following United States Presidents served the shortest term in office?",
+        correct_answer="William Henry Harrison",
+        incorrect_answers="Zachary Taylor, James A. Garfield, Warren G. Harding"
+    )
+# 156
+    politics3 = Question(
+        owner_id=6,
+        category="Politics",
+        type="multiple",
+        difficulty="hard",
+        question="Which of the following United States senators is known for performing a 24-hour long filibuster?",
+        correct_answer="Strom Thurmond",
+        incorrect_answers="Roy Blunt, John Barrasso, Chuck Schumer"
+    )
+# 157
+    politics4 = Question(
+        owner_id=10,
+        category="Politics",
+        type="multiple",
+        difficulty="medium",
+        question="Who was elected leader of the UK Labour Party in September 2015?",
+        correct_answer="Jeremy Corbyn",
+        incorrect_answers="Ed Miliband, David Cameron, Theresa May"
+    )
+# 158
+    politics5 = Question(
+        owner_id=2,
+        category="Politics",
+        type="multiple",
+        difficulty="medium",
+        question="What year did Gerald Ford Become President?",
+        correct_answer="1974",
+        incorrect_answers="1977, 1973, 1969"
+    )
+# 159
+    art1 = Question(
+        owner_id=4,
+        category="Art",
+        type="multiple",
+        difficulty="easy",
+        question="Who painted the Sistine Chapel?",
+        correct_answer="Michelangelo",
+        incorrect_answers="Leonardo da Vinci, Pablo Picasso, Raphael"
+    )
+# 160
+    art2 = Question(
+        owner_id=8,
+        category="Art",
+        type="boolean",
+        difficulty="easy",
+        question="Leonardo da Vinci's Mona Lisa does not have eyebrows.",
+        correct_answer="True",
+        incorrect_answers="False"
+    )
+# 161
+    art3 = Question(
+        owner_id=6,
+        category="Art",
+        type="multiple",
+        difficulty="medium",
+        question="Who designed the Chupa Chups logo?",
+        correct_answer="Salvador Dali",
+        incorrect_answers="Pablo Picasso, Andy Warhol, Vincent van Gogh"
+    )
+# 162
+    art4 = Question(
+        owner_id=10,
+        category="Art",
+        type="multiple",
+        difficulty="medium",
+        question="Who painted the epic mural Guernica?",
+        correct_answer="Pablo Picasso",
+        incorrect_answers="Francisco Goya, Leonardo da Vinci, Henri Matisse"
+    )
+# 163
+    art5 = Question(
+        owner_id=2,
+        category="Art",
+        type="multiple",
+        difficulty="easy",
+        question="Who painted the biblical fresco The Creation of Adam?",
+        correct_answer="Michelangelo",
+        incorrect_answers="Leonardo da Vinci, Caravaggio, Rembrandt"
+    )
+# 164
+    animals1 = Question(
+        owner_id=3,
+        category="Animals",
+        type="boolean",
+        difficulty="medium",
+        question="An octopus can fit through any hole larger than its beak.",
+        correct_answer="True",
+        incorrect_answers="False"
+    )
+# 165
+    animals2 = Question(
+        owner_id=7,
+        category="Animals",
+        type="multiple",
+        difficulty="hard",
+        question="What is the scientific name of the cheetah?",
+        correct_answer="Acinonyx jubatus",
+        incorrect_answers="Panthera onca, Lynx rufus, Felis catus"
+    )
+# 166
+    animals3 = Question(
+        owner_id=5,
+        category="Animals",
+        type="multiple",
+        difficulty="medium",
+        question="The now extinct species 'Thylacine' was native to where?",
+        correct_answer="Tasmania, Australia",
+        incorrect_answers="Baluchistan, Pakistan, Wallachia, Romania, Oregon, United States"
+    )
+# 167
+    animals4 = Question(
+        owner_id=9,
+        category="Animals",
+        type="multiple",
+        difficulty="easy",
+        question="What is Grumpy Cat's real name?",
+        correct_answer="Tardar Sauce",
+        incorrect_answers="Sauce, Minnie, Broccoli"
+    )
+# 168
+    animals5 = Question(
+        owner_id=1,
+        category="Animals",
+        type="boolean",
+        difficulty="easy",
+        question="The freshwater amphibian, the Axolotl, can regrow its limbs.",
+        correct_answer="True",
+        incorrect_answers="False"
+    )
+# 169
+    vehicles1 = Question(
+        owner_id=6,
+        category="Vehicles",
+        type="multiple",
+        difficulty="medium",
+        question="Which of the following vehicles featured a full glass roof at base model?",
+        correct_answer="Renault Avantime",
+        incorrect_answers="Chevy Volt, Mercedes-Benz A-Class, Honda Odyssey"
+    )
+# 170
+    vehicles2 = Question(
+        owner_id=2,
+        category="Vehicles",
+        type="multiple",
+        difficulty="hard",
+        question="In 2014, over 6 million General Motors vehicles were recalled due to what critical flaw?",
+        correct_answer="Faulty ignition switch",
+        incorrect_answers="Malfunctioning gas pedal, Breaking fuel lines, Faulty brake pads"
+    )
+# 171
+    vehicles3 = Question(
+        owner_id=8,
+        category="Vehicles",
+        type="multiple",
+        difficulty="easy",
+        question="Which car tire manufacturer is famous for its 'P Zero' line?",
+        correct_answer="Pirelli",
+        incorrect_answers="Goodyear, Bridgestone, Michelin"
+    )
+# 172
+    vehicles4 = Question(
+        owner_id=4,
+        category="Vehicles",
+        type="multiple",
+        difficulty="medium",
+        question="What nickname was given to Air Canada Flight 143 after it ran out of fuel and glided to safety in 1983?",
+        correct_answer="Gimli Glider",
+        incorrect_answers="Gimli Microlight, Gimli Chaser, Gimli Superb"
+    )
+# 173
+    vehicles5 = Question(
+        owner_id=10,
+        category="Vehicles",
+        type="multiple",
+        difficulty="easy",
+        question="What is the fastest road legal car in the world?",
+        correct_answer="Koenigsegg Agera RS",
+        incorrect_answers="Hennessy Venom GT, Bugatti Veyron Super Sport, Pagani Huayra BC"
+    )
+
+# 174
+    comics1 = Question(
+        owner_id=8,
+        category="Entertainment: Comics",
+        type="multiple",
+        difficulty="easy",
+        question="Who is Batman?",
+        correct_answer="Bruce Wayne",
+        incorrect_answers="Clark Kent, Barry Allen, Tony Stark"
+    )
+# 175
+    comics2 = Question(
+        owner_id=2,
+        category="Entertainment: Comics",
+        type="multiple",
+        difficulty="easy",
+        question="What is the full first name of the babysitter in Calvin and Hobbes?",
+        correct_answer="Rosalyn",
+        incorrect_answers="Rose, Ruby, Rachel"
+    )
+# 176
+    comics3 = Question(
+        owner_id=4,
+        category="Entertainment: Comics",
+        type="multiple",
+        difficulty="easy",
+        question="The main six-year-old protagonist in Calvin and Hobbes is named after what theologian?",
+        correct_answer="John Calvin",
+        incorrect_answers="Calvin Klein, Calvin Coolidge, Phillip Calvin McGraw"
+    )
+# 177
+    comics4 = Question(
+        owner_id=6,
+        category="Entertainment: Comics",
+        type="multiple",
+        difficulty="easy",
+        question="When was Marvel Comics founded?",
+        correct_answer="1939",
+        incorrect_answers="1932, 1951, 1936"
+    )
+# 178
+    comics5 = Question(
+        owner_id=10,
+        category="Entertainment: Comics",
+        type="multiple",
+        difficulty="hard",
+        question="Which pulp hero made appearances in Hellboy and BPRD comics before getting his own spin-off?",
+        correct_answer="Lobster Johnson",
+        incorrect_answers="Roger the Homunculus, The Spider, The Wendigo"
+    )
 
     db.session.add_all([
         general1, general2, general3, general4, general5, general6, general7, general8, general9, general10,
@@ -843,7 +1744,14 @@ def seed_questions():
         videogames6, anime1, history1, boardgames2, computers3, music2, videogames7, history2, science3, videogames8,
         music3, film2, cartoon1, history3, videogames9, geography3, general40, film3, gadgets1, videogames10, science4,
         videogames11, comics1, anime2, mythology1, computers4, anime3, gadgets2, general41, music4, books2, science5,
-        videogames12, gadgets3, film4, computers5, music5, general42, music6, computers6,
+        videogames12, gadgets3, film4, computers5, music5, general42, music6, computers6, musicals2, musicals3, musicals4,
+        musicals5, musicals6 , books3, books4, books5, books6, books7, celebrities2, celebrities3, celebrities4, celebrities5,
+        celebrities6, boardgames3, boardgames4, boardgames5, boardgames6, boardgames7, anime4, anime5, anime6, anime7, anime8,
+        film5, film6, film7, film8, film9, cartoon2, cartoon3, cartoon4, cartoon5, cartoon6, comics2, comics3, comics4, comics5,
+        comics6, geography2, geography3, geography4, geography5, geography6, mythology2, mythology3, mythology4, mythology5,
+        mythology6, math1, math2, math3, math4, math5, tele1, tele2, tele3, tele4, tele5, sports1, sports2, sports3, sports4, sports5,
+        politics1, politics2, politics3, politics4, politics5, art1, art2, art3, art4, art5, animals1, animals2, animals3, animals4, animals5,
+        vehicles1, vehicles2, vehicles3, vehicles4, vehicles5, comics1, comics2, comics3, comics4, comics5
     ])
 
 

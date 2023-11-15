@@ -22,10 +22,11 @@ function QuestionForm() {
     });
 
     const categoryChoices = ["General Knowledge", "Entertainment: Books", "Entertainment: Film",
-        "Entertainment: Music", "Entertainment: Musicals & Theatres", "Entertainment: Television",
-        "Entertainment: Video Games", "Entertainment: Board Games", "Science & Nature",
-        "Science: Computers", "Science: Mathematics", "Mythology", "Sports",
-        "Geography", "History", "Politics", "Art", "Celebrities", "Animals"]
+    "Entertainment: Music", "Entertainment: Musicals & Theatres", "Entertainment: Television",
+    "Entertainment: Video Games", "Entertainment: Japanese Anime & Manga", "Entertainment: Board Games", "Science & Nature",
+    "Science: Computers", "Science: Mathematics", "Mythology", "Sports",
+    "Geography", "History", "Politics", "Art", "Celebrities", "Animals", "Vehicles",
+    "Entertainment: Comics", "Science: Gadgets", "Entertainment: Cartoon & Animations"]
 
     const handleChange = (e) => {
         const { name, value } = e.target;
