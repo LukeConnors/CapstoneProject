@@ -17,6 +17,7 @@ import UserProfile from "./components/UserProfilePage";
 import PrivateRoute from "./helpers/privateRoute";
 import YourQuestionsPage from "./components/YourDecksPage";
 import YourDecksPage from "./components/YourQuestionsPage";
+import Footer from "./components/Footer";
 
 function App() {
   const dispatch = useDispatch();
@@ -29,6 +30,7 @@ function App() {
 
   return (
     <>
+      <Footer />
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
