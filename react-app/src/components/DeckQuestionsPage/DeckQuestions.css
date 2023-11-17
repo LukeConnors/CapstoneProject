@@ -55,3 +55,38 @@ background-color: #0498a6;
 .remove-q-btn:hover{
     cursor: pointer;
 }
+
+.dq-question{
+    height: 20px;
+    width: 100%;
+}
+
+/* width */
+.question-card::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  /* Height */
+.question-card::-webkit-scrollbar-vertical {
+    height: 2px;
+}
+
+  /* Track */
+  .question-card::-webkit-scrollbar-track {
+    background: #e2e1e1;
+    border-radius: 20px;
+    border: 1px solid rgb(176, 176, 176);
+    width: 50px;
+  }
+
+  /* Handle */
+  .question-card::-webkit-scrollbar-thumb {
+    background: #06c0d1;
+    border-radius: 20px;
+  }
+
+  /* Handle on hover */
+  .question-card::-webkit-scrollbar-thumb:hover {
+    background: #017c87;
+  }

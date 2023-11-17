@@ -46,6 +46,8 @@ function DeckQuestionsPage() {
                 } else {
                     return (
                         <div className="question-card">
+                            <div className="dq-question">
+                            </div>
                             <h3>{deckQuestion.question}</h3>
                             <p>Question difficulty: {deckQuestion.difficulty}</p>
                             <div className="c-answer-container">
